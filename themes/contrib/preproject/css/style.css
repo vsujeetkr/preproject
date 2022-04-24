@@ -8,6 +8,10 @@
     width: 180px;
 }
 
+.navbar-btn {
+    margin-top: 10px;
+}
+
 .navbar-default {
     background-color: #fff;
     border-color: ##2e3746;
@@ -19,15 +23,198 @@
 
 #block-preproject-main-menu {
     float: right;
+    border-right: 1px solid #dee2e6!important;
+    margin-right: 15px;
 }
 
-.navbar nav ul li a {
-    padding-top: 29px;
-    padding-bottom: 28px;
+.navbar nav ul.navbar-nav > li a {
+    padding-top: 27px;
+    padding-bottom: 27px;
     text-transform: uppercase;
-    color: #2e3746!important;
 }
 
-.navbar nav ul li a:hover {
-    border-bottom: 1px solid #000;
+#block-preproject-main-menu ul.menu li ul.dropdown-menu li {
+    float: left;
+    width: 100%;
+}
+
+.navbar-default .navbar-nav li:hover > .dropdown-menu {
+    display: block;
+}
+
+.navbar-default .navbar-nav li .dropdown-menu li a:hover {
+    color: #ff7676;
+}
+
+.navbar-default .navbar-nav li .dropdown-menu {
+    padding: 0px;
+}
+
+.navbar-default .navbar-nav li .dropdown-menu li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #000;
+    color: #fff;
+}
+
+.navbar-default .navbar-nav li:hover .dropdown-menu li.expanded ul {
+    left: 157px;
+    top: 0;
+    margin: -1px 0 0;
+}
+
+
+/** Text Animation **/
+
+@-webkit-keyframes fadeInUpSD {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUpSD {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUpSD {
+  -webkit-animation-name: fadeInUpSD;
+  animation-name: fadeInUpSD;
+}
+
+.view-home-page .flex-caption {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    background: rgb(24, 26, 29);
+    height: 100%;
+    padding: 10px 40px;
+}
+
+/* Text Animation End **/
+
+.view-home-page .flex-caption .view-project-type {
+    margin-top: 30px;
+    color: #fff;
+    font-size: 10px;
+    border-bottom: 1px solid #ff7676;
+    width: 60px;
+    text-transform: uppercase;
+}
+
+.view-home-page .flex-caption .view-project-title {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.view-home-page .view-project-address {
+    font-size: 10px;
+    color: #ff7676;
+    margin-bottom: 20px;
+}
+
+.view-home-page .view-project-body {
+    margin-bottom: 30px;
+}
+
+.view-home-page .view-project-body p {
+    font-size: 10px;
+    color: #fff;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.view-home-page .view-project-floor-plan {
+    float: left;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.view-home-page .view-project-floor-plan ul {
+    padding-left: 0;
+}
+
+.view-home-page .view-project-floor-plan ul li {
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+}
+
+.view-home-page .view-project-floor-plan ul li .paragraph-formatter {
+    grid-gap: 0;
+}
+
+.view-home-page .view-project-floor-plan ul li .paragraphs-description .summary-content {
+    color: #ff7676;
+    font-size: 12px;
+}
+
+.view-home-page .view-project-cta {
+    width: 100%;
+    text-align: center;
+}
+
+.view-home-page .view-project-cta a {
+    padding: 10px 30px;
+    border: 1px solid #ff7676;
+    color: #ff7676;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.view-home-page .view-project-cta a:hover {
+    color: rgb(24, 26, 29);
+    background: #ff7676;
+    border: 1px solid #ff7676;
+}
+
+.view-home-page .flex-direction-nav a {
+    background: #000;
+    width: 30px;
+    height: 55px;
+    margin: -19px -10px 0;
+}
+
+.view-home-page .flex-direction-nav a:before {
+    color: #fff;
+}
+
+.view-home-page .flex-pauseplay {
+    margin-top: -5px;
+}
+
+.view-home-page .flex-pauseplay a {
+    color: #fff;
+    height: 24px;
+}
+
+#block-callusnow {
+    float: right;
+    margin: 27px 0;
+}
+
+#block-callusnow .call-now a {
+    padding: 18px 10px;
+    background: #ff7676;
+    width: 178px;
+    border-radius: 23px;
+    text-decoration: none;
+    color: #000;
 }

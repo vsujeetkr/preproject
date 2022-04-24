@@ -1,0 +1,22 @@
+uuid: 379d1b2c-01d5-4155-9e9c-06ffadd9fd00
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: developers_category_pattern
+label: 'Developers Category Pattern'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'developer/[term:name]'
+selection_criteria:
+  4e2375cd-8468-44bf-b077-c1df09fe8cb2:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 4e2375cd-8468-44bf-b077-c1df09fe8cb2
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      developers: developers
+selection_logic: and
+weight: -5
+relationships: {  }

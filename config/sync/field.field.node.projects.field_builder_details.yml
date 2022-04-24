@@ -1,29 +1,29 @@
-uuid: b4296b6d-8ef4-40cb-8fc7-725a5e099175
+uuid: a71dcf5b-41ef-43e0-96e6-72f82fbe749e
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_builder_details
-    - node.type.builder_details
     - node.type.projects
+    - taxonomy.vocabulary.developers
 id: node.projects.field_builder_details
 field_name: field_builder_details
 entity_type: node
 bundle: projects
 label: 'Builder Details'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      builder_details: builder_details
+      developers: developers
     sort:
-      field: _none
-      direction: ASC
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

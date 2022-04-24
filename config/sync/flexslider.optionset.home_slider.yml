@@ -1,0 +1,47 @@
+uuid: d1860f39-60a9-4259-b658-e62d5952edf1
+langcode: en
+status: true
+dependencies: {  }
+id: home_slider
+label: 'Home Slider'
+options:
+  animation: slide
+  animationSpeed: 600
+  direction: horizontal
+  slideshow: true
+  easing: swing
+  smoothHeight: false
+  reverse: false
+  slideshowSpeed: 7000
+  animationLoop: true
+  randomize: false
+  startAt: 0
+  itemWidth: 1200
+  itemMargin: 5
+  minItems: 1
+  maxItems: 1
+  move: 0
+  directionNav: true
+  controlNav: '0'
+  thumbCaptions: false
+  thumbCaptionsBoth: false
+  keyboard: true
+  multipleKeyboard: false
+  mousewheel: false
+  touch: true
+  prevText: '<'
+  nextText: '>'
+  namespace: flex-
+  selector: '.slides > li'
+  sync: ''
+  asNavFor: ''
+  initDelay: 0
+  useCSS: true
+  video: false
+  pausePlay: true
+  pauseText: Pause
+  playText: Play
+  pauseOnAction: true
+  pauseOnHover: true
+  controlsContainer: .flex-control-nav-container
+  manualControls: ''

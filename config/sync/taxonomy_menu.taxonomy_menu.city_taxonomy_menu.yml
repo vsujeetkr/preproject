@@ -1,0 +1,16 @@
+uuid: c1fd1b69-17c1-4d15-bba3-8dc924cbd5ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+    - taxonomy.vocabulary.cities
+id: city_taxonomy_menu
+label: 'City Taxonomy Menu'
+vocabulary: cities
+menu: main
+expanded: true
+depth: 0
+menu_parent: 'main:menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+description_field_name: ''
+use_term_weight_order: true

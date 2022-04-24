@@ -6,8 +6,9 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:068e30e9-facb-4bd7-b23e-e4b1264b2580'
 name: 'Builder Details'
 type: builder_details
 description: 'Builder information in detail.'

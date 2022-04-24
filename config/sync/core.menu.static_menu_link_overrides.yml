@@ -13,3 +13,141 @@ definitions:
     parent: ''
     expanded: false
     enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__1':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__13':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__22':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__21':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__20':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__19':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__18':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__17':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__16':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__15':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__14':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__12':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__2':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__3':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__11':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__10':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__9':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__8':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__7':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__6':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__5':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__4':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__city_child_menu__23':
+    expanded: true
+    parent: 'menu_link_content:547810fc-9725-489c-91f8-804af9643a3f'
+    weight: 0
+    menu_name: main
+    enabled: true

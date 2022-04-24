@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.projects.field_project_map_address
     - field.field.node.projects.field_project_rera_number
     - field.field.node.projects.field_project_sub_title
+    - field.field.node.projects.field_project_type
     - field.field.node.projects.field_slider_image
     - field.field.node.projects.field_video_options
     - field.field.node.projects.field_videos
@@ -74,6 +75,7 @@ third_party_settings:
         - field_project_city
         - field_project_location
         - field_project_rera_number
+        - field_project_type
       label: 'Basic Info'
       region: content
       parent_name: ''
@@ -311,7 +313,7 @@ content:
     third_party_settings: {  }
   field_builder_details:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 26
     region: content
     settings:
       match_operator: CONTAINS
@@ -320,7 +322,7 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields:
-        a0e58068-81e0-4007-a84f-31e88aa979e0:
+        c4431c68-79d0-46eb-996c-06d2ad34a52a:
           entity_type: node
           bundle: projects
           dependee: field_builder_options
@@ -670,6 +672,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_project_type:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_slider_image:
     type: media_library_widget

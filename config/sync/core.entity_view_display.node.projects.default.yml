@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.projects.field_project_map_address
     - field.field.node.projects.field_project_rera_number
     - field.field.node.projects.field_project_sub_title
+    - field.field.node.projects.field_project_type
     - field.field.node.projects.field_slider_image
     - field.field.node.projects.field_video_options
     - field.field.node.projects.field_videos
@@ -83,7 +84,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 124
+    weight: 135
     region: content
   field_builder_options:
     type: boolean
@@ -311,6 +312,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_project_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 136
     region: content
   field_slider_image:
     type: entity_reference_entity_view

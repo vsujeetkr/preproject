@@ -1,0 +1,24 @@
+uuid: fa339314-985c-4a5e-ac30-449b9f0b9abf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.home_slider
+    - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_type
+    - paragraphs.paragraphs_type.floor_plans
+id: paragraph.floor_plans.home_slider
+targetEntityType: paragraph
+bundle: floor_plans
+mode: home_slider
+content:
+  field_apartment_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_apartment_image: true

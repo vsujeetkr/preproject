@@ -1,0 +1,10 @@
+uuid: 6ce6f1f6-ac59-4ae4-9d50-84d10b0e9230
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.home_slider
+label: 'Home Slider'
+targetEntityType: paragraph
+cache: true

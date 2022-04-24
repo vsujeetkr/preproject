@@ -1,28 +1,29 @@
-uuid: 08d738a1-2dd0-4a25-bace-1e4fff1b8b17
+uuid: 927bd11d-ea06-476c-97e4-26fb5313405b
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:basic:ecc47d1e-1b30-4aaf-af36-cd37adef629c'
   module:
+    - block_content
     - context
-    - system
+    - node
   theme:
     - preproject
-_core:
-  default_config_hash: d-0emr1mEq7sFKDu5RHUJckvNk62hvIZdRwPEfnJyGg
-id: preproject_branding
+id: callusnow
 theme: preproject
 region: navigation
-weight: -7
+weight: -6
 provider: null
-plugin: system_branding_block
+plugin: 'block_content:ecc47d1e-1b30-4aaf-af36-cd37adef629c'
 settings:
-  id: system_branding_block
-  label: 'Site branding'
+  id: 'block_content:ecc47d1e-1b30-4aaf-af36-cd37adef629c'
+  label: 'Call Us Now'
   label_display: '0'
-  provider: system
-  use_site_logo: true
-  use_site_name: false
-  use_site_slogan: false
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   context_all:
     id: context_all
@@ -43,3 +44,10 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      page: page

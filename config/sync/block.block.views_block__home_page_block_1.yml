@@ -1,28 +1,28 @@
-uuid: 08d738a1-2dd0-4a25-bace-1e4fff1b8b17
+uuid: b71f4ea9-0828-4422-9fb3-fc84ed8a5bfe
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.home_page
   module:
     - context
     - system
+    - views
   theme:
     - preproject
-_core:
-  default_config_hash: d-0emr1mEq7sFKDu5RHUJckvNk62hvIZdRwPEfnJyGg
-id: preproject_branding
+id: views_block__home_page_block_1
 theme: preproject
-region: navigation
+region: slider
 weight: -7
 provider: null
-plugin: system_branding_block
+plugin: 'views_block:home_page-block_1'
 settings:
-  id: system_branding_block
-  label: 'Site branding'
+  id: 'views_block:home_page-block_1'
+  label: ''
   label_display: '0'
-  provider: system
-  use_site_logo: true
-  use_site_name: false
-  use_site_slogan: false
+  provider: views
+  views_label: ''
+  items_per_page: none
 visibility:
   context_all:
     id: context_all
@@ -43,3 +43,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

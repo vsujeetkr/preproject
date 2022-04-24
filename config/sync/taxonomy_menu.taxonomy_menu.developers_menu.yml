@@ -1,0 +1,16 @@
+uuid: 4869d8eb-f847-4b87-bddc-94219575f308
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+    - taxonomy.vocabulary.developers
+id: developers_menu
+label: 'Developers menu'
+vocabulary: developers
+menu: main
+expanded: true
+depth: 0
+menu_parent: 'main:menu_link_content:068e30e9-facb-4bd7-b23e-e4b1264b2580'
+description_field_name: ''
+use_term_weight_order: true

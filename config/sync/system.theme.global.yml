@@ -1,8 +1,8 @@
 _core:
   default_config_hash: 9rAU4Pku7eMBQxauQqAgjzlcicFZ2As6zEa6zvTlCB8
 favicon:
-  mimetype: image/jpeg
-  path: 'public://favicon.jpg'
+  mimetype: image/png
+  path: 'public://pre-favicon.png'
   url: ''
   use_default: false
 features:
@@ -11,6 +11,6 @@ features:
   favicon: true
   node_user_picture: true
 logo:
-  path: 'public://logo.jpg'
+  path: 'public://pre-logo.png'
   url: ''
   use_default: false

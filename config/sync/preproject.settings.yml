@@ -1,7 +1,7 @@
 favicon:
-  mimetype: image/jpeg
-  path: 'public://favicon_0.jpg'
-  url: 'http://localhost/preproject/themes/contrib/preproject/favicon.ico'
+  mimetype: image/png
+  path: 'public://pre-favicon_0.png'
+  url: 'http://localhost/preproject/sites/default/files/favicon_0.jpg'
   use_default: false
 features:
   comment_user_picture: true
@@ -9,7 +9,7 @@ features:
   favicon: true
   node_user_picture: true
 logo:
-  path: 'public://logo_0.jpg'
+  path: 'public://pre-logo_0.png'
   url: ''
   use_default: false
 schemas:
@@ -25,3 +25,14 @@ cdn_cache_ttl_assets: '0'
 cdn_cache_ttl_library: '0'
 reset_http_request_cache: ''
 table: ''
+region_wells:
+  navigation: ''
+  navigation_collapsible: ''
+  header: ''
+  slider: ''
+  highlighted: ''
+  help: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: well
+  footer: ''

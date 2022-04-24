@@ -45,9 +45,11 @@ module:
   file_mdm_font: 0
   filter: 0
   flexslider: 0
+  flexslider_example: 0
   flexslider_fields: 0
   flexslider_views: 0
   fontawesome: 0
+  fontawesome_iconpicker_widget: 0
   google_analytics: 0
   header_and_footer_scripts: 0
   help: 0
