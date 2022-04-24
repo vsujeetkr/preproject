@@ -1,0 +1,33 @@
+uuid: 3f493866-b7d0-4988-8305-c4b85da3bdb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_type
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.floor_plans
+  module:
+    - image
+id: paragraph.floor_plans.default
+targetEntityType: paragraph
+bundle: floor_plans
+mode: default
+content:
+  field_apartment_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_apartment_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

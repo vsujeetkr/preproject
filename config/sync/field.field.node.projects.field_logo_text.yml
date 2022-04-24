@@ -1,0 +1,19 @@
+uuid: 2c38dc51-db6f-42fc-acfa-b4b6263f4eec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo_text
+    - node.type.projects
+id: node.projects.field_logo_text
+field_name: field_logo_text
+entity_type: node
+bundle: projects
+label: 'Logo Text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

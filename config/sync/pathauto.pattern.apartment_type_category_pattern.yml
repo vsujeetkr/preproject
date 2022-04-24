@@ -1,0 +1,22 @@
+uuid: 80bb3d2d-39ef-4f1b-b739-14202102e2ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: apartment_type_category_pattern
+label: 'Apartment Type Category Pattern'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'apartment/[term:name]'
+selection_criteria:
+  25a69837-6372-444c-b184-edd6cfa0d383:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 25a69837-6372-444c-b184-edd6cfa0d383
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      apartment_types: apartment_types
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,24 @@
+uuid: dec7aa17-4a76-4e6f-ab6c-17fa34841ae1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion_block
+    - field.field.block_content.accordion_block.field_blocks
+  module:
+    - accordion_blocks
+_core:
+  default_config_hash: XmaYGZXgMt9B8HH12NYAhW-WuAEZ7IS6PUinuKLmoII
+id: block_content.accordion_block.default
+targetEntityType: block_content
+bundle: accordion_block
+mode: default
+content:
+  field_blocks:
+    type: accordion_widget_formatter
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

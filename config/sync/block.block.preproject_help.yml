@@ -1,0 +1,22 @@
+uuid: c6fcad6f-01c8-4733-bd68-5592d5816a22
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - preproject
+_core:
+  default_config_hash: '-laWx8WA-ikiIEH3NJQ0hVbjqk3iEuBms91LB0B4IQU'
+id: preproject_help
+theme: preproject
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

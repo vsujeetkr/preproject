@@ -1,0 +1,94 @@
+uuid: a630d85f-fc35-429c-9edc-9dda884a38e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.projects.body
+    - field.field.node.projects.field_amenities
+    - field.field.node.projects.field_amenities_options
+    - field.field.node.projects.field_builder_details
+    - field.field.node.projects.field_builder_options
+    - field.field.node.projects.field_contact
+    - field.field.node.projects.field_contact_number
+    - field.field.node.projects.field_floor_plan_options
+    - field.field.node.projects.field_floor_plans
+    - field.field.node.projects.field_gallery
+    - field.field.node.projects.field_gallery_options
+    - field.field.node.projects.field_logo_icon
+    - field.field.node.projects.field_logo_options
+    - field.field.node.projects.field_logo_text
+    - field.field.node.projects.field_map_image
+    - field.field.node.projects.field_map_options
+    - field.field.node.projects.field_meta_description
+    - field.field.node.projects.field_meta_favicon
+    - field.field.node.projects.field_meta_keywords
+    - field.field.node.projects.field_meta_tags
+    - field.field.node.projects.field_meta_title
+    - field.field.node.projects.field_other_data
+    - field.field.node.projects.field_other_options
+    - field.field.node.projects.field_project_category
+    - field.field.node.projects.field_project_city
+    - field.field.node.projects.field_project_location
+    - field.field.node.projects.field_project_map_address
+    - field.field.node.projects.field_project_rera_number
+    - field.field.node.projects.field_project_sub_title
+    - field.field.node.projects.field_slider_image
+    - field.field.node.projects.field_video_options
+    - field.field.node.projects.field_videos
+    - field.field.node.projects.field_visibility_settings
+    - node.type.projects
+  module:
+    - text
+    - user
+id: node.projects.teaser
+targetEntityType: node
+bundle: projects
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_amenities: true
+  field_amenities_options: true
+  field_builder_details: true
+  field_builder_options: true
+  field_contact: true
+  field_contact_number: true
+  field_floor_plan_options: true
+  field_floor_plans: true
+  field_gallery: true
+  field_gallery_options: true
+  field_logo_icon: true
+  field_logo_options: true
+  field_logo_text: true
+  field_map_image: true
+  field_map_options: true
+  field_meta_description: true
+  field_meta_favicon: true
+  field_meta_keywords: true
+  field_meta_tags: true
+  field_meta_title: true
+  field_other_data: true
+  field_other_options: true
+  field_project_category: true
+  field_project_city: true
+  field_project_location: true
+  field_project_map_address: true
+  field_project_rera_number: true
+  field_project_sub_title: true
+  field_slider_image: true
+  field_video_options: true
+  field_videos: true
+  field_visibility_settings: true

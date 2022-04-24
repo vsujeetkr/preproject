@@ -1,0 +1,29 @@
+uuid: 8f447ded-82f2-4679-aeef-4bd80f53df3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_city
+    - node.type.projects
+    - taxonomy.vocabulary.cities
+id: node.projects.field_project_city
+field_name: field_project_city
+entity_type: node
+bundle: projects
+label: 'Project City'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cities: cities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

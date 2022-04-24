@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * The main file for the Call now Button module.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function call_now_button_page_attachments(&$attachments) {
+  // Disable call now button on admin routes.
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
+  $config = Drupal::config('call_now_button.settings');
+  if ($config->get('call_now_button_status') && Drupal::currentUser()->hasPermission('administer call now button')) {
+    $position = 'right_corner';
+    if (!empty($config->get('call_now_button_phone_number'))) {
+      $phone_number = $config->get('call_now_button_phone_number');
+    }
+    if (!empty($config->get('call_now_button_text'))) {
+      $button_text = $config->get('call_now_button_text');
+    }
+    if (!empty($config->get('call_now_button_popup_position'))) {
+      $position = $config->get('call_now_button_popup_position');
+    }
+    $html_info = [
+      '#theme' => 'call_now_button_theme',
+      '#phone_number' => $phone_number,
+      '#button_text' => $button_text,
+      '#position' => $position,
+    ];
+    $html_info = Drupal::service('renderer')->renderRoot($html_info)->__toString();
+    $attachments['#attached']['drupalSettings']['call_now_button'] = $html_info;
+    $attachments['#attached']['library'][] = 'call_now_button/global-styling';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function call_now_button_theme($existing, $type, $theme, $path) {
+  return [
+    'call_now_button_theme' => [
+      'variables' => [
+        'phone_number' => NULL,
+        'button_text' => NULL,
+        'button_color' => NULL,
+        'position' => NULL,
+      ],
+    ],
+  ];
+}

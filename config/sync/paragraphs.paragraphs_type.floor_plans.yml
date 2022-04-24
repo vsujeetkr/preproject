@@ -1,0 +1,10 @@
+uuid: e85b220b-f852-488c-8ca7-474d24c573b2
+langcode: en
+status: true
+dependencies: {  }
+id: floor_plans
+label: 'Floor Plans'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

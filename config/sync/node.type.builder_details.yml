@@ -1,0 +1,17 @@
+uuid: d0f5fbf0-6b2f-4846-b1ce-01ac4f43a598
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Builder Details'
+type: builder_details
+description: 'Builder information in detail.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

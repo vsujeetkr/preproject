@@ -1,0 +1,39 @@
+.call-now-button-wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .call-now-button-wrapper {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .call-now-button-wrapper .call-now-button-text {
+    background-color: #fff;
+    padding: 0 5px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+
+  .call-now-button-phone-number {
+    border-bottom: none;
+  }
+
+  .call-now-button-phone-number:hover {
+    border-bottom-style: none;
+    color: unset;
+  }
+
+  .call-now-button-wrapper .call-now-button-phone-number::after {
+    display: block;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: url('../image/call-now-button.png') no-repeat;
+  }
+}

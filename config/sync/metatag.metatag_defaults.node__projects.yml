@@ -1,0 +1,14 @@
+uuid: f0952d12-b992-4d14-bded-23a2def6da77
+langcode: en
+status: true
+dependencies: {  }
+id: node__projects
+label: 'Content: Projects'
+tags:
+  description: '[node:field_meta_description]'
+  keywords: '[node:field_meta_keywords]'
+  title: '[node:field_meta_title]'
+  mask_icon:
+    href: ''
+    color: ''
+  shortcut_icon: '[node:field_meta_favicon]'

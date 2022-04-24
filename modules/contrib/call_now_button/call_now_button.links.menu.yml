@@ -1,0 +1,6 @@
+call_now_button.settings_form:
+  title: 'Call Now Button'
+  parent: system.admin_config_ui
+  description: "Manage Call Now Button"
+  weight: 10
+  route_name: call_now_button.settings_form

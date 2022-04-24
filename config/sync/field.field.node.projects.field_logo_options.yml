@@ -1,0 +1,23 @@
+uuid: 9d6433f3-792c-4c4d-b781-baf08bcd8f84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo_options
+    - node.type.projects
+  module:
+    - options
+id: node.projects.field_logo_options
+field_name: field_logo_options
+entity_type: node
+bundle: projects
+label: 'Logo Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'off'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

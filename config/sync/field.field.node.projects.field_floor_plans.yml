@@ -1,0 +1,31 @@
+uuid: c99d0242-a435-4381-a825-7b9bd1de75dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_floor_plans
+    - node.type.projects
+    - paragraphs.paragraphs_type.floor_plans
+  module:
+    - entity_reference_revisions
+id: node.projects.field_floor_plans
+field_name: field_floor_plans
+entity_type: node
+bundle: projects
+label: 'Floor Plans'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      floor_plans: floor_plans
+    negate: 0
+    target_bundles_drag_drop:
+      floor_plans:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

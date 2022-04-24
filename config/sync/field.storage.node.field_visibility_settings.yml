@@ -1,0 +1,30 @@
+uuid: 01fc9c23-4fa6-417f-a836-ac76b311f94f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_visibility_settings
+field_name: field_visibility_settings
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: show
+      label: 'Show Page Content'
+    -
+      value: hide
+      label: 'Hide Page Content'
+    -
+      value: partialhide
+      label: 'Show Contact Form Only'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

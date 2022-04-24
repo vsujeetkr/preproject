@@ -1,0 +1,8 @@
+uuid: 6a096de8-45c7-40eb-b75d-9bbd7dc7fe86
+langcode: en
+status: true
+dependencies: {  }
+name: Cities
+vid: cities
+description: 'City related to the project.'
+weight: 0

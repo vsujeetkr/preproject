@@ -1,0 +1,22 @@
+uuid: 0cd6ec8c-6d7e-4f64-b093-2faf9d885552
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - preproject
+_core:
+  default_config_hash: I6Esh8cDlPdl2POZg4MOSRUrQNYA1UNCJCxL2yqT_wc
+id: preproject_powered
+theme: preproject
+region: footer
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

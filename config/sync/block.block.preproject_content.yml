@@ -1,0 +1,22 @@
+uuid: ae36b5de-2068-4073-a449-3149d1867389
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - preproject
+_core:
+  default_config_hash: kigu8pTxXt1qGR2NJ5HHdC4G2G1wsDrIjLPKBT5wUBc
+id: preproject_content
+theme: preproject
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

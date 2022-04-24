@@ -1,0 +1,23 @@
+uuid: a912a464-80d3-4c57-b0e8-1744b3d73a01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visibility_settings
+    - node.type.projects
+  module:
+    - options
+id: node.projects.field_visibility_settings
+field_name: field_visibility_settings
+entity_type: node
+bundle: projects
+label: 'Visibility Settings'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: show
+default_value_callback: ''
+settings: {  }
+field_type: list_string

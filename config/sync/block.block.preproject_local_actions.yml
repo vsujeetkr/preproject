@@ -1,0 +1,20 @@
+uuid: 04bf46ef-3463-4c8a-ae28-2efa35f79063
+langcode: en
+status: true
+dependencies:
+  theme:
+    - preproject
+_core:
+  default_config_hash: XRdb8LpbArVA6CpuuEZxzi50JIdjsJaCCZ5o3fH0Blk
+id: preproject_local_actions
+theme: preproject
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

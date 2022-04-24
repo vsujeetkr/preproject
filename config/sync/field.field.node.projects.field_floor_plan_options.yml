@@ -1,0 +1,23 @@
+uuid: 067f9c0a-c68b-452c-a602-f5f954185627
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_floor_plan_options
+    - node.type.projects
+id: node.projects.field_floor_plan_options
+field_name: field_floor_plan_options
+entity_type: node
+bundle: projects
+label: 'Floor Plan Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

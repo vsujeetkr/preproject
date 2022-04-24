@@ -1,0 +1,23 @@
+uuid: 1a60e4e3-4e7c-45ce-8514-09ca506cde31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_options
+    - node.type.projects
+id: node.projects.field_map_options
+field_name: field_map_options
+entity_type: node
+bundle: projects
+label: 'Map Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

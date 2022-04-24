@@ -1,0 +1,29 @@
+uuid: cd1047ed-9280-4faa-9316-61adc4351f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_apartment_type
+    - paragraphs.paragraphs_type.floor_plans
+    - taxonomy.vocabulary.apartment_types
+id: paragraph.floor_plans.field_apartment_type
+field_name: field_apartment_type
+entity_type: paragraph
+bundle: floor_plans
+label: 'Apartment Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      apartment_types: apartment_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

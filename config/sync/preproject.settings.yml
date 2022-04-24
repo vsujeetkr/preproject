@@ -1,0 +1,27 @@
+favicon:
+  mimetype: image/jpeg
+  path: 'public://favicon_0.jpg'
+  url: 'http://localhost/preproject/themes/contrib/preproject/favicon.ico'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: 'public://logo_0.jpg'
+  url: ''
+  use_default: false
+schemas:
+  bootstrap: 8000
+  preproject: 8000
+table_responsive: '-1'
+breadcrumb_home: 1
+navbar_position: fixed-top
+cdn_theme: bootstrap
+cdn_cache_ttl_versions: '604800'
+cdn_cache_ttl_themes: '604800'
+cdn_cache_ttl_assets: '0'
+cdn_cache_ttl_library: '0'
+reset_http_request_cache: ''
+table: ''

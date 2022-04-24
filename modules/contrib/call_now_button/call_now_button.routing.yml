@@ -1,0 +1,7 @@
+call_now_button.settings_form:
+  path: '/admin/config/user-interface/call-now-button'
+  defaults:
+    _form: '\Drupal\call_now_button\Form\CallNowButtonConfigForm'
+    _title: 'Call Now Button'
+  requirements:
+    _permission: 'administer call now button'

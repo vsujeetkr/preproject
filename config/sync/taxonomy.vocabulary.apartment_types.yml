@@ -1,0 +1,8 @@
+uuid: 1bf945a8-dd08-4390-bfa2-1a878d4cfbc4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Apartment Types'
+vid: apartment_types
+description: ''
+weight: 0

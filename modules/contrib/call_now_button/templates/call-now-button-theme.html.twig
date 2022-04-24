@@ -1,0 +1,7 @@
+<div class="call-now-button-wrapper">
+  {% if button_text|render is not empty %}
+  <div class="call-now-button-text">{{ button_text }}</div>
+  {% endif %}
+  <a href="tel:{{ phone_number }}" class="call-now-button-phone-number">
+  </a>
+</div>

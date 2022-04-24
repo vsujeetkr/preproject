@@ -1,0 +1,23 @@
+uuid: 52b3e91d-3070-4707-bf58-5e97cf369c3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact
+    - node.type.projects
+id: node.projects.field_contact
+field_name: field_contact
+entity_type: node
+bundle: projects
+label: Contact
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

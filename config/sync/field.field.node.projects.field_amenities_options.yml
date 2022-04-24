@@ -1,0 +1,23 @@
+uuid: cb59f115-deb6-4b98-b99b-975e067fba3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_amenities_options
+    - node.type.projects
+id: node.projects.field_amenities_options
+field_name: field_amenities_options
+entity_type: node
+bundle: projects
+label: 'Amenities Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

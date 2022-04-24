@@ -1,0 +1,18 @@
+uuid: df20783d-310e-4a6b-ab8c-75558bfb9c4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.builder_details
+id: node.builder_details.title
+field_name: title
+entity_type: node
+bundle: builder_details
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

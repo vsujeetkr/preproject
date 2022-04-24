@@ -1,0 +1,11 @@
+global-styling:
+  css:
+    theme:
+      css/call_now_button.css: {}
+  js:
+    js/call_now_button.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

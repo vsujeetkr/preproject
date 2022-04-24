@@ -1,0 +1,33 @@
+uuid: fa127ac9-22cc-48f4-9394-0b521a28b407
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_type
+    - paragraphs.paragraphs_type.floor_plans
+  module:
+    - image
+id: paragraph.floor_plans.default
+targetEntityType: paragraph
+bundle: floor_plans
+mode: default
+content:
+  field_apartment_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_apartment_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -2,3 +2,32 @@
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
  */
+
+.navbar .logo img {
+    border-radius: 100px;
+    width: 180px;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: ##2e3746;
+}
+
+.navbar .navbar-header {
+    width: 100%;
+}
+
+#block-preproject-main-menu {
+    float: right;
+}
+
+.navbar nav ul li a {
+    padding-top: 29px;
+    padding-bottom: 28px;
+    text-transform: uppercase;
+    color: #2e3746!important;
+}
+
+.navbar nav ul li a:hover {
+    border-bottom: 1px solid #000;
+}

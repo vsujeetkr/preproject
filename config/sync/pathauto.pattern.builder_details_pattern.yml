@@ -1,0 +1,22 @@
+uuid: 3a741a19-25b1-4a2b-a762-18ce4770978e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: builder_details_pattern
+label: 'Builder Details Pattern'
+type: 'canonical_entities:node'
+pattern: 'builder/[node:title]'
+selection_criteria:
+  d9eebf27-88f8-4623-a6e1-19918bb3945c:
+    id: node_type
+    negate: false
+    uuid: d9eebf27-88f8-4623-a6e1-19918bb3945c
+    context_mapping:
+      node: node
+    bundles:
+      builder_details: builder_details
+selection_logic: and
+weight: -5
+relationships: {  }

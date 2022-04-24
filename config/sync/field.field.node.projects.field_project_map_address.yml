@@ -1,0 +1,19 @@
+uuid: b13c064b-94c6-413b-ac04-881923b04465
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_map_address
+    - node.type.projects
+id: node.projects.field_project_map_address
+field_name: field_project_map_address
+entity_type: node
+bundle: projects
+label: 'Project Map Address'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

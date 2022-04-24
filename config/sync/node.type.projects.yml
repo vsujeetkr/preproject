@@ -1,0 +1,17 @@
+uuid: d1555fff-ee76-48d9-a096-6ff17c0fd389
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Projects
+type: projects
+description: 'Property pages with their important details.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

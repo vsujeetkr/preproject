@@ -1,0 +1,19 @@
+uuid: 2761cf91-2298-4016-8888-403cbdb34ae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_rera_number
+    - node.type.projects
+id: node.projects.field_project_rera_number
+field_name: field_project_rera_number
+entity_type: node
+bundle: projects
+label: 'Project Rera Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

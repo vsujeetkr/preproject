@@ -1,0 +1,39 @@
+uuid: 4f1f39d7-c935-4212-8ec1-f9b2207299c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.builder_details.body
+    - field.field.node.builder_details.field_logo
+    - node.type.builder_details
+  module:
+    - image
+    - text
+    - user
+id: node.builder_details.default
+targetEntityType: node
+bundle: builder_details
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_logo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

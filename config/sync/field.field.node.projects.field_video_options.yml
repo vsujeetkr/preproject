@@ -1,0 +1,23 @@
+uuid: 408c996e-c673-4808-a549-8dd4bdcca644
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_options
+    - node.type.projects
+id: node.projects.field_video_options
+field_name: field_video_options
+entity_type: node
+bundle: projects
+label: 'Video Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
