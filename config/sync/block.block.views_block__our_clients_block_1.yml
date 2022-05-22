@@ -1,0 +1,49 @@
+uuid: 5c2b0e40-1920-4d5d-85a1-b0069669ba4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.our_clients
+  module:
+    - context
+    - system
+    - views
+  theme:
+    - preproject
+id: views_block__our_clients_block_1
+theme: preproject
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:our_clients-block_1'
+settings:
+  id: 'views_block:our_clients-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: '48'
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

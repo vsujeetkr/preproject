@@ -1,0 +1,12 @@
+uuid: a869f7f5-e9b4-4418-bfc6-c37c06382d92
+langcode: en
+status: true
+dependencies: {  }
+id: appointment
+label: Appointment
+recipients:
+  - vsujeetkumar@gmail.com
+reply: ''
+weight: 0
+message: 'Thankyou for showing your interest, Our sales person will contact you soon.'
+redirect: /

@@ -1,0 +1,8 @@
+uuid: f1bfb729-98f2-4f7c-8634-33bf10d605f0
+langcode: en
+status: true
+dependencies: {  }
+id: use-full-links
+label: 'Use Full Links'
+description: ''
+locked: false

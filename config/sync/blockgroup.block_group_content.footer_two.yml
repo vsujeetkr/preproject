@@ -1,0 +1,6 @@
+uuid: 2bd4a579-7984-4389-9368-c1e2f8b43c1d
+langcode: en
+status: true
+dependencies: {  }
+id: footer_two
+label: 'Footer Two'

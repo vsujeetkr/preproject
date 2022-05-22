@@ -1,0 +1,49 @@
+uuid: 07f420be-9838-4b13-8a54-47022d8fcae5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xzLXjkTZoEEN95DHQh6byoNyvxOOdezXIz4B8HuSl00
+id: developer_carousal
+label: 'Developer Carousal'
+options:
+  animation: slide
+  animationSpeed: 600
+  direction: horizontal
+  slideshow: true
+  easing: swing
+  smoothHeight: false
+  reverse: false
+  slideshowSpeed: 7000
+  animationLoop: true
+  randomize: false
+  startAt: 0
+  itemWidth: 210
+  itemMargin: 5
+  minItems: 4
+  maxItems: null
+  move: 1
+  directionNav: false
+  controlNav: '0'
+  thumbCaptions: false
+  thumbCaptionsBoth: false
+  keyboard: true
+  multipleKeyboard: false
+  mousewheel: false
+  touch: true
+  prevText: Previous
+  nextText: Next
+  namespace: flex-
+  selector: '.slides > li'
+  sync: ''
+  asNavFor: ''
+  initDelay: 0
+  useCSS: true
+  video: false
+  pausePlay: false
+  pauseText: Pause
+  playText: Play
+  pauseOnAction: true
+  pauseOnHover: true
+  controlsContainer: .flex-control-nav-container
+  manualControls: ''

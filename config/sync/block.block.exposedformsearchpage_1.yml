@@ -1,0 +1,43 @@
+uuid: 83d3bc39-76bb-4e9a-ba72-316da45c2882
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - context
+    - views
+  theme:
+    - preproject
+id: exposedformsearchpage_1
+theme: preproject
+region: slider
+weight: -9
+provider: null
+plugin: 'views_exposed_filter_block:search-page_1'
+settings:
+  id: 'views_exposed_filter_block:search-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid

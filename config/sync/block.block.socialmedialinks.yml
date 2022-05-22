@@ -1,0 +1,149 @@
+uuid: 5136f5b6-6682-47e2-9fdf-f18bd9bf1c02
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+    - social_media_links
+  theme:
+    - preproject
+id: socialmedialinks
+theme: preproject
+region: footer_one
+weight: 0
+provider: null
+plugin: social_media_links_block
+settings:
+  id: social_media_links_block
+  label: 'Social Media Links'
+  label_display: '0'
+  provider: social_media_links
+  platforms:
+    contact:
+      value: ''
+      description: ''
+      weight: '-10'
+    instagram:
+      value: preprojectindia
+      description: ''
+      weight: '-9'
+    vimeo:
+      value: ''
+      description: ''
+      weight: '-8'
+    linkedin:
+      value: preprojectindia
+      description: ''
+      weight: '-7'
+    github:
+      value: ''
+      description: ''
+      weight: '-6'
+    behance:
+      value: ''
+      description: ''
+      weight: '-5'
+    xing:
+      value: ''
+      description: ''
+      weight: '-4'
+    youtube_channel:
+      value: ''
+      description: ''
+      weight: '-3'
+    flickr:
+      value: ''
+      description: ''
+      weight: '-2'
+    drupal:
+      value: ''
+      description: ''
+      weight: '-1'
+    whatsapp:
+      value: ''
+      description: ''
+      weight: '0'
+    twitter:
+      value: ''
+      description: ''
+      weight: '1'
+    googleplus:
+      value: ''
+      description: ''
+      weight: '2'
+    bitbucket:
+      value: ''
+      description: ''
+      weight: '3'
+    slideshare:
+      value: ''
+      description: ''
+      weight: '4'
+    email:
+      value: ''
+      description: ''
+      weight: '5'
+    tumblr:
+      value: ''
+      description: ''
+      weight: '6'
+    pinterest:
+      value: ''
+      description: ''
+      weight: '7'
+    youtube:
+      value: preprojectindia
+      description: ''
+      weight: '8'
+    website:
+      value: ''
+      description: ''
+      weight: '9'
+    gitlab:
+      value: ''
+      description: ''
+      weight: '10'
+    rss:
+      value: ''
+      description: ''
+      weight: '11'
+    facebook:
+      value: preprojectindia
+      description: ''
+      weight: '12'
+    vkontakte:
+      value: ''
+      description: ''
+      weight: '13'
+  appearance:
+    orientation: h
+    show_name: 0
+    suggestion: ''
+  link_attributes:
+    target: '<none>'
+    rel: '<none>'
+  iconset:
+    style: 'fontawesome:2x'
+    installed_iconsets:
+      fontawesome:
+        examples: ''
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid

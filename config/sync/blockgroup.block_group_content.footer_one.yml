@@ -1,0 +1,6 @@
+uuid: b21c95ed-8b2c-423d-8a14-91711ee35f54
+langcode: en
+status: true
+dependencies: {  }
+id: footer_one
+label: 'Footer One'

@@ -1,0 +1,49 @@
+uuid: 12c98272-24b9-43dc-bc3c-9d37fd7a4de2
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.featured_projects
+  module:
+    - context
+    - system
+    - views
+  theme:
+    - preproject
+id: views_block__featured_projects_block_3
+theme: preproject
+region: slider
+weight: -6
+provider: null
+plugin: 'views_block:featured_projects-block_3'
+settings:
+  id: 'views_block:featured_projects-block_3'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

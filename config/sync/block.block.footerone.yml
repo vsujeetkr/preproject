@@ -1,0 +1,46 @@
+uuid: 93944455-66e1-4aa4-8581-cdd839f5d1eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - blockgroup.block_group_content.footer_one
+  module:
+    - block_class
+    - blockgroup
+    - context
+  theme:
+    - preproject
+third_party_settings:
+  block_class:
+    classes: 'col-lg-3 col-md-3 col-sm-12'
+id: footerone
+theme: preproject
+region: footer
+weight: -15
+provider: null
+plugin: 'block_group:footer_one'
+settings:
+  id: 'block_group:footer_one'
+  label: 'Footer One'
+  label_display: '0'
+  provider: blockgroup
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid

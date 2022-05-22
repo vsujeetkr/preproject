@@ -616,7 +616,23 @@ content:
     weight: 19
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        5990f17b-3ded-423e-bac1-25e2d7b7f3ff:
+          entity_type: node
+          bundle: projects
+          dependee: field_project_rera_number
+          settings:
+            state: '!empty'
+            condition: '!empty'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_project_city:
     type: options_pretty
     weight: 3
@@ -664,7 +680,8 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
   field_project_sub_title:
     type: string_textfield
     weight: 2

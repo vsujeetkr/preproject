@@ -1,0 +1,33 @@
+uuid: 58569472-683f-4806-939c-7178536a21c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.developers.field_logo
+    - taxonomy.vocabulary.developers
+  module:
+    - image
+    - text
+id: taxonomy_term.developers.default
+targetEntityType: taxonomy_term
+bundle: developers
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_logo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

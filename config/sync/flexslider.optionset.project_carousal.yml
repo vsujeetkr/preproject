@@ -1,0 +1,49 @@
+uuid: 68ba5064-ccfb-4eae-aa31-d1c3f11b1e6b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xzLXjkTZoEEN95DHQh6byoNyvxOOdezXIz4B8HuSl00
+id: project_carousal
+label: 'Project Carousal'
+options:
+  animation: slide
+  animationSpeed: 600
+  direction: horizontal
+  slideshow: true
+  easing: swing
+  smoothHeight: false
+  reverse: false
+  slideshowSpeed: 7000
+  animationLoop: true
+  randomize: false
+  startAt: 0
+  itemWidth: 210
+  itemMargin: 5
+  minItems: 3
+  maxItems: 3
+  move: 0
+  directionNav: true
+  controlNav: '1'
+  thumbCaptions: false
+  thumbCaptionsBoth: false
+  keyboard: true
+  multipleKeyboard: false
+  mousewheel: false
+  touch: true
+  prevText: Previous
+  nextText: Next
+  namespace: flex-
+  selector: '.slides > li'
+  sync: ''
+  asNavFor: ''
+  initDelay: 0
+  useCSS: true
+  video: false
+  pausePlay: false
+  pauseText: Pause
+  playText: Play
+  pauseOnAction: true
+  pauseOnHover: true
+  controlsContainer: .flex-control-nav-container
+  manualControls: ''

@@ -86,7 +86,9 @@ module:
   quicktabs: 0
   rdf: 0
   responsive_image: 0
-  search: 0
+  search_api: 0
+  search_api_db: 0
+  search_api_db_defaults: 0
   shortcut: 0
   simple_gmap: 0
   simple_popup_blocks: 0
@@ -95,6 +97,7 @@ module:
   slick_ui: 0
   slick_views: 0
   smtp: 0
+  social_media_links: 0
   system: 0
   taxonomy: 0
   taxonomy_menu: 0
@@ -117,6 +120,7 @@ module:
   views_ui: 0
   webform: 0
   webform_node: 0
+  webform_ui: 0
   pathauto: 1
   webform_bootstrap: 1
   views: 10

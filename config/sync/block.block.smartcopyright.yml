@@ -1,0 +1,49 @@
+uuid: 0251af94-499e-4a40-ba47-392797e24efc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e9119ecd-5e5b-4eb4-8913-743fc01ef418'
+  module:
+    - block_class
+    - block_content
+    - context
+  theme:
+    - preproject
+third_party_settings:
+  block_class:
+    classes: 'col-lg-6 col-md-6 col-sm-12'
+id: smartcopyright
+theme: preproject
+region: footer_two
+weight: -15
+provider: null
+plugin: 'block_content:e9119ecd-5e5b-4eb4-8913-743fc01ef418'
+settings:
+  id: 'block_content:e9119ecd-5e5b-4eb4-8913-743fc01ef418'
+  label: 'Smart Copyright'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid

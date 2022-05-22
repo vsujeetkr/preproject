@@ -1,0 +1,21 @@
+uuid: 169532de-3560-418d-a940-4c6896864ed2
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: overlay
+label: Overlay
+effects:
+  8ba19d29-999b-41c5-9eda-34a0e48b091a:
+    id: image_effects_color_shift
+    data:
+      RGB: '#212121'
+    weight: 1
+    uuid: 8ba19d29-999b-41c5-9eda-34a0e48b091a
+  5e28ed10-c61b-4372-9132-fa107a67cbe5:
+    id: image_effects_opacity
+    data:
+      opacity: 50
+    weight: 2
+    uuid: 5e28ed10-c61b-4372-9132-fa107a67cbe5

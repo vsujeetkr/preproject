@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'bdbc2d2c3e53ba82c74be2976281564e620c4c05',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -1016,12 +1016,12 @@
             ),
         ),
         'drupal/legacy-project' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'bdbc2d2c3e53ba82c74be2976281564e620c4c05',
             'dev_requirement' => false,
         ),
         'drupal/libraries' => array(
@@ -1246,6 +1246,15 @@
                 0 => '9.3.12',
             ),
         ),
+        'drupal/search_api' => array(
+            'pretty_version' => '1.23.0',
+            'version' => '1.23.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/search_api',
+            'aliases' => array(),
+            'reference' => '8.x-1.23',
+            'dev_requirement' => false,
+        ),
         'drupal/serialization' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -1322,6 +1331,15 @@
             'install_path' => __DIR__ . '/../../modules/contrib/smtp',
             'aliases' => array(),
             'reference' => '8.x-1.0',
+            'dev_requirement' => false,
+        ),
+        'drupal/social_media_links' => array(
+            'pretty_version' => '2.8.0',
+            'version' => '2.8.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/social_media_links',
+            'aliases' => array(),
+            'reference' => '8.x-2.8',
             'dev_requirement' => false,
         ),
         'drupal/standard' => array(
