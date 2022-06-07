@@ -10,6 +10,6 @@
         "source": "https://git.drupalcode.org/project/call_now_button"
     },
     "require": {
-        "drupal/core": "^8 || ^9"
+        "drupal/core": "^8 || ^9 || ^10"
     }
 }

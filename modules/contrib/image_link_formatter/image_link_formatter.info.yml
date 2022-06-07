@@ -1,0 +1,15 @@
+name: Image Link Formatter
+description: Extends Core 'image' formatter to allow displaying images wrapped within a link provided by a field.
+package: Fields
+
+type: module
+core_version_requirement: ^8.8.0 || ^9.0
+
+dependencies:
+  - drupal:image
+  - drupal:link
+
+# Information added by Drupal.org packaging script on 2021-10-31
+version: '2.0.0'
+project: 'image_link_formatter'
+datestamp: 1635648957

@@ -550,6 +550,27 @@ class ComposerStaticInit9974d351bf3bb548a8955d94d822bdc9
                 0 => __DIR__ . '/..' . '/stack/builder/src',
             ),
         ),
+        'N' => 
+        array (
+            'Neutron' => 
+            array (
+                0 => __DIR__ . '/..' . '/neutron/temporary-filesystem/src',
+            ),
+        ),
+        'F' => 
+        array (
+            'FFMpeg' => 
+            array (
+                0 => __DIR__ . '/..' . '/php-ffmpeg/php-ffmpeg/src',
+            ),
+        ),
+        'E' => 
+        array (
+            'Evenement' => 
+            array (
+                0 => __DIR__ . '/..' . '/evenement/evenement/src',
+            ),
+        ),
         'D' => 
         array (
             'Dflydev\\DotAccessData' => 
@@ -569,6 +590,10 @@ class ComposerStaticInit9974d351bf3bb548a8955d94d822bdc9
             'Archive_Tar' => 
             array (
                 0 => __DIR__ . '/..' . '/pear/archive_tar',
+            ),
+            'Alchemy' => 
+            array (
+                0 => __DIR__ . '/..' . '/alchemy/binary-driver/src',
             ),
         ),
     );

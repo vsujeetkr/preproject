@@ -3,10 +3,10 @@ type: module
 description: 'Call Now Button places button to the bottom of the screen which is only visible for your mobile visitors.'
 package: Other
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 configure: call_now_button.settings_form
 
-# Information added by Drupal.org packaging script on 2020-08-06
-version: '1.0.0'
+# Information added by Drupal.org packaging script on 2022-06-03
+version: '1.0.1'
 project: 'call_now_button'
-datestamp: 1596738595
+datestamp: 1654281631
