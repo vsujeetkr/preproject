@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_size
     - field.field.paragraph.floor_plans.field_apartment_type
     - image.style.thumbnail
     - paragraphs.paragraphs_type.floor_plans
@@ -21,6 +22,14 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_apartment_size:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_apartment_type:
     type: options_select

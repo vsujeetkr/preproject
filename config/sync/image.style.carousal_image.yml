@@ -1,0 +1,14 @@
+uuid: 6e2547a1-f626-4de2-8252-557c403dd77b
+langcode: en
+status: true
+dependencies: {  }
+name: carousal_image
+label: 'Carousal Image'
+effects:
+  d99ba5cf-25c2-4ef8-adfb-c86bd8743b2b:
+    id: image_resize
+    data:
+      width: 398
+      height: 265
+    weight: 1
+    uuid: d99ba5cf-25c2-4ef8-adfb-c86bd8743b2b

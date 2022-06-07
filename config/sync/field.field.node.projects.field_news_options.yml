@@ -1,0 +1,23 @@
+uuid: 8d666c03-12d7-462d-a145-e3f30f79150e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_options
+    - node.type.projects
+id: node.projects.field_news_options
+field_name: field_news_options
+entity_type: node
+bundle: projects
+label: 'News Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

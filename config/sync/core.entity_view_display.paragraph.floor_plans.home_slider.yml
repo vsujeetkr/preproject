@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.home_slider
     - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_size
     - field.field.paragraph.floor_plans.field_apartment_type
     - paragraphs.paragraphs_type.floor_plans
 id: paragraph.floor_plans.home_slider
@@ -22,4 +23,5 @@ content:
     region: content
 hidden:
   field_apartment_image: true
+  field_apartment_size: true
   search_api_excerpt: true

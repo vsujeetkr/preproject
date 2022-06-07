@@ -7,13 +7,12 @@ dependencies:
   module:
     - block_content
     - context
-    - node
   theme:
     - preproject
 id: callusnow
 theme: preproject
 region: navigation
-weight: -6
+weight: -17
 provider: null
 plugin: 'block_content:ecc47d1e-1b30-4aaf-af36-cd37adef629c'
 settings:
@@ -44,10 +43,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      page: page

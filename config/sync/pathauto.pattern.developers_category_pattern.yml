@@ -7,12 +7,12 @@ dependencies:
 id: developers_category_pattern
 label: 'Developers Category Pattern'
 type: 'canonical_entities:taxonomy_term'
-pattern: 'developer/[term:name]'
+pattern: 'projects/developer/[term:name]'
 selection_criteria:
-  4e2375cd-8468-44bf-b077-c1df09fe8cb2:
+  acd2d7e1-c601-4123-bfc1-069c6384db5d:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: 4e2375cd-8468-44bf-b077-c1df09fe8cb2
+    uuid: acd2d7e1-c601-4123-bfc1-069c6384db5d
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:

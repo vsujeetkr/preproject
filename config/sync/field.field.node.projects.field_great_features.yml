@@ -1,0 +1,34 @@
+uuid: 16547497-a4a8-442a-a1bc-df6202d2b0e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_great_features
+    - node.type.projects
+    - paragraphs.paragraphs_type.font_awesome_icons
+  module:
+    - entity_reference_revisions
+id: node.projects.field_great_features
+field_name: field_great_features
+entity_type: node
+bundle: projects
+label: 'Great features'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      font_awesome_icons: font_awesome_icons
+    negate: 0
+    target_bundles_drag_drop:
+      floor_plans:
+        weight: 3
+        enabled: false
+      font_awesome_icons:
+        weight: 4
+        enabled: true
+field_type: entity_reference_revisions

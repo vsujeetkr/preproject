@@ -1,0 +1,10 @@
+uuid: e1dfff7e-a59d-42b3-891d-063ba800984f
+langcode: en
+status: true
+dependencies: {  }
+id: font_awesome_icons
+label: 'Font Awesome Icons'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

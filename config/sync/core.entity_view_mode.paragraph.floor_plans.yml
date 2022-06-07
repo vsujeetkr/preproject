@@ -1,0 +1,10 @@
+uuid: 18afb92e-49b0-43ae-b2c8-040d0238ceed
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.floor_plans
+label: 'Floor Plans'
+targetEntityType: paragraph
+cache: true

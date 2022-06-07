@@ -14,6 +14,8 @@ dependencies:
     - field.field.node.projects.field_floor_plans
     - field.field.node.projects.field_gallery
     - field.field.node.projects.field_gallery_options
+    - field.field.node.projects.field_great_features
+    - field.field.node.projects.field_great_features_options
     - field.field.node.projects.field_logo_icon
     - field.field.node.projects.field_logo_options
     - field.field.node.projects.field_logo_text
@@ -24,6 +26,8 @@ dependencies:
     - field.field.node.projects.field_meta_keywords
     - field.field.node.projects.field_meta_tags
     - field.field.node.projects.field_meta_title
+    - field.field.node.projects.field_news
+    - field.field.node.projects.field_news_options
     - field.field.node.projects.field_other_data
     - field.field.node.projects.field_other_options
     - field.field.node.projects.field_project_category
@@ -111,7 +115,7 @@ third_party_settings:
       label: Amenities
       region: content
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: details
       format_settings:
         classes: ''
@@ -127,7 +131,7 @@ third_party_settings:
       label: 'Floor Plans'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: details
       format_settings:
         classes: ''
@@ -143,7 +147,7 @@ third_party_settings:
       label: Gallery
       region: content
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: details
       format_settings:
         classes: ''
@@ -159,7 +163,7 @@ third_party_settings:
       label: Others
       region: content
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: details
       format_settings:
         classes: ''
@@ -175,7 +179,7 @@ third_party_settings:
       label: Videos
       region: content
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: details
       format_settings:
         classes: ''
@@ -191,7 +195,7 @@ third_party_settings:
       label: 'Builder Details'
       region: content
       parent_name: ''
-      weight: 12
+      weight: 14
       format_type: details
       format_settings:
         classes: ''
@@ -208,7 +212,7 @@ third_party_settings:
       label: Map
       region: content
       parent_name: ''
-      weight: 13
+      weight: 15
       format_type: details
       format_settings:
         classes: ''
@@ -226,7 +230,7 @@ third_party_settings:
       label: 'SEO Tags'
       region: content
       parent_name: ''
-      weight: 14
+      weight: 16
       format_type: details
       format_settings:
         classes: ''
@@ -241,7 +245,7 @@ third_party_settings:
       label: 'Page Visibility Settings'
       region: content
       parent_name: ''
-      weight: 15
+      weight: 17
       format_type: details
       format_settings:
         classes: ''
@@ -256,7 +260,39 @@ third_party_settings:
       label: 'Project Category Settings'
       region: content
       parent_name: ''
-      weight: 16
+      weight: 18
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+    group_great_features:
+      children:
+        - field_great_features_options
+        - field_great_features
+      label: 'Great features'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+    group_news:
+      children:
+        - field_news_options
+        - field_news
+      label: News
+      region: content
+      parent_name: ''
+      weight: 13
       format_type: details
       format_settings:
         classes: ''
@@ -272,7 +308,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 6
     region: content
     settings:
       rows: 9
@@ -449,6 +485,48 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_great_features:
+    type: paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings:
+      conditional_fields:
+        8bc2d43d-e637-4583-9fb4-4ce28b7a8e74:
+          entity_type: node
+          bundle: projects
+          dependee: field_great_features_options
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_great_features_options:
+    type: options_buttons
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_logo_icon:
     type: image_image
     weight: 5
@@ -565,7 +643,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 17
+    weight: 19
     region: content
     settings:
       sidebar: true
@@ -578,6 +656,37 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_news:
+    type: media_library_widget
+    weight: 21
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      conditional_fields:
+        132c8f31-3b12-4435-8830-00aad03b275a:
+          entity_type: node
+          bundle: projects
+          dependee: field_news_options
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_news_options:
+    type: options_buttons
+    weight: 20
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_other_data:
     type: image_image
@@ -742,7 +851,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

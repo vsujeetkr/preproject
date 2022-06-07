@@ -1,0 +1,10 @@
+uuid: 6c245e78-2053-4458-873b-716a92cee728
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.builder_info
+label: 'Builder Info'
+targetEntityType: taxonomy_term
+cache: true

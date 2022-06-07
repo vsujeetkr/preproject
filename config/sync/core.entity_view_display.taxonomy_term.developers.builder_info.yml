@@ -1,0 +1,25 @@
+uuid: 643fed3b-e648-4690-b0f7-112e7e2c3714
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.builder_info
+    - field.field.taxonomy_term.developers.field_logo
+    - taxonomy.vocabulary.developers
+  module:
+    - text
+id: taxonomy_term.developers.builder_info
+targetEntityType: taxonomy_term
+bundle: developers
+mode: builder_info
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_logo: true
+  search_api_excerpt: true

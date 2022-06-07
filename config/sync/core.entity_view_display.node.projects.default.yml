@@ -14,6 +14,8 @@ dependencies:
     - field.field.node.projects.field_floor_plans
     - field.field.node.projects.field_gallery
     - field.field.node.projects.field_gallery_options
+    - field.field.node.projects.field_great_features
+    - field.field.node.projects.field_great_features_options
     - field.field.node.projects.field_logo_icon
     - field.field.node.projects.field_logo_options
     - field.field.node.projects.field_logo_text
@@ -24,6 +26,8 @@ dependencies:
     - field.field.node.projects.field_meta_keywords
     - field.field.node.projects.field_meta_tags
     - field.field.node.projects.field_meta_title
+    - field.field.node.projects.field_news
+    - field.field.node.projects.field_news_options
     - field.field.node.projects.field_other_data
     - field.field.node.projects.field_other_options
     - field.field.node.projects.field_project_category
@@ -39,325 +43,50 @@ dependencies:
     - field.field.node.projects.field_visibility_settings
     - node.type.projects
   module:
-    - entity_reference_revisions
-    - image
-    - metatag
-    - options
-    - simple_gmap
-    - telephone
-    - text
     - user
 id: node.projects.default
 targetEntityType: node
 bundle: projects
 mode: default
-content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
-    region: content
-  field_amenities:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 113
-    region: content
-  field_amenities_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 114
-    region: content
-  field_builder_details:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 135
-    region: content
-  field_builder_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 123
-    region: content
-  field_contact:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 110
-    region: content
-  field_contact_number:
-    type: telephone_link
-    label: above
-    settings:
-      title: ''
-    third_party_settings: {  }
-    weight: 111
-    region: content
-  field_floor_plan_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 116
-    region: content
-  field_floor_plans:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 115
-    region: content
-  field_gallery:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 118
-    region: content
-  field_gallery_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 117
-    region: content
-  field_logo_icon:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-    third_party_settings: {  }
-    weight: 109
-    region: content
-  field_logo_options:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 107
-    region: content
-  field_logo_text:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 108
-    region: content
-  field_map_image:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-    third_party_settings: {  }
-    weight: 127
-    region: content
-  field_map_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 125
-    region: content
-  field_meta_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 130
-    region: content
-  field_meta_favicon:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 132
-    region: content
-  field_meta_keywords:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 131
-    region: content
-  field_meta_tags:
-    type: metatag_empty_formatter
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 128
-    region: content
-  field_meta_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 129
-    region: content
-  field_other_data:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-    third_party_settings: {  }
-    weight: 120
-    region: content
-  field_other_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 119
-    region: content
-  field_project_category:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 134
-    region: content
-  field_project_city:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_project_location:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 103
-    region: content
-  field_project_map_address:
-    type: simple_gmap
-    label: above
-    settings:
-      include_map: true
-      include_static_map: false
-      include_link: true
-      include_text: false
-      iframe_height: '400'
-      iframe_width: 100%
-      iframe_title: ''
-      static_scale: 1
-      zoom_level: 14
-      link_text: 'View larger map'
-      map_type: m
-      langcode: en
-      apikey: ''
-    third_party_settings: {  }
-    weight: 126
-    region: content
-  field_project_rera_number:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 105
-    region: content
-  field_project_sub_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_project_type:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 136
-    region: content
-  field_slider_image:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 112
-    region: content
-  field_video_options:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 121
-    region: content
-  field_videos:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 122
-    region: content
-  field_visibility_settings:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 133
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
-hidden: {  }
+content: {  }
+hidden:
+  body: true
+  field_amenities: true
+  field_amenities_options: true
+  field_builder_details: true
+  field_builder_options: true
+  field_contact: true
+  field_contact_number: true
+  field_floor_plan_options: true
+  field_floor_plans: true
+  field_gallery: true
+  field_gallery_options: true
+  field_great_features: true
+  field_great_features_options: true
+  field_logo_icon: true
+  field_logo_options: true
+  field_logo_text: true
+  field_map_image: true
+  field_map_options: true
+  field_meta_description: true
+  field_meta_favicon: true
+  field_meta_keywords: true
+  field_meta_tags: true
+  field_meta_title: true
+  field_news: true
+  field_news_options: true
+  field_other_data: true
+  field_other_options: true
+  field_project_category: true
+  field_project_city: true
+  field_project_location: true
+  field_project_map_address: true
+  field_project_rera_number: true
+  field_project_sub_title: true
+  field_project_type: true
+  field_slider_image: true
+  field_video_options: true
+  field_videos: true
+  field_visibility_settings: true
+  links: true
+  search_api_excerpt: true

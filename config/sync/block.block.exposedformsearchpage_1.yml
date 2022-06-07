@@ -6,13 +6,14 @@ dependencies:
     - views.view.search
   module:
     - context
+    - system
     - views
   theme:
     - preproject
 id: exposedformsearchpage_1
 theme: preproject
 region: slider
-weight: -9
+weight: -10
 provider: null
 plugin: 'views_exposed_filter_block:search-page_1'
 settings:
@@ -41,3 +42,7 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

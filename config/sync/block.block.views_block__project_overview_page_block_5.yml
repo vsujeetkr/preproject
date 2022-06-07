@@ -1,0 +1,57 @@
+uuid: 3cda5c0c-ce01-4796-8e49-807abfc21cea
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.project_overview_page
+  module:
+    - block_class
+    - context
+    - node
+    - views
+  theme:
+    - preproject
+third_party_settings:
+  block_class:
+    classes: container
+id: views_block__project_overview_page_block_5
+theme: preproject
+region: slider
+weight: -22
+provider: null
+plugin: 'views_block:project_overview_page-block_5'
+settings:
+  id: 'views_block:project_overview_page-block_5'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      projects: projects

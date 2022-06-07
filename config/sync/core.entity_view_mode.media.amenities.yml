@@ -1,0 +1,10 @@
+uuid: 27504ac1-13ac-4c4c-9fe8-2c13804c0371
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.amenities
+label: Amenities
+targetEntityType: media
+cache: true

@@ -7,12 +7,12 @@ dependencies:
 id: city_category_pattern
 label: 'City Category Pattern'
 type: 'canonical_entities:taxonomy_term'
-pattern: 'projects/[term:name]'
+pattern: 'projects/city/[term:name]'
 selection_criteria:
-  c3920ac9-960a-4ece-8618-cc321fc51f8d:
+  0a7aa422-ca60-4db0-bda8-d28b9fd42854:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: c3920ac9-960a-4ece-8618-cc321fc51f8d
+    uuid: 0a7aa422-ca60-4db0-bda8-d28b9fd42854
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:

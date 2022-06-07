@@ -1,0 +1,44 @@
+uuid: d8f1be7f-241f-4585-816c-86a408eb933f
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.full_content
+    - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_size
+    - field.field.paragraph.floor_plans.field_apartment_type
+    - paragraphs.paragraphs_type.floor_plans
+  module:
+    - image
+id: paragraph.floor_plans.full_content
+targetEntityType: paragraph
+bundle: floor_plans
+mode: full_content
+content:
+  field_apartment_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_apartment_size:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_apartment_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

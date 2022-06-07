@@ -1,0 +1,14 @@
+uuid: 1a69ba35-3814-4514-bf2a-5ef0ac8b8323
+langcode: en
+status: true
+dependencies: {  }
+name: amenities
+label: Amenities
+effects:
+  b6eea39a-a1d0-4913-90c9-b01dac0aac52:
+    id: image_resize
+    data:
+      width: 600
+      height: 400
+    weight: 1
+    uuid: b6eea39a-a1d0-4913-90c9-b01dac0aac52

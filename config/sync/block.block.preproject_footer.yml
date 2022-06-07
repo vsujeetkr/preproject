@@ -18,7 +18,7 @@ _core:
 id: preproject_footer
 theme: preproject
 region: footer
-weight: -14
+weight: -24
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

@@ -15,6 +15,8 @@ dependencies:
     - field.field.node.projects.field_floor_plans
     - field.field.node.projects.field_gallery
     - field.field.node.projects.field_gallery_options
+    - field.field.node.projects.field_great_features
+    - field.field.node.projects.field_great_features_options
     - field.field.node.projects.field_logo_icon
     - field.field.node.projects.field_logo_options
     - field.field.node.projects.field_logo_text
@@ -25,6 +27,8 @@ dependencies:
     - field.field.node.projects.field_meta_keywords
     - field.field.node.projects.field_meta_tags
     - field.field.node.projects.field_meta_title
+    - field.field.node.projects.field_news
+    - field.field.node.projects.field_news_options
     - field.field.node.projects.field_other_data
     - field.field.node.projects.field_other_options
     - field.field.node.projects.field_project_category
@@ -71,6 +75,8 @@ hidden:
   field_floor_plans: true
   field_gallery: true
   field_gallery_options: true
+  field_great_features: true
+  field_great_features_options: true
   field_logo_icon: true
   field_logo_options: true
   field_logo_text: true
@@ -81,6 +87,8 @@ hidden:
   field_meta_keywords: true
   field_meta_tags: true
   field_meta_title: true
+  field_news: true
+  field_news_options: true
   field_other_data: true
   field_other_options: true
   field_project_category: true
@@ -94,3 +102,4 @@ hidden:
   field_video_options: true
   field_videos: true
   field_visibility_settings: true
+  search_api_excerpt: true

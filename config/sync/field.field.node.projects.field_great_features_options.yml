@@ -1,0 +1,23 @@
+uuid: e06ead3b-efda-4e52-b445-58d0086ece78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_great_features_options
+    - node.type.projects
+id: node.projects.field_great_features_options
+field_name: field_great_features_options
+entity_type: node
+bundle: projects
+label: 'Great features Options'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

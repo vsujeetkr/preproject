@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_size
     - field.field.paragraph.floor_plans.field_apartment_type
     - paragraphs.paragraphs_type.floor_plans
   module:
@@ -21,6 +22,14 @@ content:
       image_style: ''
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_apartment_size:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_apartment_type:
     type: entity_reference_label

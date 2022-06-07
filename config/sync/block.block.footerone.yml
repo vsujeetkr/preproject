@@ -16,7 +16,7 @@ third_party_settings:
 id: footerone
 theme: preproject
 region: footer
-weight: -15
+weight: -25
 provider: null
 plugin: 'block_group:footer_one'
 settings:

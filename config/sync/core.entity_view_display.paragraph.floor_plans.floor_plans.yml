@@ -1,0 +1,67 @@
+uuid: 62e2957a-da32-4a65-a06b-e1ec63762c83
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.floor_plans
+    - field.field.paragraph.floor_plans.field_apartment_image
+    - field.field.paragraph.floor_plans.field_apartment_size
+    - field.field.paragraph.floor_plans.field_apartment_type
+    - paragraphs.paragraphs_type.floor_plans
+  module:
+    - field_group
+    - image
+third_party_settings:
+  field_group:
+    group_floor_type_size:
+      children:
+        - field_apartment_type
+        - field_apartment_size
+      label: 'Floor Type & Size'
+      parent_name: ''
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: floor-type-size
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+id: paragraph.floor_plans.floor_plans
+targetEntityType: paragraph
+bundle: floor_plans
+mode: floor_plans
+content:
+  field_apartment_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_apartment_size:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_apartment_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

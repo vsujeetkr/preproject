@@ -13,7 +13,7 @@ dependencies:
 id: views_block__featured_projects_block_2
 theme: preproject
 region: slider
-weight: -7
+weight: -8
 provider: null
 plugin: 'views_block:featured_projects-block_2'
 settings:

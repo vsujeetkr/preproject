@@ -1,0 +1,14 @@
+uuid: 522358be-bd22-4a9d-a5f7-70304ad794ea
+langcode: en
+status: true
+dependencies: {  }
+name: gallery
+label: Gallery
+effects:
+  b6eea39a-a1d0-4913-90c9-b01dac0aac52:
+    id: image_resize
+    data:
+      width: 600
+      height: 400
+    weight: 1
+    uuid: b6eea39a-a1d0-4913-90c9-b01dac0aac52

@@ -1,0 +1,53 @@
+uuid: 168e9356-bef7-4f63-aa7d-1a6ee140ae2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.get_in_touch
+  module:
+    - context
+    - node
+    - webform
+  theme:
+    - preproject
+id: webform_2
+theme: preproject
+region: slider
+weight: -13
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Get in touch'
+  label_display: visible
+  provider: webform
+  webform_id: get_in_touch
+  default_data: ''
+  redirect: false
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      projects: projects

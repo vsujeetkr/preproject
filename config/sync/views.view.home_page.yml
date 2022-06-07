@@ -14,10 +14,10 @@ dependencies:
   content:
     - 'taxonomy_term:project_category:e41ea289-bb78-44b8-ade7-b8d70faeda31'
   module:
+    - entity_reference_revisions
     - flexslider_views
     - node
     - options
-    - paragraphs
     - taxonomy
     - text
     - user
@@ -93,7 +93,7 @@ display:
           group_column: target_id
           group_columns: {  }
           group_rows: true
-          delta_limit: 0
+          delta_limit: 1
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
@@ -518,8 +518,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: paragraph_summary
-          settings: {  }
+          type: entity_reference_revisions_entity_view
+          settings:
+            view_mode: home_slider
           group_column: ''
           group_columns: {  }
           group_rows: true

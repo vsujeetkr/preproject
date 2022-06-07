@@ -1,0 +1,19 @@
+uuid: 892fc0eb-4574-4730-b54a-4a0507a9ea00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_font_awesome_text
+    - paragraphs.paragraphs_type.font_awesome_icons
+id: paragraph.font_awesome_icons.field_font_awesome_text
+field_name: field_font_awesome_text
+entity_type: paragraph
+bundle: font_awesome_icons
+label: 'Font Awesome Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

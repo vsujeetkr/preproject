@@ -1,0 +1,47 @@
+uuid: e7a37e76-7698-4dd2-acb7-726aad5cb2d0
+langcode: en
+status: true
+dependencies: {  }
+id: project_slider
+label: 'Project Slider'
+options:
+  animation: slide
+  animationSpeed: 500
+  direction: horizontal
+  slideshow: true
+  easing: swing
+  smoothHeight: false
+  reverse: false
+  slideshowSpeed: 7000
+  animationLoop: true
+  randomize: false
+  startAt: 0
+  itemWidth: 1200
+  itemMargin: 5
+  minItems: 1
+  maxItems: 1
+  move: 0
+  directionNav: true
+  controlNav: '0'
+  thumbCaptions: false
+  thumbCaptionsBoth: false
+  keyboard: true
+  multipleKeyboard: false
+  mousewheel: false
+  touch: true
+  prevText: '<'
+  nextText: '>'
+  namespace: flex-
+  selector: '.slides > li'
+  sync: ''
+  asNavFor: ''
+  initDelay: 0
+  useCSS: true
+  video: false
+  pausePlay: true
+  pauseText: Pause
+  playText: Play
+  pauseOnAction: true
+  pauseOnHover: true
+  controlsContainer: .flex-control-nav-container
+  manualControls: ''

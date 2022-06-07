@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: q1Yo1uDD3vkcDWmVdMxD5fP_bU0YUOFYDgeVc3rz-Y4
+ffmpeg: /usr/bin/ffmpeg
+ffprobe: /usr/bin/ffprobe
+timeout: 3600
+threads: 12

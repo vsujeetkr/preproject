@@ -14,7 +14,7 @@ _core:
 id: preproject_main_menu
 theme: preproject
 region: navigation
-weight: -5
+weight: -16
 provider: null
 plugin: 'system_menu_block:main'
 settings:

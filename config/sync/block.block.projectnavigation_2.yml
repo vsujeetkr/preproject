@@ -1,0 +1,53 @@
+uuid: 83c937aa-869a-41ba-996b-68371508b0be
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.project-navigation
+  module:
+    - context
+    - node
+    - system
+  theme:
+    - preproject
+id: projectnavigation_2
+theme: preproject
+region: navigation_collapsible
+weight: 0
+provider: null
+plugin: 'system_menu_block:project-navigation'
+settings:
+  id: 'system_menu_block:project-navigation'
+  label: 'Project Navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      projects: projects
