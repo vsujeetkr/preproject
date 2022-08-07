@@ -874,6 +874,8 @@ html {
 
 .project-listing .views-field-field-project-type {
     vertical-align: middle;
+    float: left;
+    height: 100px;
 }
 
 .project-listing .views-field-field-project-type .project_type {
@@ -881,6 +883,7 @@ html {
     margin-left: 10px;
     font-size: 16px;
     text-transform: uppercase;
+    margin-top: 30px;
 }
 
 .project-listing .pagination > .active > a, 
@@ -943,13 +946,24 @@ html {
     color: #12171f;
 }
 
+.project-listing .views-row {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+}
+
 .project-listing .views-field-field-slider-image {
     width: 234px;
+    float: left;
 }
 
 .project-listing  .views-field-title {
     padding-left: 100px;
     width: 460px;
+    float: left;
+    height: 100px;
 }
 
 .project-listing .view-content table caption {
@@ -998,7 +1012,6 @@ html {
 .page-node-type-projects #block-views-block-project-overview-page-block-1 .views-field-field-logo-icon {
     width: 200px;
     padding: 3px;
-    width: 200px;
     margin: 10px 0px
 }
 
@@ -1453,6 +1466,7 @@ html {
 .page-node-type-projects #block-views-block-project-overview-page-block-11 {
     padding: 30px 0 40px;
     text-align: center;
+    position: relative;
 }
 
 .page-node-type-projects #block-views-block-project-overview-page-block-11 h2.block-title {
@@ -1484,6 +1498,7 @@ html {
     padding: 30px 0 30px;
     text-align: center;
     background: #f5f5f5;
+    position: relative;
 }
 
 .page-node-type-projects #block-views-block-project-overview-page-block-12 h2.block-title {
@@ -1517,9 +1532,14 @@ html {
     margin-bottom: 20px;
 }
 
+.page-node-type-projects #block-views-block-project-overview-page-block-12 .block-grid, .blazy.block-grid, .item-list > .block-grid {
+    margin: 0;
+}
+
 .page-node-type-projects #block-views-block-project-overview-page-block-13 {
     padding: 30px 0 40px;
     text-align: center;
+    position: relative;
 }
 
 .page-node-type-projects #block-views-block-project-overview-page-block-13 .views-field-field-builder-details h2:first-child {
@@ -1540,7 +1560,7 @@ html {
     content: '';
     position: absolute;
     left: 0;
-    top: 65px;
+    top: 110px;
     right: 0;
     width: 150px;
     height: 1px;
@@ -1695,6 +1715,7 @@ html {
 .simple-popup-blocks-global .spb-popup-main-wrapper {
     padding: 1px;
     border: unset;
+    margin-top: 50px;
 }
 
 .page-node-type-projects #block-webform-3,
@@ -1839,6 +1860,21 @@ html {
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
     background-color: transparent;
+}
+
+.view-search .views-field-field-slider-image .field-content article {
+    display: none;
+}
+.view-search .views-field-field-slider-image .field-content article:first-child {
+    display: block;
+}
+
+.view-search .views-field-field-slider-image .field-content article div:nth-child(2) {
+    display: none;
+}
+
+.view-search .views-field-field-project-type .project_floor_plan {
+    margin-left: 10px
 }
 
 /* ========================= Responsiv Screen Style Start ========================= */

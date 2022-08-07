@@ -489,9 +489,9 @@ class ComposerStaticInit9974d351bf3bb548a8955d94d822bdc9
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
-            2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
+            2 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
         ),
         'Consolidation\\SiteProcess\\' => 
         array (
@@ -621,9 +621,6 @@ class ComposerStaticInit9974d351bf3bb548a8955d94d822bdc9
         'Drupal\\Core\\Cache\\DatabaseCacheTagsChecksum' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Cache/DatabaseCacheTagsChecksum.php',
         'Drupal\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/Connection.php',
         'Drupal\\Core\\Database\\Database' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/Database.php',
-        'Drupal\\Core\\Database\\Driver\\mysql\\Connection' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/Driver/mysql/Connection.php',
-        'Drupal\\Core\\Database\\Driver\\pgsql\\Connection' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/Driver/pgsql/Connection.php',
-        'Drupal\\Core\\Database\\Driver\\sqlite\\Connection' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/Driver/sqlite/Connection.php',
         'Drupal\\Core\\Database\\Statement' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/Statement.php',
         'Drupal\\Core\\Database\\StatementInterface' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Database/StatementInterface.php',
         'Drupal\\Core\\DependencyInjection\\Container' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/DependencyInjection/Container.php',
@@ -635,6 +632,7 @@ class ComposerStaticInit9974d351bf3bb548a8955d94d822bdc9
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
+        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',

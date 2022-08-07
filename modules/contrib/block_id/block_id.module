@@ -61,6 +61,8 @@ function block_id_form_block_form_alter(&$form, FormStateInterface $form_state, 
 function W3S_validation(&$form, FormStateInterface $form_state){
   // Block ID field value fatch.
   $inputs = $form_state->getUserInput()['third_party_settings']['block_id']['id'];
+  // get the id of the block being submitted
+  $self = isset($form['id']['#default_value']) ? $form['id']['#default_value'] : null;
   if(!empty($inputs)){
     // Checking id has not no space and special characters.
     if ( preg_match('/[^a-zA-Z_\-0-9]/i', $inputs) ){
@@ -68,6 +70,8 @@ function W3S_validation(&$form, FormStateInterface $form_state){
     }
     // block list those using block id field.
     $block_ids = \Drupal::entityQuery('block')->condition('third_party_settings', '')->execute();
+    // remove the block currently being submitted from the list of existing blocks so the submitted ID isn't checked as an external block ID
+    if ($self) { unset($block_ids[$self]); }
     // Getting ID's already inserted in another block.
     foreach($block_ids as $ids){
       $block = Block::load($ids);

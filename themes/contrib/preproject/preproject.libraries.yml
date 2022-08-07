@@ -4,6 +4,9 @@ framework:
       css/style.css: {}
       css/responsive.css: {}
 
+  js:
+    js/script.js: {}
+
 # Uncomment for LESS source JavaScript files.
 #  js:
 #    bootstrap/js/affix.js: {}

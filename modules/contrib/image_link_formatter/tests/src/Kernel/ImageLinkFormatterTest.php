@@ -20,7 +20,7 @@ class ImageLinkFormatterTest extends ImageFormatterTest {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['file', 'image', 'link', 'image_link_formatter'];
+  protected static $modules = ['file', 'image', 'link', 'image_link_formatter'];
 
   /**
    * The name of the Link field used for testing the formatter.
@@ -32,7 +32,7 @@ class ImageLinkFormatterTest extends ImageFormatterTest {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     // Extend parent's 'setUp' method by adding a link field to the entity type.
     parent::setUp();
 

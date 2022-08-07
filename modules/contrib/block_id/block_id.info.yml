@@ -1,10 +1,12 @@
 name: 'Block ID'
 type: module
+package: Other
 description: 'Adds an additional field to set the ID of a block.'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 dependencies:
   - block
-# Information added by Drupal.org packaging script on 2021-09-17
-version: '2.0.0-beta1'
+
+# Information added by Drupal.org packaging script on 2022-07-22
+version: '2.0.1'
 project: 'block_id'
-datestamp: 1631870253
+datestamp: 1658475771

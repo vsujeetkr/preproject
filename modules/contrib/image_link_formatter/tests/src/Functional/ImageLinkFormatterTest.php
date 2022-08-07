@@ -29,7 +29,7 @@ class ImageLinkFormatterTest extends ImageFieldTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['field_ui', 'image_link_formatter'];
+  protected static $modules = ['field_ui', 'image_link_formatter'];
 
   /**
    * {@inheritdoc}
@@ -67,7 +67,19 @@ class ImageLinkFormatterTest extends ImageFieldTestBase {
 
     // Test the formatter when the link field is empty.
     $output = $this->renderField($node, $image_field_name, $image_field_settings);
-    $this->assertEqual($output, '<img src="' . $file->createFileUrl() . '" width="40" height="20" alt="" />');
+    // For core versions below 9.1.
+    if (floatval(\Drupal::VERSION) < 9.1) {
+      $this->assertEquals($output, '<img src="' . $file->createFileUrl() . '" width="40" height="20" alt="" />');
+    }
+    elseif (floatval(\Drupal::VERSION) < 9.4) {
+      // Moving forward, attribute 'loading' is added by default, see #3173719.
+      $this->assertEquals($output, '<img src="' . $file->createFileUrl() . '" width="40" height="20" alt="" loading="lazy" />');
+    }
+    else {
+      // As of 9.4.0, lazy loading is part of core image formatter's
+      // configuration, changing the position of the attribute, see #3173180.
+      $this->assertEquals($output, '<img loading="lazy" src="' . $file->createFileUrl() . '" width="40" height="20" alt="" />');
+    }
 
     // Add a link to the node and test the output has been updated.
     $node->$link_field_name = [
@@ -79,7 +91,19 @@ class ImageLinkFormatterTest extends ImageFieldTestBase {
 
     // Test the formatter when a link is present.
     $output = $this->renderField($node, $image_field_name, $image_field_settings);
-    $this->assertEqual($output, '<a href="http://example.com"><img src="' . $file->createFileUrl() . '" width="40" height="20" alt="" /></a>');
+    // For core versions below 9.1.
+    if (floatval(\Drupal::VERSION) < 9.1) {
+      $this->assertEquals($output, '<a href="http://example.com"><img src="' . $file->createFileUrl() . '" width="40" height="20" alt="" /></a>');
+    }
+    elseif (floatval(\Drupal::VERSION) < 9.4) {
+      // Moving forward, attribute 'loading' is added by default, see #3173719.
+      $this->assertEquals($output, '<a href="http://example.com"><img src="' . $file->createFileUrl() . '" width="40" height="20" alt="" loading="lazy" /></a>');
+    }
+    else {
+      // As of 9.4.0, lazy loading is part of core image formatter's
+      // configuration, changing the position of the attribute, see #3173180.
+      $this->assertEquals($output, '<a href="http://example.com"><img loading="lazy" src="' . $file->createFileUrl() . '" width="40" height="20" alt="" /></a>');
+    }
   }
 
   /**
