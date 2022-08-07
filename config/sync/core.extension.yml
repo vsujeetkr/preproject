@@ -17,6 +17,7 @@ module:
   block_id: 0
   blockgroup: 0
   breakpoint: 0
+  checklistapi: 0
   ckeditor: 0
   color: 0
   colorbox: 0
@@ -93,6 +94,9 @@ module:
   quicktabs: 0
   rdf: 0
   responsive_image: 0
+  schema_metatag: 0
+  schema_web_page: 0
+  schema_web_site: 0
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0

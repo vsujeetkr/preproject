@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.developers.field_logo
+    - field.field.taxonomy_term.developers.field_meta_tags
     - taxonomy.vocabulary.developers
   module:
     - image
@@ -32,4 +33,5 @@ content:
     weight: 1
     region: content
 hidden:
+  field_meta_tags: true
   search_api_excerpt: true

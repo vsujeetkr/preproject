@@ -1,0 +1,24 @@
+uuid: 7248f2df-e212-4e22-9e4c-31d435c9aaa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cities.field_meta_tags
+    - taxonomy.vocabulary.cities
+  module:
+    - text
+id: taxonomy_term.cities.default
+targetEntityType: taxonomy_term
+bundle: cities
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_meta_tags: true
+  search_api_excerpt: true

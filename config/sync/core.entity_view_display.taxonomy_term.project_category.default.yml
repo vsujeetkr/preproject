@@ -1,0 +1,24 @@
+uuid: 567bbaa8-5d13-4487-8fa1-c2a2d2e8eed2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.project_category.field_meta_tags
+    - taxonomy.vocabulary.project_category
+  module:
+    - text
+id: taxonomy_term.project_category.default
+targetEntityType: taxonomy_term
+bundle: project_category
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_meta_tags: true
+  search_api_excerpt: true

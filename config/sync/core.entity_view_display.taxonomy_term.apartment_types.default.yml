@@ -1,0 +1,24 @@
+uuid: 5791bce2-12c9-4975-9811-6853f502f27b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.apartment_types.field_meta_tags
+    - taxonomy.vocabulary.apartment_types
+  module:
+    - text
+id: taxonomy_term.apartment_types.default
+targetEntityType: taxonomy_term
+bundle: apartment_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_meta_tags: true
+  search_api_excerpt: true
