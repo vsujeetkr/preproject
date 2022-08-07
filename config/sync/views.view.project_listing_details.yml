@@ -1023,84 +1023,11 @@ display:
           separator: ', '
           field_api_classes: false
       style:
-        type: table
+        type: default
         options:
-          grouping:
-            -
-              field: field_builder_details
-              rendered: true
-              rendered_strip: false
+          grouping: {  }
           row_class: ''
           default_row_class: true
-          columns:
-            field_slider_image: field_slider_image
-            field_project_location: field_project_location
-            field_project_city: field_project_city
-            title: title
-            field_floor_plans: field_floor_plans
-            field_project_type: field_project_type
-            field_project_city_1: field_project_city_1
-            field_builder_details: field_builder_details
-          default: '-1'
-          info:
-            field_slider_image:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_location:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_city:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_floor_plans:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_type:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_city_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_builder_details:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
       row:
         type: fields
         options: {  }
@@ -1704,7 +1631,7 @@ display:
         groups:
           1: AND
       style:
-        type: table
+        type: default
         options:
           grouping:
             -
@@ -1713,67 +1640,6 @@ display:
               rendered_strip: false
           row_class: ''
           default_row_class: true
-          columns:
-            field_slider_image: field_slider_image
-            field_project_location: field_project_location
-            field_project_city: field_project_city
-            title: title
-            field_floor_plans: field_floor_plans
-            field_project_type: field_project_type
-            field_project_city_1: field_project_city_1
-          default: '-1'
-          info:
-            field_slider_image:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_location:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_city:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_floor_plans:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_type:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_project_city_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
       row:
         type: fields
         options: {  }

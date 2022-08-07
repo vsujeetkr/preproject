@@ -710,7 +710,7 @@ display:
           autoplay: 1
           autoplayHoverPause: 1
           dots: 0
-          dimensionMobile: '400'
+          dimensionMobile: ''
           itemsMobile: '1'
           dimensionDesktop: '1200'
           itemsDesktop: '3'
@@ -840,7 +840,7 @@ display:
           autoplay: 1
           autoplayHoverPause: 1
           dots: 0
-          dimensionMobile: '400'
+          dimensionMobile: ''
           itemsMobile: '1'
           dimensionDesktop: '1200'
           itemsDesktop: '3'
@@ -969,7 +969,7 @@ display:
           autoplay: 1
           autoplayHoverPause: 1
           dots: 0
-          dimensionMobile: '400'
+          dimensionMobile: ''
           itemsMobile: '1'
           dimensionDesktop: '1200'
           itemsDesktop: '3'

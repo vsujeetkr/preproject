@@ -54,11 +54,7 @@ settings:
           name: 'Font Awesome'
           items:
             - DrupalFontAwesome
-  plugins:
-    stylescombo:
-      styles: ''
-    language:
-      language_list: un
+  plugins: {  }
 image_upload:
   status: true
   scheme: public

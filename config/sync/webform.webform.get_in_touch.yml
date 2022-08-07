@@ -41,6 +41,7 @@ elements: |-
     '#title_display': none
     '#required': true
     '#type__access': false
+    '#phone__placeholder': 'Phone Number'
     '#ext__access': false
     '#phone__international_initial_country': IN
   message:

@@ -105,6 +105,8 @@ display:
           settings:
             image_link: content
             image_style: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -436,6 +438,8 @@ display:
           settings:
             image_link: content
             image_style: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -526,6 +530,8 @@ display:
           settings:
             image_link: ''
             image_style: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: false
@@ -1093,16 +1099,12 @@ display:
         groups:
           1: AND
       style:
-        type: grid
+        type: blazy
         options:
-          grouping: {  }
-          columns: 4
-          automatic_width: true
-          alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          style: grid
+          grid: '4'
+          grid_medium: '2'
+          grid_small: '1'
       row:
         type: fields
         options: {  }
@@ -1638,6 +1640,8 @@ display:
           settings:
             image_link: ''
             image_style: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: false

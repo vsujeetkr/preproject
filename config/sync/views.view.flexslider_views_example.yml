@@ -127,6 +127,8 @@ display:
           settings:
             image_style: flexslider_full
             image_link: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: false
@@ -307,6 +309,8 @@ display:
           settings:
             image_style: flexslider_full
             image_link: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: false
@@ -483,6 +487,8 @@ display:
           settings:
             image_style: flexslider_full
             image_link: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: false
@@ -772,6 +778,8 @@ display:
           settings:
             image_style: flexslider_full
             image_link: ''
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: false
