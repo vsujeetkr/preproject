@@ -16,7 +16,7 @@ third_party_settings:
 id: appointment
 theme: preproject
 region: footer
-weight: -22
+weight: -25
 provider: null
 plugin: 'block_content:fe6fb9e7-abe9-4b97-8b42-f73e94896723'
 settings:

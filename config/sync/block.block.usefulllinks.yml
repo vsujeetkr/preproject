@@ -16,7 +16,7 @@ third_party_settings:
 id: usefulllinks
 theme: preproject
 region: footer
-weight: -23
+weight: -26
 provider: null
 plugin: 'system_menu_block:use-full-links'
 settings:

@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.projects.field_meta_keywords
     - field.field.node.projects.field_meta_tags
     - field.field.node.projects.field_meta_title
+    - field.field.node.projects.field_mobile_shortcuts_options
     - field.field.node.projects.field_news
     - field.field.node.projects.field_news_options
     - field.field.node.projects.field_other_data
@@ -147,7 +148,7 @@ third_party_settings:
       label: Gallery
       region: content
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: details
       format_settings:
         classes: ''
@@ -163,7 +164,7 @@ third_party_settings:
       label: Others
       region: content
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: details
       format_settings:
         classes: ''
@@ -179,7 +180,7 @@ third_party_settings:
       label: Videos
       region: content
       parent_name: ''
-      weight: 12
+      weight: 13
       format_type: details
       format_settings:
         classes: ''
@@ -195,7 +196,7 @@ third_party_settings:
       label: 'Builder Details'
       region: content
       parent_name: ''
-      weight: 14
+      weight: 15
       format_type: details
       format_settings:
         classes: ''
@@ -212,7 +213,7 @@ third_party_settings:
       label: Map
       region: content
       parent_name: ''
-      weight: 15
+      weight: 16
       format_type: details
       format_settings:
         classes: ''
@@ -230,7 +231,7 @@ third_party_settings:
       label: 'SEO Tags'
       region: content
       parent_name: ''
-      weight: 16
+      weight: 18
       format_type: details
       format_settings:
         classes: ''
@@ -245,7 +246,7 @@ third_party_settings:
       label: 'Page Visibility Settings'
       region: content
       parent_name: ''
-      weight: 17
+      weight: 19
       format_type: details
       format_settings:
         classes: ''
@@ -260,7 +261,7 @@ third_party_settings:
       label: 'Project Category Settings'
       region: content
       parent_name: ''
-      weight: 18
+      weight: 20
       format_type: details
       format_settings:
         classes: ''
@@ -292,13 +293,28 @@ third_party_settings:
       label: News
       region: content
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         open: true
+        description: ''
+        required_fields: true
+    group_mobile_shortcuts:
+      children:
+        - field_mobile_shortcuts_options
+        - field_mobile_shortcuts
+      label: 'Mobile Shortcuts'
+      region: content
+      parent_name: ''
+      weight: 17
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
         description: ''
         required_fields: true
 id: node.projects.default
@@ -643,7 +659,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 19
+    weight: 21
     region: content
     settings:
       sidebar: true
@@ -656,6 +672,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_mobile_shortcuts_options:
+    type: options_buttons
+    weight: 23
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_news:
     type: media_library_widget
@@ -852,6 +874,11 @@ content:
   path:
     type: path
     weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

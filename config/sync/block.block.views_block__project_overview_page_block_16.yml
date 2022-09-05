@@ -1,29 +1,29 @@
-uuid: 3beddd93-1332-49a3-ac05-68a910a47319
+uuid: f89587d8-93a1-4422-9b69-3a8fe2c4a604
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:a4c9c94e-e91b-4605-b469-5897d78bd636'
+  config:
+    - views.view.project_overview_page
   module:
-    - block_content
     - context
     - node
+    - views
   theme:
     - preproject
-id: projectfooter
+id: views_block__project_overview_page_block_16
 theme: preproject
-region: footer
-weight: -24
+region: mobile_shortcuts
+weight: -27
 provider: null
-plugin: 'block_content:a4c9c94e-e91b-4605-b469-5897d78bd636'
+plugin: 'views_block:project_overview_page-block_16'
 settings:
-  id: 'block_content:a4c9c94e-e91b-4605-b469-5897d78bd636'
-  label: 'Project Footer'
+  id: 'views_block:project_overview_page-block_16'
+  label: ''
   label_display: '0'
-  provider: block_content
-  status: true
-  info: ''
-  view_mode: full
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
 visibility:
   context_all:
     id: context_all

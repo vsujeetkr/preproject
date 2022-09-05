@@ -16,7 +16,7 @@ third_party_settings:
 id: footertwo
 theme: preproject
 region: footer
-weight: -20
+weight: -23
 provider: null
 plugin: 'block_group:footer_two'
 settings:

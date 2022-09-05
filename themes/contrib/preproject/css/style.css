@@ -1888,3 +1888,58 @@ html {
 }
 
 /* ========================= Responsiv Screen Style End ========================= */
+
+.mobile_shortcuts {
+    float: left;
+    width: 100%;
+    display: none;
+}
+
+.mobile_shortcuts .view-display-id-block_16 .contextual {
+    position: unset;
+}
+
+.mobile_shortcuts .view-display-id-block_16 .mobile-btns .whatsapp-btn {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 0px 0px 0px;
+}
+
+.mobile_shortcuts .view-display-id-block_16 .mobile-btns .call-btn {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mobile_shortcuts .view-display-id-block_16 .mobile-btns .call-btn i.fa.fa-angle-double-left {
+    margin-top: 14px;
+}
+
+.mobile_shortcuts .view-display-id-block_16 .mobile-btns .whatsapp-btn i.fa-whatsapp {
+    font-size: 28px;
+    background: green;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.mobile_shortcuts .view-display-id-block_16 .mobile-btns .call-btn i.fa-phone {
+    font-size: 10px;
+    border-radius: 50%;
+    border: 2px solid;
+    padding: 6px 5px 5px 6px;
+    background: green;
+    margin-right: 10px
+}
+
+.mobile_shortcuts .view-display-id-block_16 {
+    padding: 10px;
+    background: #5C6D7F;
+}

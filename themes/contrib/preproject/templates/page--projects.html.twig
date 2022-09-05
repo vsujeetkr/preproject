@@ -177,3 +177,11 @@
     </footer>
   {% endblock %}
 {% endif %}
+
+{% if page.mobile_shortcuts %}
+  {% block mobile_shortcuts %}
+    <div class="mobile_shortcuts">
+      {{ page.mobile_shortcuts }}
+    </div>
+  {% endblock %}
+{% endif %}

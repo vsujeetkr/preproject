@@ -3,19 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - media.type.image
+    - media.type.video
     - node.type.article
+    - node.type.builder_details
     - node.type.page
+    - node.type.projects
+    - taxonomy.vocabulary.apartment_types
+    - taxonomy.vocabulary.cities
+    - taxonomy.vocabulary.developers
+    - taxonomy.vocabulary.project_category
     - taxonomy.vocabulary.tags
   module:
     - comment
     - contextual
-    - file
+    - entity_clone
+    - media
     - node
     - path
-    - system
     - taxonomy
     - toolbar
-    - tour
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
@@ -23,26 +30,37 @@ label: 'Content editor'
 weight: 2
 is_admin: false
 permissions:
-  - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
-  - 'access files overview'
   - 'access toolbar'
-  - 'access tour'
   - 'administer url aliases'
-  - 'create article content'
-  - 'create page content'
+  - 'clone media entity'
+  - 'clone menu entity'
+  - 'clone node entity'
+  - 'clone taxonomy_term entity'
+  - 'create builder_details content'
+  - 'create image media'
+  - 'create projects content'
+  - 'create terms in apartment_types'
+  - 'create terms in cities'
+  - 'create terms in developers'
+  - 'create terms in project_category'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'create video media'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own page content'
   - 'delete page revisions'
-  - 'edit own article content'
+  - 'edit any projects content'
+  - 'edit own builder_details content'
   - 'edit own comments'
-  - 'edit own page content'
+  - 'edit own projects content'
+  - 'edit terms in apartment_types'
+  - 'edit terms in cities'
+  - 'edit terms in developers'
+  - 'edit terms in project_category'
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'view all revisions'
   - 'view own unpublished content'
-  - 'view the administration theme'

@@ -376,6 +376,12 @@
 	    margin-top: 12px;
 	    font-weight: bold;
 	}
+	.mobile_shortcuts {
+	    display: block;
+	}
+	.page-node-type-projects #block-views-block-project-overview-page-block-3 .views-field-field-contact-number {
+	    padding: 14px 14px 14px 14px;
+	}
 }
 
 @media only screen and (max-width: 576px) {
