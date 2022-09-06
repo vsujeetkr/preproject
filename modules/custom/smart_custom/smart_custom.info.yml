@@ -1,0 +1,7 @@
+name: Smart Prop Custom
+type: module
+description: 'All the custom work handled here.'
+package: Custom
+core_version_requirement: ^8 || ^9
+core: 8.x
+version: 8.x

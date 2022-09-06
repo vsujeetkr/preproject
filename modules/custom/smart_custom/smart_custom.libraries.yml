@@ -1,0 +1,13 @@
+smart_custom.forms:
+   version: VERSION
+   css:
+     theme:
+       css/smart_custom.css: {}
+
+smart_custom.enable:
+  version: VERSION
+  js:
+    js/smart_custom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
