@@ -34,7 +34,7 @@ function smart_custom_page_attachments(array &$page) {
         '#value' => \Drupal\Core\Render\Markup::create($javascript_header),
         '#weight' => 0,
       ],
-      // A key, to make it possible to recognize this HTML <HEAD> element when altering.
+      // A key, to make it possible to recognize this HTML <HEAD> element when altering Testing.
       'key'
     ];
   }
