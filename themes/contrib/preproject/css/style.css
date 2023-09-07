@@ -8,7 +8,8 @@
     src: url(../fonts/OpenSans-Light-webfont.eot);
     src: url('../fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'), url(../fonts/OpenSans-Light-webfont.woff) format('woff'), url(../fonts/OpenSans-Light-webfont.ttf) format('truetype');
     font-weight: 400;
-    font-style: normal
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -16,7 +17,8 @@
     src: url(../fonts/Roboto-Light-webfont.eot);
     src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'), url(../fonts/Roboto-Light-webfont.woff) format('woff'), url(../fonts/Roboto-Light-webfont.ttf) format('truetype');
     font-weight: 400;
-    font-style: normal
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -24,7 +26,17 @@
     src: url(../fonts/Roboto-Regular-webfont.eot);
     src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url(../fonts/Roboto-Regular-webfont.woff) format('woff'), url(../fonts/Roboto-Regular-webfont.ttf) format('truetype');
     font-weight: 400;
-    font-style: normal
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'glyphiconsregular';
+    src: url(../fonts/glyphicons-halflings-regular.eot);
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 html {
@@ -52,7 +64,7 @@ html {
 
 .navbar-default {
     background-color: #fff;
-    border-color: ##2e3746;
+    border-color: #2e3746;
 }
 
 .navbar .navbar-header {
@@ -282,7 +294,7 @@ html {
 
 #block-callusnow .call-now a {
     padding: 21px 10px;
-    background: #ff7676;
+    background-color: #ff7676;
     width: 178px;
     border-radius: 27px;
     text-decoration: none;
@@ -491,6 +503,10 @@ html {
     margin-bottom: 15px;
 }
 
+.projects-carousal-dark .views-field-field-slider-image img {
+    height: 180px;
+}
+
 .projects-carousal-dark .owl-stage-outer .owl-item {
     background: #fff;
 }
@@ -696,7 +712,6 @@ html {
 }
 
 .block-block-groupfooter-one .logo img {
-    width: 75%;
     border-radius: 30px;    
 }
 
@@ -733,7 +748,7 @@ html {
 }
 
 #block-appointment .field a {
-    padding: 16px 80px;
+    padding: 16px 100px;
     background: #ff7676;
     color: #fff;
     width: 100%;
@@ -902,6 +917,10 @@ html {
     color: #12171f;
 }
 
+#block-exposedformsearchpage-1 form {
+    text-align: center;
+}
+
 .project-listing .views-exposed-form .form-item {
     font-size: 16px;
     margin-right: 2px;
@@ -977,11 +996,12 @@ html {
 .page-node-type-projects .menu--main,
 .page-node-type-projects .page-header,
 .page-node-type-projects #block-callusnow,
-.page-node-type-projects .footer #block-footerone,
-.page-node-type-projects .footer #block-preproject-footer,
-.page-node-type-projects .footer #block-usefulllinks,
-.page-node-type-projects .footer #block-appointment {
+.page-node-type-projects .footer #block-projectfooter {
     display: none;
+}
+
+.page-node-type-projects .footer .logo {
+    display: block;
 }
 
 .page-node-type-projects #block-views-block-project-overview-page-block-1 {
@@ -1657,7 +1677,6 @@ html {
 }
 
 .page-node-type-projects #block-webform-2 #edit-mobile-number-phone {
-    margin-bottom: 16px;
     border-radius: unset;
     height: 50px;
 }
@@ -1721,9 +1740,10 @@ html {
 .page-node-type-projects #block-webform-3,
 .page-node-type-projects #block-webform-4 {
     padding: 30px 30px;
-    background: url(../images/page_11.jpg) no-repeat center center;
+    /* background: url(../images/page_11.jpg) no-repeat center center; */
     background-size: cover;
     background-attachment: fixed;
+    background-color: rgba(0,0,0,.55);
 }
 
 
@@ -1799,12 +1819,24 @@ html {
 
 .page-node-type-projects #block-webform-3 .webform-submission-project-popup-form .form-item-mobile-number-phone,
 .page-node-type-projects #block-webform-4 .webform-submission-project-popup-click-form .form-item-mobile-number-phone {
+    margin-bottom: 0px;
+}
+
+.page-node-type-projects #block-webform-3 .webform-submission-project-popup-form .description,
+.page-node-type-projects #block-webform-4 .webform-submission-project-popup-click-form .description {
+    color: #fff;
     margin-bottom: 15px;
 }
 
 .page-node-type-projects #block-webform-3 .webform-submission-project-popup-form .form-item-mobile-number-phone .iti--allow-dropdown,
 .page-node-type-projects #block-webform-4 .webform-submission-project-popup-click-form .form-item-mobile-number-phone .iti--allow-dropdown {
     width: 100%;
+}
+
+.page-node-type-projects #block-webform-3 .webform-submission-project-popup-form .form-item-mobile-number-phone .form-item--error-message,
+.page-node-type-projects #block-webform-4 .webform-submission-project-popup-click-form .form-item-mobile-number-phone .form-item--error-message {
+    color: #fff;
+    font-weight: normal;
 }
 
 .page-node-type-projects #block-webform-3 .webform-submission-project-popup-form #edit-actions-submit,
@@ -1821,6 +1853,44 @@ html {
 .page-node-type-projects #block-webform-3 .webform-submission-project-popup-form #edit-actions-reset,
 .page-node-type-projects #block-webform-4 .webform-submission-project-popup-click-form #edit-actions-reset {
     float: right;
+}
+
+.page-node-type-projects #block-webform-2 .webform-submission-get-in-touch-form .form-item-mobile-number-phone,
+.page-node-type-page #block-webform .webform-submission-contact-form .form-item-mobile-number-phone {
+    margin-bottom: 0px!important;
+}
+
+.page-node-type-page #block-webform .webform-submission-contact-form .webform-telephone--wrapper {
+    margin-bottom: 15px;
+}
+
+.page-node-type-projects #block-webform-2 .webform-submission-get-in-touch-form .webform-telephone--wrapper .description {
+    float: left;
+}
+
+#block-webform .webform-submission-contact-form .form-item-phone-number .iti {
+    width: 100%;
+}
+
+.page-node-type-projects #block-webform-3 .webform-submission-project-popup-form .form-item-phone-number .iti {
+    width: 100%;
+}
+
+.page-node-type-projects #block-webform-3 .webform-submission-project-popup-form .form-item-phone-number .form-item--error-message {
+    color: #fff;
+}
+
+.page-node-type-projects #block-webform-2 .webform-submission-get-in-touch-form .form-item-phone-number .iti {
+    width: 100%;
+}
+
+.page-node-type-projects #block-webform-2 .webform-submission-get-in-touch-form .form-item-phone-number .iti input {
+    height: 50px;
+}
+
+.page-node-type-projects #block-webform-2 .webform-submission-get-in-touch-form .form-item-phone-number .form-item--error-message {
+    float: left;
+    margin-bottom: 10px;
 }
 
 #block-webform .webform-submission-contact-form .form-item input {
@@ -1887,7 +1957,13 @@ html {
     display: none;
 }
 
+.iti-mobile .iti--container {
+    z-index: 999999; 
+}
+
 /* ========================= Responsiv Screen Style End ========================= */
+
+/* ========================= Mobile Sortcuts Style Start ========================= */
 
 .mobile_shortcuts {
     float: left;
@@ -1943,3 +2019,14 @@ html {
     padding: 10px;
     background: #5C6D7F;
 }
+
+/* ========================= Mobile Sortcuts Style End ========================= */
+
+
+/* ========================= Extra Style Start ========================= */
+.page-node-65 #block-views-block-project-overview-page-block-1 .views-field-field-logo-icon img {
+    width: 65px;
+}
+
+
+/* ========================= Extra Style End ========================= */

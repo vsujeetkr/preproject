@@ -382,6 +382,9 @@
 	.page-node-type-projects #block-views-block-project-overview-page-block-3 .views-field-field-contact-number {
 	    padding: 14px 14px 14px 14px;
 	}
+	.page-node-65 #block-views-block-project-overview-page-block-1 .views-field-field-logo-icon img {
+        width: 65px;
+    }
 }
 
 @media only screen and (max-width: 576px) {
