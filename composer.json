@@ -60,6 +60,7 @@
         "drupal/pathauto": "^1.9",
         "drupal/pcr": "^2.0",
         "drupal/quicktabs": "^3.0@alpha",
+        "drupal/robotstxt": "^1.5",
         "drupal/schema_metatag": "^3.0",
         "drupal/search_api": "^1.23",
         "drupal/seo_checklist": "^5.1",
