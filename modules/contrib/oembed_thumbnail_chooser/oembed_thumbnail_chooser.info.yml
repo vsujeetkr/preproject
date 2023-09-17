@@ -1,0 +1,11 @@
+name: oEmbed Thumbnail Chooser
+type: module
+description: 'Attempts to retrieve the highest resolution of a thumbnail returned from oEmbed sources.'
+core_version_requirement: ^8.9 || ^9 || ^10
+package: Media
+dependencies:
+  - drupal:media
+# Information added by Drupal.org packaging script on 2022-08-18
+version: '1.0.0-beta1'
+project: 'oembed_thumbnail_chooser'
+datestamp: 1660853261

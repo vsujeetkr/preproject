@@ -3,9 +3,12 @@
 namespace Drupal\media_thumbnails_video\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\file\Plugin\Field\FieldFormatter\FileVideoFormatter;
 use Drupal\media\MediaInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'file_video' formatter.
@@ -20,6 +23,28 @@ use Drupal\media\MediaInterface;
  * )
  */
 class VideoExtendedFormatter extends FileVideoFormatter {
+
+  /**
+   * FIle url generator.
+   *
+   * @var \Drupal\Core\File\FileUrlGeneratorInterface
+   */
+  protected $fileUrlGenerator;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, FileUrlGeneratorInterface $fileUrlGenerator) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
+    $this->fileUrlGenerator = $fileUrlGenerator;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static($plugin_id, $plugin_definition, $configuration['field_definition'], $configuration['settings'], $configuration['label'], $configuration['view_mode'], $configuration['third_party_settings'], $container->get('file_url_generator'));
+  }
 
   /**
    * {@inheritdoc}
@@ -55,8 +80,7 @@ class VideoExtendedFormatter extends FileVideoFormatter {
     if ($entity instanceof MediaInterface) {
       $thumbnail = $entity->get('thumbnail')->entity;
       if ($thumbnail) {
-        $url = file_create_url($thumbnail->getFileUri());
-        return $url;
+        return $this->fileUrlGenerator->generateAbsoluteString($thumbnail->getFileUri());
       }
     }
 

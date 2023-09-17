@@ -6,15 +6,14 @@ use Drupal\Component\Plugin\Exception\PluginException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\TypedData\Exception\MissingDataException;
 use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
 use Drupal\media\MediaInterface;
 use Drupal\media_thumbnails\Annotation\MediaThumbnail;
-use Exception;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Traversable;
 
 /**
  * Provides the Media thumbnail plugin manager.
@@ -32,6 +31,13 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
   protected $plugins;
 
   /**
+   * The config factory service.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
    * Constructs a new MediaThumbnailManager object.
    *
    * @param \Traversable $namespaces
@@ -41,8 +47,10 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
    *   Cache backend instance to use.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler to invoke the alter hook with.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory service.
    */
-  public function __construct(Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
+  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory) {
     parent::__construct(
       'Plugin/MediaThumbnail',
       $namespaces,
@@ -50,6 +58,7 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
       MediaThumbnailInterface::class,
       MediaThumbnail::class
     );
+    $this->configFactory = $config_factory;
 
     $this->alterInfo('media_thumbnails_media_thumbnail_info');
     $this->setCacheBackend($cache_backend, 'media_thumbnails_media_thumbnail_plugins');
@@ -138,8 +147,14 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
     }
 
     // Don't delete generic default thumbnails.
-    if ($thumbnail->getCreatedTime() < $media->getCreatedTime()) {
-      return;
+    $generic_thumbnails_dir = $this->configFactory->get('media.settings')
+      ->get('icon_base_uri');
+    if ($thumbnail) {
+      $thumbnail_file_uri = $thumbnail->getFileUri();
+      $has_generic_thumbnail = strpos($thumbnail_file_uri, $generic_thumbnails_dir) !== FALSE;
+      if ($has_generic_thumbnail) {
+        return;
+      }
     }
 
     // Delete the thumbnail file.
@@ -164,7 +179,7 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
       return $this->getFileObject($media, $media->getSource()
         ->getConfiguration()['source_field']);
     }
-    catch (Exception $e) {
+    catch (\Exception $e) {
       return NULL;
     }
   }
@@ -182,7 +197,7 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
     try {
       return $this->getFileObject($media, 'thumbnail');
     }
-    catch (Exception $e) {
+    catch (\Exception $e) {
       return NULL;
     }
   }
@@ -203,7 +218,7 @@ class MediaThumbnailManager extends DefaultPluginManager implements ContainerAwa
     try {
       $fid = $media->get($field_name)->first()->getValue()['target_id'];
     }
-    catch (Exception $e) {
+    catch (\Exception $e) {
       return NULL;
     }
     // Return the corresponding file object, if any.

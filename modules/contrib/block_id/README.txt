@@ -1,18 +1,48 @@
 CONTENTS OF THIS FILE
 ---------------------
-Adds an additional field to set the ID of a block.
+
+ * Introduction
+ * Requirements
+ * Installation
+ * Configuration
+ * Maintainers
+
 
 INTRODUCTION
 ------------
-Block ID allows users new add id and using for css design.
+
+Block Id allows users to add ID to any block through the block's
+configuration interface.
 
 
 REQUIREMENTS
 ------------
-https://drupal.org/project/block
+
+The Menu Block just requires the Block project:
+
+ * Block (https://drupal.org/project/block)
+
+
+INSTALLATION
+------------
+
+Install as you would normally install a contributed Drupal module. See:
+https://drupal.org/documentation/install/modules-themes/modules-8 for further
+information.
 
 
 CONFIGURATION
 -------------
-Administration » Structure » Block
-Block configration - Block ID
+
+ * Visit the block configuration page at Administration » Structure » Block
+   Layout and click on the Configure link for a block.
+
+ * Enter the ID in the fields provided and save the block.
+
+
+MAINTAINERS
+-----------
+
+Current maintainers:
+ * Deepak Bhati (heni_deepak) - https://www.drupal.org/u/heni_deepak
+ * Radheshyam Kumawat (radheymkumar) - https://www.drupal.org/u/radheymkumar

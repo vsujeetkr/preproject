@@ -249,49 +249,49 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
 
     $image_style_effect = $this->getSetting('imagefield_slideshow_style_effects');
     if (isset($image_style_effect)) {
-      $summary[] .= $this->t("Effect: @image_style_effect", [
+      $summary[] = $this->t("Effect: @image_style_effect", [
         "@image_style_effect" => $image_style_effect,
       ]);
     }
 
     $image_style_pause = $this->getSetting('imagefield_slideshow_style_pause');
     if (!empty($image_style_pause)) {
-      $summary[] .= $this->t("Pause: @image_style_pause", [
+      $summary[] = $this->t("Pause: @image_style_pause", [
         "@image_style_pause" => $image_style_pause,
       ]);
     }
 
     $image_prev_next = $this->getSetting('imagefield_slideshow_prev_next');
     if ($image_prev_next) {
-      $summary[] .= $this->t("Prev & Next: @image_prev_next", [
+      $summary[] = $this->t("Prev & Next: @image_prev_next", [
         "@image_prev_next" => $image_prev_next,
       ]);
     }
 
     $image_transition_speed = $this->getSetting('imagefield_slideshow_transition_speed');
     if ($image_transition_speed) {
-      $summary[] .= $this->t("Transition Speed: @image_transition_speed fx", [
+      $summary[] = $this->t("Transition Speed: @image_transition_speed fx", [
         "@image_transition_speed" => $image_transition_speed,
       ]);
     }
 
     $image_slideshow_timeout = $this->getSetting('imagefield_slideshow_timeout');
     if ($image_slideshow_timeout) {
-      $summary[] .= $this->t("Timeout: @image_slideshow_timeout", [
+      $summary[] = $this->t("Timeout: @image_slideshow_timeout", [
         "@image_slideshow_timeout" => $image_slideshow_timeout,
       ]);
     }
 
     $image_pager = $this->getSetting('imagefield_slideshow_pager');
     if ($image_pager) {
-      $summary[] .= $this->t("Pager: @image_pager", [
+      $summary[] = $this->t("Pager: @image_pager", [
         "@image_pager" => $image_pager,
       ]);
     }
 
     $link_image_to = $this->getSetting('imagefield_slideshow_link_image_to');
     if ($link_image_to) {
-      $summary[] .= $this->t("Link Image to: @link_image_to", [
+      $summary[] = $this->t("Link Image to: @link_image_to", [
         "@link_image_to" => $link_image_to,
       ]);
     }
@@ -321,6 +321,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
     }
 
     $image_uri_values = [];
+    /** @var \Drupal\file\FileInterface $image */
     foreach ($images as $image) {
       $image_uri = $image->getFileUri();
       // Get image style URL.
@@ -340,7 +341,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
     foreach (['title', 'alt'] as $element_name) {
       $field_name = $this->fieldDefinition->getName();
       if (array_key_exists($field_name, $file)) {
-        foreach($file[$field_name] as $key => $value) {
+        foreach ($file[$field_name] as $key => $value) {
           $image_uri_values[$value['target_id']]['alt'] = $value['alt'];
           $image_uri_values[$value['target_id']]['title'] = $value['title'];
         }
@@ -361,7 +362,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       $content_url = '/node/' . $file['nid'][0]['value'];
       $link_image_to['path'] = \Drupal::service('path_alias.manager')->getAliasByPath($content_url);
     }
-    else if ($imagefield_slideshow_link_image_to == '') {
+    elseif ($imagefield_slideshow_link_image_to == '') {
       $link_image_to = FALSE;
     }
 

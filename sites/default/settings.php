@@ -781,3 +781,16 @@ $databases['default']['default'] = array (
 );
 
 $settings['config_sync_directory'] = 'config/sync';
+
+// Automatically generated include for settings managed by ddev.
+$ddev_settings = dirname(__FILE__) . '/settings.ddev.php';
+if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
+  require $ddev_settings;
+}
+
+// $settings['trusted_host_patterns'] = array(
+//   '^preproject\.ddev\.site$',
+//   '^.+\.preproject\.ddev\.site$',
+// );
+
+ $settings['http_client_config']['force_ip_resolve'] = 'v4';

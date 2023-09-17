@@ -72,7 +72,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies the main form elements.
    */
-  public function buildSettingsForm(array &$form, $definition = []): void {
+  public function buildSettingsForm(array &$form, array $definition): void {
     $definition['caches']           = $definition['caches'] ?? TRUE;
     $definition['namespace']        = 'slick';
     $definition['optionsets']       = $definition['optionsets'] ?? $this->getOptionsetsByGroupOptions('main');
@@ -118,7 +118,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies the opening form elements.
    */
-  public function openingForm(array &$form, &$definition = []): void {
+  public function openingForm(array &$form, array &$definition): void {
     $path         = SlickDefault::getPath('module', 'slick');
     $is_slick_ui  = $this->manager()->getModuleHandler()->moduleExists('slick_ui');
     $is_help      = $this->manager()->getModuleHandler()->moduleExists('help');
@@ -242,12 +242,10 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies the image formatter form elements.
    */
-  public function mediaSwitchForm(array &$form, $definition = []): void {
+  public function mediaSwitchForm(array &$form, array $definition): void {
     $this->blazyAdmin->mediaSwitchForm($form, $definition);
 
     if (isset($form['media_switch'])) {
-      $form['media_switch']['#description'] = $this->t('Depends on the enabled supported modules, or has known integration with Slick.<ol><li>Link to content: for aggregated small slicks.</li><li>Image to iframe: audio/video is hidden below image until toggled, otherwise iframe is always displayed, and draggable fails. Aspect ratio applies.</li><li>Colorbox.</li><li>Photobox. Be sure to select "Thumbnail style" for the overlay thumbnails.</li><li>Intense: image to fullscreen intense image.</li>');
-
       if (!empty($definition['multimedia']) && isset($definition['fieldable_form'])) {
         $form['media_switch']['#description'] .= ' ' . $this->t('<li>Image rendered by its formatter: image-related settings here will be ignored: breakpoints, image style, CSS background, aspect ratio, lazyload, etc. Only choose if needing a special image formatter such as Image Link Formatter.</li>');
       }
@@ -263,7 +261,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies the image formatter form elements.
    */
-  public function imageStyleForm(array &$form, $definition = []): void {
+  public function imageStyleForm(array &$form, array $definition): void {
     $definition['thumbnail_style'] = $definition['thumbnail_style'] ?? TRUE;
     $definition['ratios'] = $definition['ratios'] ?? TRUE;
 
@@ -294,7 +292,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies re-usable fieldable formatter form elements.
    */
-  public function fieldableForm(array &$form, $definition = []): void {
+  public function fieldableForm(array &$form, array $definition): void {
     $this->blazyAdmin->fieldableForm($form, $definition);
 
     if (isset($form['thumbnail'])) {
@@ -310,7 +308,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies re-usable grid elements across Slick field formatter and Views.
    */
-  public function gridForm(array &$form, $definition = []): void {
+  public function gridForm(array &$form, array $definition): void {
     if (!isset($form['grid'])) {
       $this->blazyAdmin->gridForm($form, $definition);
     }
@@ -325,7 +323,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies the closing ending form elements.
    */
-  public function closingForm(array &$form, $definition = []): void {
+  public function closingForm(array &$form, array $definition): void {
     if (empty($definition['_views']) && !empty($definition['field_name'])) {
       $form['use_theme_field'] = [
         '#title'       => $this->t('Use field template'),
@@ -437,7 +435,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Return the field formatter settings summary.
    */
-  public function getSettingsSummary($definition = []): array {
+  public function getSettingsSummary(array $definition = []): array {
     return $this->blazyAdmin->getSettingsSummary($definition);
   }
 
@@ -451,7 +449,7 @@ class SlickAdmin implements SlickAdminInterface {
   /**
    * Modifies re-usable logic, styling and assets across fields and Views.
    */
-  public function finalizeForm(array &$form, $definition = []): void {
+  public function finalizeForm(array &$form, array $definition): void {
     $this->blazyAdmin->finalizeForm($form, $definition);
   }
 

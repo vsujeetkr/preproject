@@ -19,14 +19,15 @@ class OwlCarouselGlobal {
       'nav' => FALSE,
       'autoplay' => FALSE,
       'autoplayHoverPause' => FALSE,
+      'loop' => FALSE,
       'dots' => TRUE,
       'dimensionMobile' => '0',
-      'itemsMobile' => NULL,
+      'itemsMobile' => 1,
       'dimensionDesktop' => '0',
-      'itemsDesktop' => NULL,
+      'itemsDesktop' => 1,
     ];
 
-    return isset($settings[$key]) ? $settings[$key] : $settings;
+    return $settings[$key] ?? $settings;
   }
 
   /**
@@ -39,6 +40,7 @@ class OwlCarouselGlobal {
     $settings['nav'] = (bool) $settings['nav'];
     $settings['autoplay'] = (bool) $settings['autoplay'];
     $settings['autoplayHoverPause'] = (bool) $settings['autoplayHoverPause'];
+    $settings['loop'] = (bool) $settings['loop'];
     $settings['dots'] = (bool) $settings['dots'];
 
     if ($settings['itemsMobile']) {

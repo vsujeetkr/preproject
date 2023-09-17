@@ -78,16 +78,6 @@ abstract class DateBase extends WebformElementBase {
     // Parse #default_value date input format.
     $this->parseInputFormat($element, '#default_value');
 
-    // If date picker does not exist, remove date picker related properties.
-    if (!$this->datePickerExists()) {
-      unset(
-        $element['#datepicker'],
-        $element['#datepicker_button'],
-        $element['#date_date_format'],
-        $element['#date_date_datepicker_button']
-      );
-    }
-
     // Set date min/max attributes.
     // This overrides extra attributes set via Datetime::processDatetime.
     // @see \Drupal\Core\Datetime\Element\Datetime::processDatetime
@@ -109,21 +99,13 @@ abstract class DateBase extends WebformElementBase {
       $element['#attributes']['data-days'] = implode(',', $element['#date_days']);
     }
 
-    // Display datepicker button.
-    if (!empty($element['#datepicker_button']) || !empty($element['#date_date_datepicker_button'])) {
-      $element['#attributes']['data-datepicker-button'] = TRUE;
-      $element['#attached']['drupalSettings']['webform']['datePicker']['buttonImage'] = base_path() . \Drupal::service('extension.list.module')->getPath('webform') . '/images/elements/date-calendar.png';
-    }
-
     // Set first day according to admin/config/regional/settings.
     $config = $this->configFactory->get('system.date');
     $element['#attached']['drupalSettings']['webform']['dateFirstDay'] = $config->get('first_day');
     $cacheability = CacheableMetadata::createFromObject($config);
     $cacheability->applyTo($element);
 
-    if ($this->datePickerExists()) {
-      $element['#attached']['library'][] = 'webform/webform.element.date';
-    }
+    $element['#attached']['library'][] = 'webform/webform.element.date';
 
     $element['#after_build'][] = [get_class($this), 'afterBuild'];
   }
@@ -190,7 +172,7 @@ abstract class DateBase extends WebformElementBase {
     $value = $this->getValue($element, $webform_submission, $options);
 
     $timestamp = strtotime($value);
-    if (empty($timestamp)) {
+    if ($timestamp === FALSE) {
       return $value;
     }
 
@@ -309,9 +291,6 @@ abstract class DateBase extends WebformElementBase {
       '#required' => TRUE,
       '#weight' => 20,
     ];
-    if ($this->datePickerExists()) {
-      $form['date']['date_days']['#description'] .= ' ' . $this->t('Please note, the date picker will disable unchecked days of the week.');
-    }
 
     // Date/time min/max validation.
     if ($this->hasProperty('date_date_min')
@@ -564,7 +543,7 @@ abstract class DateBase extends WebformElementBase {
     $time = strtotime($value);
 
     // Ensure that the input is greater than the #date_date_min property, if set.
-    if (isset($element['#date_date_min'])) {
+    if (!empty($element['#date_date_min'])) {
       $min = strtotime(static::formatDate('Y-m-d', strtotime($element['#date_date_min'])));
       if ($time < $min) {
         $form_state->setError($element, t('%name must be on or after %min.', [
@@ -575,7 +554,7 @@ abstract class DateBase extends WebformElementBase {
     }
 
     // Ensure that the input is less than the #date_date_max property, if set.
-    if (isset($element['#date_date_max'])) {
+    if (!empty($element['#date_date_max'])) {
       $max = strtotime(static::formatDate('Y-m-d 23:59:59', strtotime($element['#date_date_max'])));
       if ($time > $max) {
         $form_state->setError($element, t('%name must be on or before %max.', [
@@ -586,7 +565,7 @@ abstract class DateBase extends WebformElementBase {
     }
 
     // Ensure that the input is greater than the #date_min property, if set.
-    if (isset($element['#date_min'])) {
+    if (!empty($element['#date_min'])) {
       $min = strtotime($element['#date_min']);
       if ($time < $min) {
         $form_state->setError($element, t('%name must be on or after %min.', [
@@ -597,7 +576,7 @@ abstract class DateBase extends WebformElementBase {
     }
 
     // Ensure that the input is less than the #date_max property, if set.
-    if (isset($element['#date_max'])) {
+    if (!empty($element['#date_max'])) {
       $max = strtotime($element['#date_max']);
       if ($time > $max) {
         $form_state->setError($element, t('%name must be on or before %max.', [
@@ -706,21 +685,7 @@ abstract class DateBase extends WebformElementBase {
   protected static function formatDate($custom_format, $timestamp = NULL) {
     /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
     $date_formatter = \Drupal::service('date.formatter');
-    return $date_formatter->format($timestamp ?: \Drupal::time()->getRequestTime(), 'custom', $custom_format);
-  }
-
-  /**
-   * Determine if the the jQuery UI date picker is supported.
-   *
-   * @return bool
-   *   TRUE if Drupal 8 or for Drupal 9 support the jQuery UI date picker
-   *   module is installed.
-   *
-   * @see \webform_library_info_alter
-   */
-  protected function datePickerExists() {
-    return (floatval(\Drupal::VERSION) < 9)
-      || $this->moduleHandler->moduleExists('jquery_ui_datepicker');
+    return $date_formatter->format($timestamp ?? \Drupal::time()->getRequestTime(), 'custom', $custom_format);
   }
 
 }

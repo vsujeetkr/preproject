@@ -55,7 +55,7 @@ function template_preprocess_owlcarousel(&$variables) {
   if (!empty($items)) {
     $i = 0;
     foreach ($items as $item) {
-      $html .= '<div class="owl-item-inner owl-item-inner' . $i . '">' . render($item) . '</div>';
+      $html .= '<div class="owl-item-inner owl-item-inner' . $i . '">' . \Drupal::service('renderer')->render($item) . '</div>';
       $i++;
     }
   }
@@ -63,7 +63,7 @@ function template_preprocess_owlcarousel(&$variables) {
     '#type' => 'markup',
     '#markup' => $html,
   ];
-  $variables['output'] = render($output);
+  $variables['output'] = \Drupal::service('renderer')->render($output);
 
 }
 
@@ -90,26 +90,8 @@ function template_preprocess_owlcarousel_views(array &$variables) {
   $attached = [
     '#attached' => ['library' => ['owlcarousel/owlcarousel']],
   ];
-  render($attached);
+  \Drupal::service('renderer')->render($attached);
   template_preprocess_views_view_unformatted($variables);
-}
-
-/**
- * Default settings for owl.
- */
-function _owlcarousel_default_settings($key = NULL) {
-  $settings = [
-    'image_style' => '',
-    'image_link' => '',
-    'items' => 1,
-    'margin' => '0',
-    'nav' => FALSE,
-    'autoplay' => FALSE,
-    'autoplayHoverPause' => FALSE,
-    'dots' => TRUE,
-  ];
-
-  return isset($settings[$key]) ? $settings[$key] : $settings;
 }
 
 /**
@@ -122,6 +104,7 @@ function _owlcarousel_format_settings($settings) {
   $settings['nav'] = (bool) $settings['nav'];
   $settings['autoplay'] = (bool) $settings['autoplay'];
   $settings['autoplayHoverPause'] = (bool) $settings['autoplayHoverPause'];
+  $settings['loop'] = (bool) $settings['loop'];
   $settings['dots'] = (bool) $settings['dots'];
 
   if (isset($settings['itemsMobile'])) {

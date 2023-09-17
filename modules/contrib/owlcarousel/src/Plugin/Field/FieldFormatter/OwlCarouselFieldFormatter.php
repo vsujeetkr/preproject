@@ -149,6 +149,13 @@ class OwlCarouselFieldFormatter extends EntityReferenceFormatterBase implements 
       '#description' => $this->t('Pause autoplay on mouse hover.'),
     ];
 
+    // Loop.
+    $element['loop'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Loop'),
+      '#default_value' => $this->getSetting('loop'),
+    ];
+
     // Dots.
     $element['dots'] = [
       '#type' => 'checkbox',
@@ -202,32 +209,34 @@ class OwlCarouselFieldFormatter extends EntityReferenceFormatterBase implements 
     $nav = $this->getSetting('nav') ? 'TRUE' : 'FALSE';
     $autoplay = $this->getSetting('autoplay') ? 'TRUE' : 'FALSE';
     $autoplaypause = $this->getSetting('autoplayHoverPause') ? 'TRUE' : 'FALSE';
+    $loop = $this->getSetting('loop') ? 'TRUE' : 'FALSE';
     $dots = $this->getSetting('autoplayHoverPause') ? 'TRUE' : 'FALSE';
 
-    $summary[] = $this->t('OwlCarousel settings summary.');
-    $summary[] = $this->t('Image style: ') . $this->getSetting('image_style');
-    $summary[] = $this->t('Link image to: ') . $this->getSetting('image_link') ?? $this->t('Nothing');
-    $summary[] = $this->t('Amount of items displayed: ') . $itemsdisplay;
-    $summary[] = $this->t('Margin from items: ') . $this->getSetting('margin') . 'px';
-    $summary[] = $this->t('Display next and prev buttons: ') . $nav;
-    $summary[] = $this->t('Autoplay: ') . $autoplay;
-    $summary[] = $this->t('Autoplay pause on mouse hover: ') . $autoplaypause;
-    $summary[] = $this->t('Show dots: ') . $dots;
+    $summary[] = $this->t('OwlCarousel settings summary');
+    $summary[] = $this->t('Image style: @style', ['@style' => $this->getSetting('image_style')]);
+    $summary[] = $this->t('Link image to: @link', ['@link' => $this->getSetting('image_link') ?? $this->t('Nothing')]);
+    $summary[] = $this->t('Amount of items displayed: @itemsdisplay', ['@itemsdisplay' => $itemsdisplay]);
+    $summary[] = $this->t('Margin from items: @margin px', ['@margin' => $this->getSetting('margin')]);
+    $summary[] = $this->t('Display next and prev buttons: @nav', ['@nav' => $nav]);
+    $summary[] = $this->t('Autoplay: @autoplay', ['@autoplay' => $autoplay]);
+    $summary[] = $this->t('Autoplay pause on mouse hover: @autoplaypause', ['@autoplaypause' => $autoplaypause]);
+    $summary[] = $this->t('Loop: @loop', ['@loop' => $loop]);
+    $summary[] = $this->t('Show dots: @dots', ['@dots' => $dots]);
 
     if ($this->getSetting('dimensionMobile')) {
-      $summary[] = $this->t('Mobile dimensions: ') . $this->getSetting('dimensionMobile') . 'px';
+      $summary[] = $this->t('Mobile dimensions: @dimensionMobile px', ['@dimensionMobile' => $this->getSetting('dimensionMobile')]);
     }
 
     if ($this->getSetting('itemsMobile')) {
-      $summary[] = $this->t('Mobile items to show: ') . $this->getSetting('itemsMobile');
+      $summary[] = $this->t('Mobile items to show: @itemsMobile', ['@itemsMobile' => $this->getSetting('itemsMobile')]);
     }
 
     if ($this->getSetting('dimensionDesktop')) {
-      $summary[] = $this->t('Desktop dimensions: ') . $this->getSetting('dimensionDesktop') . 'px';
+      $summary[] = $this->t('Desktop dimensions: @dimensionDesktop px', ['@dimensionDesktop' => $this->getSetting('dimensionDesktop')]);
     }
 
     if ($this->getSetting('itemsDesktop')) {
-      $summary[] = $this->t('Desktop items to show: ') . $this->getSetting('itemsDesktop');
+      $summary[] = $this->t('Desktop items to show: @itemsDesktop', ['@itemsDesktop' => $this->getSetting('itemsDesktop')]);
     }
 
     return $summary;
@@ -272,7 +281,7 @@ class OwlCarouselFieldFormatter extends EntityReferenceFormatterBase implements 
     foreach ($files as $delta => $file) {
       if (isset($link_file)) {
         $image_uri = $file->getFileUri();
-        $url = Url::fromUri(file_create_url($image_uri));
+        $url = \Drupal::service('file_url_generator')->generate($image_uri);
       }
       $cache_tags = Cache::mergeTags($cache_tags, $file->getCacheTags());
 
@@ -297,7 +306,7 @@ class OwlCarouselFieldFormatter extends EntityReferenceFormatterBase implements 
     $settings = $owlcarousel_default_settings;
     foreach ($settings as $k => $v) {
       $s = $this->getSetting($k);
-      $settings[$k] = isset($s) ? $s : $settings[$k];
+      $settings[$k] = $s ?? $settings[$k];
     }
     return [
       '#theme' => 'owlcarousel',
@@ -305,7 +314,6 @@ class OwlCarouselFieldFormatter extends EntityReferenceFormatterBase implements 
       '#settings' => $settings,
       '#attached' => ['library' => ['owlcarousel/owlcarousel']],
     ];
-
   }
 
   /**

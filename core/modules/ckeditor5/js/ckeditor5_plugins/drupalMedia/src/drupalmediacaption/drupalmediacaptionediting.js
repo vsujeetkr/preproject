@@ -36,20 +36,13 @@ function viewToModelCaption(editor) {
     const viewFragment = editor.data.processor.toView(
       viewItem.getAttribute('data-caption'),
     );
-    const modelFragment = writer.createDocumentFragment();
 
     // Consumable must know about those newly parsed view elements.
     conversionApi.consumable.constructor.createFrom(
       viewFragment,
       conversionApi.consumable,
     );
-    conversionApi.convertChildren(viewFragment, modelFragment);
-
-    // Insert caption model nodes into the caption.
-    // eslint-disable-next-line no-restricted-syntax
-    for (const child of Array.from(modelFragment.getChildren())) {
-      writer.append(child, caption);
-    }
+    conversionApi.convertChildren(viewFragment, caption);
 
     // Insert the caption element into drupalMedia, as a last child.
     writer.append(caption, drupalMedia);
@@ -254,11 +247,11 @@ export default class DrupalMediaCaptionEditing extends Plugin {
         }
 
         const figcaptionElement = writer.createEditableElement('figcaption');
+        figcaptionElement.placeholder = Drupal.t('Enter media caption');
 
         enablePlaceholder({
           view,
           element: figcaptionElement,
-          text: Drupal.t('Enter media caption'),
           keepOnFocus: true,
         });
 

@@ -13,7 +13,7 @@ class ConfigTest extends BaseItemTest {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['telephone_validation'];
+  protected static $modules = ['telephone_validation'];
 
   /**
    * Tests if global schema is valid.

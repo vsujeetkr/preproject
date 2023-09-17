@@ -2,7 +2,7 @@
     "name": "drupal/image_link_formatter",
     "description": "Display images wrapped within a link provided by a field.",
     "type": "drupal-module",
-    "keywords": ["Drupal", "Formatter"],
+    "keywords": ["Drupal", "Formatter", "Responsive"],
     "homepage": "https://www.drupal.org/project/image_link_formatter",
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -12,8 +12,12 @@
             "role": "Maintainer"
         }
     ],
+    "minimum-stability": "dev",
     "support": {
         "issues": "https://www.drupal.org/project/issues/image_link_formatter",
         "source": "https://git.drupalcode.org/project/image_link_formatter"
+    },
+    "require": {
+        "drupal/core": "^9.3 || ^10"
     }
 }

@@ -12,7 +12,9 @@ CONTENTS OF THIS FILE
 
 INTRODUCTION
 ------------
-This module integrates Owl Carousel, a touch enabled jQuery plugin that lets you create a beautiful, responsive carousel sliders.
+This module integrates Owl Carousel,
+a touch enabled jQuery plugin that lets you create a beautiful,
+ responsive carousel sliders.
 
  * For a full description of the module visit:
    https://www.drupal.org/project/owlcarousel
@@ -65,7 +67,7 @@ INSTALLATION
  Installation with composer
  --------------------------
 
-   * composer require 'drupal/owlcarousel:^2.0@beta'
+   * composer require 'drupal/owlcarousel:^2.0@RC'
    * composer config repositories.owlcarousel2 '{"type":"package","package":{"name":"owlcarousel2/  owlcarousel2","version":"2.3.4","type":"drupal-library","dist":{"type":"zip","url":"https://github.com/OwlCarousel2/OwlCarousel2/archive/2.3.4.zip"}}}'
    * composer require owlcarousel2/owlcarousel2
 

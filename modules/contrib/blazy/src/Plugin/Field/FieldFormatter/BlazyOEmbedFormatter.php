@@ -58,9 +58,8 @@ class BlazyOEmbedFormatter extends FormatterBase {
   /**
    * Build the blazy elements.
    */
-  public function buildElements(array &$build, $items) {
+  public function buildElements(array &$build, $items, $langcode) {
     $settings   = &$build['settings'];
-    $blazies    = $settings['blazies'];
     $field_name = $this->fieldDefinition->getName();
     $entity     = $items->getParent()->getEntity();
 
@@ -130,7 +129,7 @@ class BlazyOEmbedFormatter extends FormatterBase {
       'background'        => TRUE,
       'media_switch_form' => TRUE,
       'multimedia'        => TRUE,
-      'responsive_image'  => FALSE,
+      'responsive_image'  => TRUE,
     ];
   }
 

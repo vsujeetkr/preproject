@@ -3,11 +3,9 @@
 namespace Drupal\media_thumbnails\Batch;
 
 use Drupal\Core\Entity\EntityStorageException;
-use Drupal;
-use Exception;
 
 /**
- * Class RefreshBatch.
+ * Batch operation to refresh media thumbnails.
  */
 class RefreshBatch {
 
@@ -18,7 +16,9 @@ class RefreshBatch {
    *   The batch definition.
    */
   public static function createBatch(): array {
-    $ids = \Drupal::entityQuery('media')->execute();
+    $ids = \Drupal::entityQuery('media')
+      ->accessCheck(FALSE)
+      ->execute();
     return [
       'operations' => [
         [
@@ -42,14 +42,15 @@ class RefreshBatch {
    */
   public static function count(): int {
     /** @var \Drupal\Core\Entity\EntityTypeManager $entity_type_manager */
-    $entity_type_manager = Drupal::service('entity_type.manager');
+    $entity_type_manager = \Drupal::service('entity_type.manager');
     try {
       $storage = $entity_type_manager->getStorage('media');
     }
-    catch (Exception $e) {
+    catch (\Exception $e) {
       return 0;
     }
     $query = $storage->getAggregateQuery();
+    $query->accessCheck(FALSE);
     $query->count();
     return (int) $query->execute();
   }
@@ -64,7 +65,7 @@ class RefreshBatch {
       $context['sandbox']['count'] = self::count();
     }
     /** @var \Drupal\Core\Entity\EntityTypeManager $entity_type_manager */
-    $entity_type_manager = Drupal::service('entity_type.manager');
+    $entity_type_manager = \Drupal::service('entity_type.manager');
     $storage = $entity_type_manager->getStorage('media');
     $media = $storage->load($ids[$context['results']['processed']]);
     if ($media) {
@@ -84,11 +85,11 @@ class RefreshBatch {
   public static function finished($success, $results, $operations) {
     $variables = ['@processed' => $results['processed']];
     if ($success) {
-      Drupal::messenger()
+      \Drupal::messenger()
         ->addMessage(t('Processed @processed media entities.', $variables));
     }
     else {
-      Drupal::messenger()
+      \Drupal::messenger()
         ->addWarning(t('An error occurred after processing @processed media entities.', $variables));
     }
   }

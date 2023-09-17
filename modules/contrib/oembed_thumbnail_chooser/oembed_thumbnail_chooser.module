@@ -1,0 +1,42 @@
+<?php
+
+use GuzzleHttp\Exception\RequestException;
+
+function oembed_thumbnail_chooser_oembed_resource_data_alter(array &$data, $url) {
+  $client = \Drupal::httpClient();
+  if (strpos($url, 'youtube.com/oembed') !== FALSE) {
+    $thumbnailUrl = str_replace('hqdefault', 'maxresdefault', $data['thumbnail_url']);
+    try {
+      $client->get($thumbnailUrl);
+    } catch (RequestException $e) {
+      $thumbnailUrl = str_replace('hqdefault', 'sddefault', $data['thumbnail_url']);
+      try {
+        $client->get($thumbnailUrl);
+      } catch (RequestException $e) {
+        $thumbnailUrl = $data['thumbnail_url'];
+      }
+    }
+    $data['thumbnail_url'] = $thumbnailUrl;
+  }
+  else {
+    if (strpos($url, 'vimeo.com/api/oembed') !== FALSE) {
+      $thumbnailUrl = str_replace('295x166', '1280', $data['thumbnail_url']);
+      try {
+        $client->get($thumbnailUrl);
+        $data['thumbnail_width'] = '1280';
+        $data['thumbnail_height'] = '720';
+      } catch (RequestException $e) {
+        $thumbnailUrl = str_replace('295x166', '960', $data['thumbnail_url']);
+        try {
+          $client->get($thumbnailUrl);
+          $data['thumbnail_width'] = '960';
+          $data['thumbnail_height'] = '540';
+        } catch (RequestException $e) {
+          $thumbnailUrl = $data['thumbnail_url'];
+        }
+      }
+
+      $data['thumbnail_url'] = $thumbnailUrl;
+    }
+  }
+}

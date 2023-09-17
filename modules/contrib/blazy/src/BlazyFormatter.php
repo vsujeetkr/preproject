@@ -22,8 +22,12 @@ class BlazyFormatter extends BlazyManager implements BlazyFormatterInterface {
    */
   public function buildSettings(array &$build, $items) {
     $settings = &$build['settings'];
-    $blazies  = $settings['blazies'];
-    $entity   = $items->getEntity();
+
+    // BC for mismatched minor versions.
+    Blazy::verify($settings);
+
+    $blazies = $settings['blazies'];
+    $entity  = $items->getEntity();
 
     // @todo remove after sub-modules.
     if (!empty($settings['item_id'])) {
@@ -87,7 +91,7 @@ class BlazyFormatter extends BlazyManager implements BlazyFormatterInterface {
     $this->buildSettings($build, $items);
 
     // Allows altering the settings.
-    $this->getModuleHandler()->alter('blazy_settings', $build, $items);
+    $this->moduleHandler()->alter('blazy_settings', $build, $items);
 
     // Combines settings with the provided hook_alter().
     $this->postSettingsAlter($settings, $items->getEntity());

@@ -1,12 +1,11 @@
-# php-ffmpeg
+# PHP-FFMPEG
 
-[![Build Status](https://secure.travis-ci.org/PHP-FFMpeg/PHP-FFMpeg.png?branch=master)](http://travis-ci.org/PHP-FFMpeg/PHP-FFMpeg)
-
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/607f3111-e2d7-44e8-8bcc-54dd64521983/big.png)](https://insight.sensiolabs.com/projects/607f3111-e2d7-44e8-8bcc-54dd64521983)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/PHP-FFMpeg/PHP-FFMpeg.svg?style=flat-square)](https://packagist.org/packages/PHP-FFMpeg/PHP-FFMpeg)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+![run-tests](https://github.com/PHP-FFMpeg/PHP-FFMpeg/workflows/run-tests/badge.svg)
+[![Total Downloads](https://img.shields.io/packagist/dt/PHP-FFMpeg/PHP-FFMpeg.svg?style=flat-square)](https://packagist.org/packages/PHP-FFMpeg/PHP-FFMpeg)
 
 An Object-Oriented library to convert video/audio files with FFmpeg / AVConv.
-
-Check another amazing repo: [PHP FFMpeg extras](https://github.com/alchemy-fr/PHP-FFMpeg-Extras), you will find lots of Audio/Video formats there.
 
 ## Your attention please
 
@@ -23,6 +22,8 @@ otherwise you should have to explicitly give the binaries path on load.
 appear in latest ffmpeg version.
 
 ## Installation
+
+This library requires PHP 8.0 or higher. For older versions of PHP, check out the [0.x-branch](https://github.com/PHP-FFMpeg/PHP-FFMpeg/tree/0.x).
 
 The recommended way to install PHP-FFMpeg is through [Composer](https://getcomposer.org).
 
@@ -75,6 +76,14 @@ $ffmpeg = FFMpeg\FFMpeg::create(array(
     'ffprobe.binaries' => '/opt/local/ffmpeg/bin/ffprobe',
     'timeout'          => 3600, // The timeout for the underlying process
     'ffmpeg.threads'   => 12,   // The number of threads that FFMpeg should use
+), $logger);
+```
+
+You may pass a `temporary_directory` key to specify a path for temporary files.
+
+```php
+$ffmpeg = FFMpeg\FFMpeg::create(array(
+    'temporary_directory' => '/var/ffmpeg-tmp'
 ), $logger);
 ```
 
@@ -712,32 +721,6 @@ You can validate media files using PHP-FFMpeg's FFProbe wrapper.
 ```php
 $ffprobe = FFMpeg\FFProbe::create();
 $ffprobe->isValid('/path/to/file/to/check'); // returns bool
-```
-
-## Using with Silex Microframework
-
-The service provider is easy to set up:
-
-```php
-$app = new Silex\Application();
-$app->register(new FFMpeg\FFMpegServiceProvider());
-
-$video = $app['ffmpeg']->open('video.mpeg');
-```
-
-Available options are as follow:
-
-```php
-$app->register(new FFMpeg\FFMpegServiceProvider(), array(
-    'ffmpeg.configuration' => array(
-        'ffmpeg.threads'   => 4,
-        'ffmpeg.timeout'   => 300,
-        'ffmpeg.binaries'  => '/opt/local/ffmpeg/bin/ffmpeg',
-        'ffprobe.timeout'  => 30,
-        'ffprobe.binaries' => '/opt/local/ffmpeg/bin/ffprobe',
-    ),
-    'ffmpeg.logger' => $logger,
-));
 ```
 
 ## License

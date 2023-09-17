@@ -2,7 +2,9 @@
 
 namespace Drupal\schema_metatag;
 
+use Drupal\metatag\MetatagManager;
 use Drupal\Component\Utility\Random;
+use Drupal\Core\Entity\ContentEntityInterface;
 
 /**
  * The SchemaMetatag Manager.
@@ -10,6 +12,49 @@ use Drupal\Component\Utility\Random;
  * @package Drupal\schema_metatag
  */
 class SchemaMetatagManager implements SchemaMetatagManagerInterface {
+
+  /**
+   * The SchemaMetatagManager service.
+   *
+   * @var \Drupal\metatag\MetatagManager
+   */
+  protected $metatagManager;
+
+  /**
+   * SchemaMetatag Manager constructor.
+   *
+   * @param \Drupal\Core\Render\Renderer $renderer
+   *   The renderer.
+   */
+  public function __construct(MetatagManager $metatag_manager) {
+    $this->metatagManager = $metatag_manager;
+  }
+
+  /*
+   * See if separator code is available on the parent class.
+   *
+   * @return bool
+   *   Whether or not the separator code is available.
+   *
+   * @see https://www.drupal.org/project/metatag/issues/3067803
+   */
+  public function hasSeparator() {
+    return is_callable([$this->metatagManager, 'getSeparator']);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSeparator() {
+    // Check if the code from Metatag is available.
+    if ($this->hasSeparator()) {
+      return $this->metatagManager->getSeparator();
+    }
+    else {
+      // Backwards compatibility if that method is missing.
+      return ',';
+    }
+  }
 
   /**
    * {@inheritdoc}
@@ -87,7 +132,7 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
     // Get all the metatags for this entity.
     $metatag_manager = \Drupal::service('metatag.manager');
     if (!empty($entity) && $entity instanceof ContentEntityInterface) {
-      foreach ($metatag_manager->tagsFromEntity($entity) as $tag => $data) {
+      foreach ($metatag_manager->tagsFromEntityWithDefaults($entity) as $tag => $data) {
         $metatags[$tag] = $data;
       }
     }
@@ -97,12 +142,18 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
     \Drupal::service('module_handler')->alter('metatags', $metatags, $context);
     $elements = $metatag_manager->generateElements($metatags, $entity);
 
+    // The jsonld array structure 'parseJsonld' requires is nested within the
+    // 'html_head' array. However, if this doesn't exist we'll continue to
+    // use the $elements array as it is.
+    $elements = $elements['#attached']['html_head'] ?? $elements;
+
     // Parse the Schema.org metatags out of the array.
     if ($items = self::parseJsonld($elements)) {
       // Encode the Schema.org metatags as JSON LD.
       if ($jsonld = self::encodeJsonld($items)) {
         // Pass back the rendered result.
-        return \Drupal::service('renderer')->render(self::renderArrayJsonLd($jsonld));
+        $jsonld_render_array = self::renderArrayJsonLd($jsonld);
+        return \Drupal::service('renderer')->render($jsonld_render_array);
       }
     }
   }
@@ -119,6 +170,13 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
     $count = max(array_map([__CLASS__, 'countNumericKeys'], $content));
     $pivoted = [];
     $exploded = [];
+
+    // If there is only one item in the pivot (no numeric keys), return the
+    // content unchanged.
+    if ($count === 0) {
+      return $content;
+    }
+
     for ($i = 0; $i < $count; $i++) {
       foreach ($content as $key => $item) {
         // If a lower array is pivoted, pivot that first.
@@ -132,6 +190,11 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
         if (is_string($item) || (!is_string($item) && self::countNumericKeys($item) <= $count)) {
           $exploded[$key] = [];
           $prev = '';
+          // When multiple fields are used, if the first is empty, the keys
+          // may not start with zero and need to be reset.
+          if (!is_string($item)) {
+            $item = array_values($item);
+          }
           for ($x = 0; $x < $count; $x++) {
             if (!is_string($item) && self::countNumericKeys($item) > $x) {
               $exploded[$key][$x] = $item[$x];
@@ -172,9 +235,9 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public static function explode($value) {
+  public static function explode($value, $separator = ',') {
     if (is_string($value)) {
-      $value = explode(',', $value);
+      $value = explode($separator, $value);
     }
     if (is_array($value)) {
       $value = array_map('trim', $value);
@@ -209,7 +272,7 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
    * {@inheritdoc}
    */
   public static function unserialize($value) {
-    // Make sure the the value is not just a plain string and that
+    // Make sure the value is not just a plain string and that
     // the same value isn't unserialized more than once if this is called
     // multiple times.
     if (self::isSerialized($value)) {
@@ -220,7 +283,7 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
       // than the original tokens.
       $value = self::recomputeSerializedLength($value);
       // Keep broken unserialization from throwing errors on the page.
-      if ($value = @unserialize($value)) {
+      if ($value = @unserialize($value, ['allowed_classes' => FALSE])) {
         $value = self::arrayTrim($value);
       }
       else {

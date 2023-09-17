@@ -4,6 +4,7 @@ namespace Drupal\owlcarousel\Plugin\views\style;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
+use Drupal\owlcarousel\OwlCarouselGlobal;
 
 /**
  * Style plugin to render each item into owl carousel.
@@ -40,7 +41,7 @@ class OwlCarousel extends StylePluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
 
-    $settings = _owlcarousel_default_settings();
+    $settings = OwlCarouselGlobal::defaultSettings();
     foreach ($settings as $k => $v) {
       $options[$k] = ['default' => $v];
     }
@@ -85,6 +86,12 @@ class OwlCarousel extends StylePluginBase {
       '#title' => $this->t('Pause on hover'),
       '#default_value' => $this->options['autoplayHoverPause'],
       '#description' => $this->t('Pause autoplay on mouse hover.'),
+    ];
+    // Loop.
+    $form['loop'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Loop'),
+      '#default_value' => $this->options['loop'],
     ];
     // Dots.
     $form['dots'] = [

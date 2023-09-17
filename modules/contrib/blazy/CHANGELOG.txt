@@ -1,4 +1,69 @@
 
+Blazy 8.x-2.0-dev, 2023-06-02
+------------------------------
+- Fixed for D10 breaking changes with Blazy lightboxes within Views.
+
+Blazy 8.x-2.0-dev, 2023-06-02
+------------------------------
+- Fixed for LB off-canvas modal.
+- Removed 1.x unused services: blazy.media, blazy, blazy.formatter.manager.
+- Removed unused classes: BlazyUtil.
+- Issue #3253012 by Rajab Natshah, gausarts, Anybody: Drupal 10.
+- Added few more strict contracts.
+- Implemented BlazyBase service to separate Media from basic reusable methods.
+
+Blazy 8.x-2.0-dev, 2023-05-28
+------------------------------
+- Fixed for D10 breaking-changes Blazy formatter with lightboxes.
+
+Blazy 8.x-2.0-dev, 2023-05-28
+------------------------------
+- Updated to account for PHP8.1+.
+
+Blazy 8.x-2.0-dev, 2023-05-15
+------------------------------
+- Fixed for non-refreshable cached options, e.g: missing Media switcher option.
+- Issue #3349558 by Carlitus: Trying to access array offset on value of type
+  null in Drupal\blazy\Field\BlazyEntityVanillaBase->getAvailableBundles().
+- Added supports for Views `group_rows` when Blazy is embedded by sub-modules.
+- Fixed for `use_theme_field` alter.
+- Fixed for few strict contracts.
+- Moved Drupal\blazy\Dejavu views-related classes into Drupal\blazy\Views.
+- Moved deprecated methods to bottom for easy removal at 3.x.
+- Added property $admin for sub-module filter integration.
+
+Blazy 8.x-2.0-dev, 2023-03-22
+------------------------------
+- Issue #3332385 by vacho: Missing schemas for _item and _uri.
+
+Blazy 8.x-2.0-dev, 2022-12-15
+------------------------------
+- Issue #3317773 by Elvin - Albania Drupal Developer: Missing ALT attribute when
+  using Decorative Image and Responsive Image.
+- Issue #3322138 by Luispe: Activate Responsive Image Styles on Blazy OEmbed
+  Formatter.
+- Issue #3325423 by AnasNaamneh: Delete button at slick UI admin page is not
+  shown.
+- Issue #3321264 by trickfun, gausarts: Call to a member function storage() on
+  array in Drupal\blazy\BlazyManager->buildContent().
+- Issue #3326389 by Berdir: Drupal 10: TypeError: ParameterBag::getInt():
+  Argument #2 ($default) must be of type int, null given.
+- Issue #3323439 by rcodina: Inserting a slideshare iframe causes a PHP error.
+
+Blazy 8.x-2.0-dev, 2022-09-30
+------------------------------
+- Issue #3299609 by DD 85: The service "blazy.base" has a dependency on a
+  non-existent parameter "app.root".
+- Issue #3308524 by balintpekker, nkoporec, mglaman: Drupal 10
+  compatibility - off canvas.
+
+Blazy 8.x-2.0-dev, 2022-07-15
+-----------------------------
+- Issue #3285374 by vinitk, djsagar: Blazy module hiding media gallery image
+  with gin admin theme.
+- Issue #3296139 by Carlos Romero, gausarts: Lightbox gallery not working for
+  Blazy custom Views fields.
+
 Blazy 8.x-2.0-dev, 2022-05-31
 -----------------------------
 - Issue #3283156 by YazanMajadba: Support align/style(float) attribute on

@@ -19,7 +19,7 @@ class TelephoneItemTest extends BaseItemTest {
   /**
    * Modules to enable.
    */
-  public static $modules = ['telephone_validation'];
+  protected static $modules = ['telephone_validation'];
 
   /**
    * Enable validation on telephone field.

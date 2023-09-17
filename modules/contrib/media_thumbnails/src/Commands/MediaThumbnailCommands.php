@@ -6,7 +6,7 @@ use Drupal\media_thumbnails\Batch\RefreshBatch;
 use Drush\Commands\DrushCommands;
 
 /**
- * Drush 9 integration for the media thumbnails module.
+ * Drush integration for the media thumbnails module.
  */
 class MediaThumbnailCommands extends DrushCommands {
 

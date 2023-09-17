@@ -30,7 +30,7 @@ class ValidatorTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
 
     $mock = $this->createMock(CountryManagerInterface::class);

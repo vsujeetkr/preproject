@@ -10,11 +10,11 @@ using plugins.
 Sample use cases:
 
 * provide thumbnails for file types unsupported by core,
-like PDF, SVG, ePub, Word or Excel
+  like PDF, SVG, ePub, Word or Excel
 * create variants of thumbnails, e.g. watermarked thumbnails for media entities
 * provide custom generic thumbnails, e.g. configurable in the UI
 * store thumbnails in a custom location, e.g. use public thumbnails
-for private media entities
+  for private media entities
 
 ## Installation
 
@@ -30,7 +30,7 @@ media thumbnails. At last, uninstall this module.
 
 ## Configuration
 
-The configuration page (/admin/config/media/media_thumbnails) allows
+The configuration page (/admin/config/media/thumbnails) allows
 specifying a maximum thumbnail width.
 There's also a form for running a batch operation
 for thumbnail regeneration.
@@ -41,6 +41,7 @@ Custom plugins might provide their own configuration pages.
 Plugins can be configured (with annotations) per media file mime type.
 
 Example:
+
 ```
 * @MediaThumbnail(
 *   id = "media_thumbnail_pdf",
@@ -50,6 +51,7 @@ Example:
 *   }
 * )
 ```
+
 The plugin should implement a method ```createThumbnail($sourceUri)```.
 The uri of the local file (media source) is passed to this method.
 The plugin should return a (new or existent) managed thumbnail file object.
@@ -67,4 +69,5 @@ mime type application/pdf.
 * Media Thumbnails PDF (bundled)
 * [Media Thumbnails EPUB](https://www.drupal.org/project/media_thumbnails_epub)
 * [Media Thumbnails SVG](https://www.drupal.org/project/media_thumbnails_svg)
-* [Media Thumbnails Video](https://www.drupal.org/project/media_thumbnails_video) by [Szczepan Musial](https://www.drupal.org/u/lamp5)
+* [Media Thumbnails Video](https://www.drupal.org/project/media_thumbnails_video)
+  by [Szczepan Musial](https://www.drupal.org/u/lamp5)

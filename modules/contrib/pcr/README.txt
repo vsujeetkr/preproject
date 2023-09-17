@@ -54,4 +54,4 @@ MAINTAINERS
 -----------
 
 Current maintainers:
- * Diosbel Mezquía (diosbelmezquia) - https://www.drupal.org/u/diosbelmezquia
+ * Diosbel Mezquía (dmezquia) - https://www.drupal.org/u/dmezquia

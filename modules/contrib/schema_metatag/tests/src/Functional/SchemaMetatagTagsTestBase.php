@@ -26,12 +26,19 @@ abstract class SchemaMetatagTagsTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'claro';
 
   /**
    * {@inheritdoc}
    */
   protected static $modules = [
+    // For submodules that extend this it isn't possible to easily extend this
+    // array with more modules like was possible with Drupal 7's setUp() method.
+    // Instead the dependencies for this test class are simplified by first
+    // enabling the 'node' module in 'schema_metatag_test' so that the access
+    // permission noted below is made available, and then by adding the relevant
+    // submodule for the individual test.
+    //
     // This is needed for the 'access content' permission.
     'node',
 
@@ -153,9 +160,9 @@ abstract class SchemaMetatagTagsTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
-
+  protected function setUp(): void {
     parent::setUp();
+
     $this->propertyTypeManager = \Drupal::service('plugin.manager.schema_property_type');
     $this->metatagTagManager = \Drupal::service('plugin.manager.metatag.tag');
     $this->propertyTypes = $this->getPropertyTypes();
@@ -264,8 +271,8 @@ abstract class SchemaMetatagTagsTestBase extends BrowserTestBase {
         }
       }
 
-      $this->drupalPostForm(NULL, $form_values, 'Save');
-      $this->assertSession()->pageTextContains($save_message, 'Configuration successfully posted.');
+      $this->submitForm($form_values, 'Save');
+      $this->assertSession()->pageTextContains($save_message);
 
       // Load the config page to confirm the settings got saved.
       $this->drupalGet($config_path);

@@ -2,20 +2,32 @@
 
 namespace Drupal\Tests\image_link_formatter\Kernel;
 
-use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\Core\Url;
-use Drupal\entity_test\Entity\EntityTest;
-use Drupal\field\Entity\FieldConfig;
-use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\link\LinkItemInterface;
+/**
+ * @file
+ * Contains Kernel test cases for the 'image_link_formatter'.
+ */
+
 use Drupal\Tests\image\Kernel\ImageFormatterTest;
+use Drupal\Tests\image_link_formatter\Traits\Kernel\ImageLinkFormatterTestTrait;
 
 /**
  * Tests the rendering of an image wrapped within a link through the formatter.
  *
- * @group image
+ * Extends the core test case 'ImageFormatterTest' for the creation of the base
+ * configuration objects needed for the tests ('setUp'), in particular the
+ * 'image' field. On top, the logic related with the 'link' field is added by
+ * the trait 'ImageLinkFormatterTestTrait' which provides common methods, such
+ * as the effective tests ('doTestImageLinkFormatterUrlOptions'), or the
+ * creation and configuration of the link field.
+ *
+ * @group image_link_formatter
+ * @see \Drupal\Tests\image\Kernel\ImageFormatterTest
+ * @see \Drupal\Tests\image_link_formatter\Traits\Kernel\ImageLinkFormatterTestTrait
+ * @see \Drupal\Tests\responsive_image_link_formatter\Kernel\ResponsiveImageLinkFormatterTest
  */
 class ImageLinkFormatterTest extends ImageFormatterTest {
+
+  use ImageLinkFormatterTestTrait;
 
   /**
    * {@inheritdoc}
@@ -23,90 +35,30 @@ class ImageLinkFormatterTest extends ImageFormatterTest {
   protected static $modules = ['file', 'image', 'link', 'image_link_formatter'];
 
   /**
-   * The name of the Link field used for testing the formatter.
+   * Tests rendering link field attributes options wrapped around an image.
    *
-   * @var string
-   */
-  protected $fieldNameLink;
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function setUp(): void {
-    // Extend parent's 'setUp' method by adding a link field to the entity type.
-    parent::setUp();
-
-    // Initialize link field used for testing the formatter.
-    $this->fieldNameLink = mb_strtolower($this->randomMachineName());
-
-    // Create link field storage.
-    FieldStorageConfig::create([
-      'entity_type' => $this->entityType,
-      'field_name' => $this->fieldNameLink,
-      'type' => 'link',
-      'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
-    ])->save();
-    // Create link field configuration.
-    FieldConfig::create([
-      'entity_type' => $this->entityType,
-      'field_name' => $this->fieldNameLink,
-      'bundle' => $this->bundle,
-      'settings' => [
-        'title' => DRUPAL_DISABLED,
-        'link_type' => LinkItemInterface::LINK_GENERIC,
-      ],
-    ])->save();
-
-    // Save link field's entity view display settings.
-    $this->display = \Drupal::service('entity_display.repository')
-      ->getViewDisplay($this->entityType, $this->bundle)
-      ->setComponent($this->fieldNameLink, [
-        'type' => 'link',
-        'label' => 'hidden',
-      ]);
-    $this->display->save();
-  }
-
-  /**
-   * Tests Image Link Formatter URL options handling with a Link field.
+   * Define the attributes options to be expected in the link displayed, such as
+   * 'alt', 'title', 'rel', or any attribute for the test. Then call standard
+   * test method from the trait which renders the values of the image field of a
+   * node, with the image link formatter with a link and checks whether the
+   * expected HTML is found with the correct attributes options.
    *
-   * @see \Drupal\Tests\image\Kernel\ImageFormatterTest::testImageFormatterUrlOptions()
+   * @see \Drupal\Tests\image_link_formatter\Traits\Kernel\ImageLinkFormatterTestTrait::doTestImageLinkFormatterUrlOptions()
+   * @see \Drupal\Tests\responsive_image_link_formatter\Kernel\ResponsiveImageLinkFormatterTest::testImageLinkFormatterUrlOptions()
    */
   public function testImageLinkFormatterUrlOptions() {
-    // Configure image field to display with 'image_link_formatter', pointing to
-    // the link field created in setUp.
-    $this->display->setComponent($this->fieldName, [
-      'type' => 'image_link_formatter',
-      'label' => 'hidden',
-      'settings' => [
-        'image_link' => $this->fieldNameLink,
-      ],
-    ]);
+    // @TODO: Remove the following line of code when DO-3064751 is fixed:
+    // The $link_attribute_options parameter should be moved to trait's method
+    // 'doTestImageLinkFormatterUrlOptions' to stay fixed for any test case
+    // using the trait. But since it currently breaks the Kernel tests for
+    // 'responsive_image_link_formatter', due to core bug #3064751, with module
+    // 'responsive_image' not passing attributes in theme, the
+    // $link_attribute_options is made a parameter so it can be skipped (empty)
+    // for 'ResponsiveImageLinkFormatterTest'.
+    $link_attribute_options = ['data-attributes-test' => 'test123'];
 
-    // Create a test entity with the image and link fields set.
-    $entity = EntityTest::create([
-      'name' => $this->randomMachineName(),
-    ]);
-    // Number of values to generate for each field.
-    $delta_max = 3;
-    $entity->{$this->fieldName}->generateSampleItems($delta_max);
-    $entity->{$this->fieldNameLink}->generateSampleItems($delta_max);
-    $entity->save();
-
-    // Generate the render array to verify URL options are as expected.
-    $build = $this->display->build($entity);
-    // Test multiple values for image and link fields, indexed by delta.
-    for ($delta = 0; $delta < $delta_max; $delta++) {
-      $this->assertInstanceOf(Url::class, $build[$this->fieldName][$delta]['#url']);
-      $build[$this->fieldName][$delta]['#url']->setOption('attributes', ['data-attributes-test' => 'test123']);
-
-      /** @var \Drupal\Core\Render\RendererInterface $renderer */
-      $renderer = $this->container->get('renderer');
-
-      $output = $renderer->renderRoot($build[$this->fieldName][$delta]);
-      $this->assertStringContainsString('<a href="' . $entity->{$this->fieldNameLink}->get($delta)->getUrl()->toString() . '" data-attributes-test="test123"', (string) $output);
-    }
-
+    // Call the test from the trait for the 'image_link_formatter'.
+    $this->doTestImageLinkFormatterUrlOptions('image_link_formatter', $link_attribute_options);
   }
 
 }

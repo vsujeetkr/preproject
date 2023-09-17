@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains block_id.module.
+ * Adding classes to blocks.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -19,7 +19,8 @@ function block_id_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.block_id':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Adds an additional field to set the ID of a block.') . '</p>';
+      $output .= '<p>' . t('Extra field block ID is added for custom ID attribute.') . '</p>';
+      $output .= '<p>' . t('Block ID helps to assign a unique ID to each block') . '</p>';
       return $output;
 
     default:
@@ -27,8 +28,8 @@ function block_id_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
-  * Implements hook_ENTITY_TYPE_presave().
-  */
+ * Implements hook_ENTITY_TYPE_presave().
+ */
 function block_id_block_presave(BlockInterface $entity) {
   if (empty($entity->getThirdPartySetting('block_id', 'id'))) {
     $entity->unsetThirdPartySetting('block_id', 'id');
@@ -36,56 +37,67 @@ function block_id_block_presave(BlockInterface $entity) {
 }
 
 /**
-  * Implements hook_form_FORM_ID_alter().
-  */
+ * Implements hook_form_FORM_ID_alter().
+ */
 function block_id_form_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->hasPermission('administer block id')) {
 
+    /** @var \Drupal\block\BlockInterface $block */
     $block = $form_state->getFormObject()->getEntity();
 
+    // This will automatically be saved in the third party settings.
     $form['third_party_settings']['#tree'] = TRUE;
     $form['third_party_settings']['block_id']['id'] = [
       '#type' => 'textfield',
       '#title' => t('Block ID'),
-      '#description' => t('CSS ID. Separate multiple id by spaces. (eg. id_1 id_2)'),
+      '#description' => t("If you put a value here it'll replace the block's id."),
       '#default_value' => $block->getThirdPartySetting('block_id', 'id'),
     ];
-    // checking w3 standards validation.
-    $form['#validate'][] = 'W3S_validation';
+
+    $form['#validate'][] = 'block_id_form_block_form_validate';
   }
 }
 
 /**
- * Implement w3 standards validation alter.
-*/
-function W3S_validation(&$form, FormStateInterface $form_state){
-  // Block ID field value fatch.
-  $inputs = $form_state->getUserInput()['third_party_settings']['block_id']['id'];
+ * Form validate.
+ */
+function block_id_form_block_form_validate(&$form, FormStateInterface $form_state) {
+  
+  // If the block id value empty, skip that.
+  if(empty($form_state->getValues()['third_party_settings']['block_id']['id'])) {
+    return;
+  }
+
   // get the id of the block being submitted
   $self = isset($form['id']['#default_value']) ? $form['id']['#default_value'] : null;
-  if(!empty($inputs)){
-    // Checking id has not no space and special characters.
-    if ( preg_match('/[^a-zA-Z_\-0-9]/i', $inputs) ){
-      $form_state->setErrorByName('third_party_settings', t('Attribute ID must be unique, must not contain any space characters & must contain at least one character. Underscore (_) can be used.'));
-    }
-    // block list those using block id field.
-    $block_ids = \Drupal::entityQuery('block')->condition('third_party_settings', '')->execute();
-    // remove the block currently being submitted from the list of existing blocks so the submitted ID isn't checked as an external block ID
-    if ($self) { unset($block_ids[$self]); }
-    // Getting ID's already inserted in another block.
-    foreach($block_ids as $ids){
-      $block = Block::load($ids);
-      if($block->getThirdPartySetting('block_id', 'id') == $inputs){
-        $form_state->setErrorByName('third_party_settings', t('Attribute ID must be unique. This ID has added in another block.'));
+  
+  // Get the id to be used.
+  $inputs_id = $form_state->getValues()['third_party_settings']['block_id']['id'];
+
+  // Block list those using block id field.
+  $blocks = \Drupal::entityTypeManager()->getStorage('block')->loadMultiple();
+
+  // remove current block
+  if ($self) { unset($blocks[$self]); }
+  
+  if (!empty($blocks)) {
+    foreach ($blocks as $ids) {
+
+      // If $inputs_id is present in the array, it means it is already used by another block. Show a validation error.
+      if ($ids->getThirdPartySetting('block_id', 'id') == $inputs_id) {
+        $form_state->setErrorByName('third_party_settings][block_id][id', t('@block_id is already used by another block.', [
+          '@block_id' => $inputs_id
+        ]));
       }
+
     }
   }
+
 }
 
-
 /**
-  * Implements hook_preprocess_HOOK().
-  */
+ * Implements hook_preprocess_HOOK().
+ */
 function block_id_preprocess_block(&$variables) {
   if (!empty($variables['elements']['#id'])) {
     $block = Block::load($variables['elements']['#id']);

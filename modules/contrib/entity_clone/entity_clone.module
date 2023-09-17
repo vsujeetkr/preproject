@@ -6,15 +6,17 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Config\Entity\ConfigEntityTypeInterface;
 use Drupal\Core\Entity\ContentEntityTypeInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Config\Entity\ConfigEntityTypeInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\entity_clone\EntityClone\Config\ConfigEntityCloneBase;
 use Drupal\entity_clone\EntityClone\Config\ConfigEntityCloneFormBase;
 use Drupal\entity_clone\EntityClone\Config\ConfigWithFieldEntityClone;
 use Drupal\entity_clone\EntityClone\Config\FieldConfigEntityClone;
+use Drupal\entity_clone\EntityClone\Config\LayoutBuilderEntityClone;
 use Drupal\entity_clone\EntityClone\Config\MenuEntityClone;
 use Drupal\entity_clone\EntityClone\Config\MenuEntityCloneForm;
 use Drupal\entity_clone\EntityClone\Content\ContentEntityCloneBase;
@@ -22,7 +24,6 @@ use Drupal\entity_clone\EntityClone\Content\ContentEntityCloneFormBase;
 use Drupal\entity_clone\EntityClone\Content\FileEntityClone;
 use Drupal\entity_clone\EntityClone\Content\TaxonomyTermEntityClone;
 use Drupal\entity_clone\EntityClone\Content\UserEntityClone;
-use Drupal\entity_clone\EntityClone\Config\LayoutBuilderEntityClone;
 
 /**
  * Implements hook_help().
@@ -121,7 +122,7 @@ function entity_clone_entity_type_build(array &$entity_types) {
  * @see \Drupal\Core\Entity\EntityListBuilderInterface::getOperations()
  */
 function entity_clone_entity_operation(EntityInterface $entity) {
-  if ($entity->hasLinkTemplate('clone-form') && $entity->access('clone')) {
+  if ($entity->hasLinkTemplate('clone-form') && $entity->access('clone') && !$entity->isNew()) {
     return [
       'clone' => [
         'title' => t('Clone'),
@@ -139,8 +140,53 @@ function entity_clone_entity_operation(EntityInterface $entity) {
  * Implements hook_entity_access().
  */
 function entity_clone_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
-  if ($operation === 'clone') {
-    return AccessResult::allowedIfHasPermission($account, 'clone ' . $entity->getEntityTypeId() . ' entity');
+  if ($operation !== 'clone') {
+    return AccessResult::neutral();
   }
-  return AccessResult::neutral();
+
+  $cache = new CacheableMetadata();
+
+  // Check the cloneable entities config and deny access if the entity is not
+  // enabled.
+  $cloneable_entities = \Drupal::configFactory()->get('entity_clone.cloneable_entities');
+  $cache->addCacheTags($cloneable_entities->getCacheTags());
+  $cloneable_entities = $cloneable_entities->get('cloneable_entities') ?? [];
+  if (!in_array($entity->getEntityTypeId(), $cloneable_entities)) {
+    return AccessResult::forbidden()->addCacheableDependency($cache);
+  }
+
+  $cache->addCacheContexts(['user.permissions']);
+
+  // Deny access if the user cannot clone the entity.
+  $access = AccessResult::forbiddenIf(
+    !$account->hasPermission('clone ' . $entity->getEntityTypeId() . ' entity')
+    &&
+    !$account->hasPermission('clone ' . $entity->bundle() . ' ' . $entity->getEntityTypeId() . ' entities')
+  );
+  if ($access->isForbidden()) {
+    return $access->addCacheableDependency($cache);
+  }
+
+  // Deny access if the user can clone but cannot create new entities of this
+  // type. However, we have some exceptions in which the access control handler
+  // doesn't have a say in things. In these cases, we go based on the clone
+  // permission only.
+  $exceptions = [
+    'file',
+    'paragraph',
+  ];
+
+  if (in_array($entity->getEntityTypeId(), $exceptions)) {
+    return AccessResult::allowed()->addCacheableDependency($cache);
+  }
+
+  $handler = \Drupal::entityTypeManager()->getAccessControlHandler($entity->getEntityTypeId());
+  $access = $handler->createAccess($entity->bundle(), $account, [], TRUE);
+  if (!$access->isAllowed()) {
+    $cache->addCacheableDependency($access);
+    $forbidden = AccessResult::forbidden();
+    return $forbidden->addCacheableDependency($cache);
+  }
+
+  return AccessResult::allowed()->addCacheableDependency($cache);
 }
