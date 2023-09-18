@@ -1,0 +1,15 @@
+uuid: 75b6a365-dc05-4d2b-b222-139ed2fc2e36
+langcode: en
+status: true
+dependencies:
+  module:
+    - video_embed_media
+id: custom_remote_video
+label: 'Custom Remote Video'
+description: 'A remotely hosted video from YouTube.'
+source: video_embed_field
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_video_embed_field
+field_map: {  }

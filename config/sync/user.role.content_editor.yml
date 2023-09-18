@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
     - media.type.image
     - media.type.video
     - node.type.article
@@ -18,6 +21,8 @@ dependencies:
     - comment
     - contextual
     - entity_clone
+    - file
+    - filter
     - media
     - node
     - path
@@ -50,6 +55,7 @@ permissions:
   - 'create video media'
   - 'delete article revisions'
   - 'delete own article content'
+  - 'delete own files'
   - 'delete own page content'
   - 'delete page revisions'
   - 'edit any projects content'
@@ -62,5 +68,8 @@ permissions:
   - 'edit terms in project_category'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
   - 'view all revisions'
   - 'view own unpublished content'

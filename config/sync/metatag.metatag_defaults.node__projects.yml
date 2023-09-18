@@ -6,9 +6,8 @@ id: node__projects
 label: 'Content: Projects'
 tags:
   description: '[node:field_meta_description]'
+  facebook_domain_verification: z6dgoyxbkwewxv753cycutz82xdg5d
+  google_site_verification: '[node:field_google_site_verification]'
   keywords: '[node:field_meta_keywords]'
-  title: '[node:field_meta_title]'
-  mask_icon:
-    href: ''
-    color: ''
   shortcut_icon: '[node:field_meta_favicon]'
+  title: '[node:field_meta_title]'

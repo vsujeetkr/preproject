@@ -8,4 +8,6 @@ id: front
 label: 'Front page'
 tags:
   canonical_url: '[site:url]'
+  facebook_domain_verification: z6dgoyxbkwewxv753cycutz82xdg5d
+  google_site_verification: RaChhokfKOpmtuIj1dHlZ7URCW5hzN1tufmEIufx32w
   shortlink: '[site:url]'

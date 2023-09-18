@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.projects.field_floor_plans
     - field.field.node.projects.field_gallery
     - field.field.node.projects.field_gallery_options
+    - field.field.node.projects.field_google_site_verification
     - field.field.node.projects.field_great_features
     - field.field.node.projects.field_great_features_options
     - field.field.node.projects.field_logo_icon
@@ -228,6 +229,7 @@ third_party_settings:
         - field_meta_description
         - field_meta_keywords
         - field_meta_favicon
+        - field_google_site_verification
       label: 'SEO Tags'
       region: content
       parent_name: ''
@@ -305,16 +307,16 @@ third_party_settings:
     group_mobile_shortcuts:
       children:
         - field_mobile_shortcuts_options
-        - field_mobile_shortcuts
       label: 'Mobile Shortcuts'
       region: content
       parent_name: ''
       weight: 17
-      format_type: fieldset
+      format_type: details
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        open: true
         description: ''
         required_fields: true
 id: node.projects.default
@@ -501,6 +503,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_google_site_verification:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_great_features:
     type: paragraphs
     weight: 6
@@ -675,7 +685,7 @@ content:
     third_party_settings: {  }
   field_mobile_shortcuts_options:
     type: options_buttons
-    weight: 23
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -882,6 +892,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -893,6 +910,5 @@ content:
 hidden:
   created: true
   promote: true
-  status: true
   sticky: true
   uid: true

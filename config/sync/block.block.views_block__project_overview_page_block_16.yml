@@ -1,11 +1,10 @@
-uuid: f89587d8-93a1-4422-9b69-3a8fe2c4a604
+uuid: 3c18965d-0126-4457-a6ea-fe893f5ccd17
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.project_overview_page
   module:
-    - context
     - node
     - views
   theme:
@@ -13,7 +12,7 @@ dependencies:
 id: views_block__project_overview_page_block_16
 theme: preproject
 region: mobile_shortcuts
-weight: -27
+weight: 0
 provider: null
 plugin: 'views_block:project_overview_page-block_16'
 settings:
@@ -25,25 +24,6 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
-  context:
-    id: context
-    negate: null
-    values: ''
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
   'entity_bundle:node':
     id: 'entity_bundle:node'
     negate: false

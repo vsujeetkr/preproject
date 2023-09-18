@@ -2,12 +2,10 @@ uuid: 58e4fb90-4f3d-43d0-811d-9be9b2690ebc
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.basic_html
   module:
     - comment
     - contact
-    - filter
+    - file
     - fontawesome
     - google_analytics
     - media
@@ -25,8 +23,8 @@ permissions:
   - 'access fontawesome additional settings'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'delete own files'
   - 'opt-in or out of google analytics tracking'
   - 'post comments'
   - 'skip comment approval'
-  - 'use text format basic_html'
   - 'view media'

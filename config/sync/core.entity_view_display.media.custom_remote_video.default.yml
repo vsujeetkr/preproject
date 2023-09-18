@@ -1,0 +1,31 @@
+uuid: 0bd5ca5a-6fd6-49ca-b9c3-619246515c7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.custom_remote_video.field_media_video_embed_field
+    - media.type.custom_remote_video
+  module:
+    - video_embed_field
+id: media.custom_remote_video.default
+targetEntityType: media
+bundle: custom_remote_video
+mode: default
+content:
+  field_media_video_embed_field:
+    type: video_embed_field_video
+    label: visually_hidden
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

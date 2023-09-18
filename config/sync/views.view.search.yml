@@ -16,6 +16,7 @@ dependencies:
     - media
     - options
     - search_api
+    - user
 id: search
 label: Search
 module: views
@@ -523,8 +524,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access content'
       cache:
         type: none
         options: {  }
@@ -780,6 +782,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_project_city'
         - 'config:field.storage.node.field_project_location'
@@ -808,6 +811,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_project_city'
         - 'config:field.storage.node.field_project_location'

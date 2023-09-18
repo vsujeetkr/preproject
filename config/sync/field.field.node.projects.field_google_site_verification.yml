@@ -1,0 +1,19 @@
+uuid: 0fbd42df-36f9-4f5d-a9a2-c0dea3982263
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google_site_verification
+    - node.type.projects
+id: node.projects.field_google_site_verification
+field_name: field_google_site_verification
+entity_type: node
+bundle: projects
+label: 'Google Site Verification'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

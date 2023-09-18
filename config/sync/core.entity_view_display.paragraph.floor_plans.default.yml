@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.floor_plans.field_apartment_image
     - field.field.paragraph.floor_plans.field_apartment_size
     - field.field.paragraph.floor_plans.field_apartment_type
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.floor_plans
   module:
     - image
@@ -19,7 +20,7 @@ content:
     label: above
     settings:
       image_link: ''
-      image_style: ''
+      image_style: thumbnail
       image_loading:
         attribute: lazy
     third_party_settings: {  }

@@ -6,7 +6,6 @@ dependencies:
     - system.menu.footer
   module:
     - block_class
-    - context
     - system
   theme:
     - preproject
@@ -18,7 +17,7 @@ _core:
 id: preproject_footer
 theme: preproject
 region: footer
-weight: -27
+weight: -24
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
@@ -29,23 +28,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
-  context:
-    id: context
-    negate: null
-    values: ''
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
+visibility: {  }

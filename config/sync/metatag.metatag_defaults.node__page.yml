@@ -1,0 +1,11 @@
+uuid: 0f2bb2a0-09f3-4eca-917f-f38b46db1970
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Basic page'
+tags:
+  canonical_url: '[node:url]'
+  description: '[node:summary]'
+  google_site_verification: RaChhokfKOpmtuIj1dHlZ7URCW5hzN1tufmEIufx32w
+  title: '[node:title] | [site:name]'

@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.projects.field_floor_plans
     - field.field.node.projects.field_gallery
     - field.field.node.projects.field_gallery_options
+    - field.field.node.projects.field_google_site_verification
     - field.field.node.projects.field_great_features
     - field.field.node.projects.field_great_features_options
     - field.field.node.projects.field_logo_icon
@@ -62,6 +63,7 @@ hidden:
   field_floor_plans: true
   field_gallery: true
   field_gallery_options: true
+  field_google_site_verification: true
   field_great_features: true
   field_great_features_options: true
   field_logo_icon: true

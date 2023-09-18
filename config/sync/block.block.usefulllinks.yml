@@ -6,7 +6,6 @@ dependencies:
     - system.menu.use-full-links
   module:
     - block_class
-    - context
     - system
   theme:
     - preproject
@@ -16,7 +15,7 @@ third_party_settings:
 id: usefulllinks
 theme: preproject
 region: footer
-weight: -26
+weight: -23
 provider: null
 plugin: 'system_menu_block:use-full-links'
 settings:
@@ -27,23 +26,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility:
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
-  context:
-    id: context
-    negate: null
-    values: ''
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
+visibility: {  }

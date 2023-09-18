@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - context
     - social_media_links
   theme:
     - preproject
@@ -19,18 +18,34 @@ settings:
   label_display: '0'
   provider: social_media_links
   platforms:
+    googleplay:
+      value: ''
+      description: ''
+      weight: '-10'
     contact:
       value: ''
       description: ''
       weight: '-10'
+    telegram:
+      value: ''
+      description: ''
+      weight: '-9'
     instagram:
       value: preprojectindia
       description: ''
       weight: '-9'
+    mastodon:
+      value: ''
+      description: ''
+      weight: '-8'
     vimeo:
       value: ''
       description: ''
       weight: '-8'
+    goodreads:
+      value: ''
+      description: ''
+      weight: '-7'
     linkedin:
       value: preprojectindia
       description: ''
@@ -39,6 +54,14 @@ settings:
       value: ''
       description: ''
       weight: '-6'
+    glassdoor:
+      value: ''
+      description: ''
+      weight: '-6'
+    tiktok:
+      value: ''
+      description: ''
+      weight: '-5'
     behance:
       value: ''
       description: ''
@@ -47,11 +70,23 @@ settings:
       value: ''
       description: ''
       weight: '-4'
+    meetup:
+      value: ''
+      description: ''
+      weight: '-4'
     youtube_channel:
       value: ''
       description: ''
       weight: '-3'
+    amazon:
+      value: ''
+      description: ''
+      weight: '-3'
     flickr:
+      value: ''
+      description: ''
+      weight: '-2'
+    patreon:
       value: ''
       description: ''
       weight: '-2'
@@ -92,7 +127,7 @@ settings:
       description: ''
       weight: '7'
     youtube:
-      value: preprojectindia
+      value: ''
       description: ''
       weight: '8'
     website:
@@ -127,23 +162,4 @@ settings:
     installed_iconsets:
       fontawesome:
         examples: ''
-visibility:
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
-  context:
-    id: context
-    negate: null
-    values: ''
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
+visibility: {  }

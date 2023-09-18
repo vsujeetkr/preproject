@@ -16,7 +16,7 @@ archive: false
 id: project_popup_click
 title: 'Project Popup Click'
 description: 'Basic email contact webform.'
-category: ''
+categories: {  }
 elements: |-
   name:
     '#type': textfield
@@ -35,16 +35,18 @@ elements: |-
     '#required': true
     '#pattern': '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$'
     '#default_value': '[current-user:mail]'
-  mobile_number:
-    '#type': webform_telephone
-    '#title': 'Mobile Number'
+  phone_number:
+    '#type': tel
+    '#title': 'Phone Number'
     '#title_display': none
+    '#placeholder': 'Mobile Number'
+    '#autocomplete': 'off'
     '#required': true
-    '#type__access': false
-    '#phone__placeholder': 'Phone Number'
-    '#phone__required': true
-    '#ext__access': false
-    '#phone__international_initial_country': IN
+    '#required_error': 'Fill out this field.'
+    '#pattern': '^(\+[\d]{1,5}|0)?[7-9]\d{9}$'
+    '#pattern_error': 'Phone number is not valid.'
+    '#telephone_validation_format': '2'
+    '#telephone_validation_country': IN
   message:
     '#type': textarea
     '#title': Message
@@ -73,7 +75,7 @@ settings:
   form_open_message: ''
   form_close_message: ''
   form_exception_message: ''
-  form_previous_submissions: true
+  form_previous_submissions: false
   form_confidential: false
   form_confidential_message: ''
   form_disable_remote_addr: false
@@ -143,6 +145,8 @@ settings:
   wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
   preview: 0
   preview_label: ''
   preview_title: ''
@@ -243,33 +247,33 @@ handlers:
     handler_id: email_confirmation
     label: 'Email confirmation'
     notes: ''
-    status: false
+    status: true
     conditions: {  }
     weight: 1
     settings:
       states:
         - completed
-      to_mail: '[current-user:mail]'
+      to_mail: _default
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''
       cc_options: {  }
-      from_mail: _default
+      from_mail: info@pre-project.com
       from_options: {  }
-      from_name: _default
+      from_name: 'Pre Project'
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
+      subject: '[current-page:title]: Enquiry'
+      body: "Submitted on [webform_submission:created]\r\nIP Address: [webform_submission:ip-address]\r\n\r\nSubmitted values are:\r\n[webform_submission:values]\r\n"
       excluded_elements: {  }
-      ignore_access: false
+      ignore_access: true
       exclude_empty: true
       exclude_empty_checkbox: false
       exclude_attachments: false
-      html: true
+      html: false
       attachments: false
       twig: false
       theme_name: ''
@@ -280,7 +284,7 @@ handlers:
     handler_id: email_notification
     label: 'Email notification'
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 2
     settings:
