@@ -9,6 +9,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
+use Drupal\path_alias\AliasManagerInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\image\Plugin\Field\FieldFormatter\ImageFormatterBase;
@@ -49,6 +50,13 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
   protected $imageStyleStorage;
 
   /**
+   * The path alias manager service.
+   *
+   * @var \Drupal\path_alias\AliasManagerInterface
+   */
+  protected $aliasManager;
+
+  /**
    * Constructs an ImageFormatter object.
    *
    * @param string $plugin_id
@@ -69,17 +77,20 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
    *   The current user.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager service.
+   * @param \Drupal\path_alias\AliasManagerInterface $alias_manager
+   *   The path alias manager service.
    *
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    *   Thrown if the entity type doesn't exist.
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    *   Thrown if the storage handler couldn't be loaded.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, AliasManagerInterface $alias_manager) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
     $this->currentUser = $current_user;
     $this->entityTypeManager = $entity_type_manager;
     $this->imageStyleStorage = $this->entityTypeManager->getStorage('image_style');
+    $this->aliasManager = $alias_manager;
   }
 
   /**
@@ -95,7 +106,8 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       $configuration['view_mode'],
       $configuration['third_party_settings'],
       $container->get('current_user'),
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('path_alias.manager')
     );
   }
 
@@ -112,6 +124,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       'imagefield_slideshow_transition_speed' => 100,
       'imagefield_slideshow_timeout' => 100,
       'imagefield_slideshow_pager' => TRUE,
+      'imagefield_slideshow_pager_image' => FALSE,
       'imagefield_slideshow_link_image_to' => '',
     ] + parent::defaultSettings();
   }
@@ -213,10 +226,16 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       '#description' => t("The timeout for slides."),
     ];
     $element['imagefield_slideshow_pager'] = [
-      '#title' => $this->t("Enable Pager ?"),
+      '#title' => $this->t("Enable Default Pager ?"),
       '#type' => 'checkbox',
       '#default_value' => $this->getSetting('imagefield_slideshow_pager'),
       '#description' => $this->t('This will show the Pager on slideshow.'),
+    ];
+    $element['imagefield_slideshow_pager_image'] = [
+      '#title' => $this->t("Enable Image Pager ?"),
+      '#type' => 'checkbox',
+      '#default_value' => $this->getSetting('imagefield_slideshow_pager_image'),
+      '#description' => $this->t('This will show the Image Pager on slideshow.'),
     ];
     $link_image_to = ['' => 'Nothing', 'content' => 'Content', 'file' => 'File'];
     $element['imagefield_slideshow_link_image_to'] = [
@@ -289,6 +308,13 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       ]);
     }
 
+    $image_pager2 = $this->getSetting('imagefield_slideshow_pager_image');
+    if ($image_pager2) {
+      $summary[] = $this->t("Image Pager: @image_pager", [
+        "@image_pager" => $image_pager2,
+      ]);
+    }
+
     $link_image_to = $this->getSetting('imagefield_slideshow_link_image_to');
     if ($link_image_to) {
       $summary[] = $this->t("Link Image to: @link_image_to", [
@@ -317,7 +343,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
     $image_style_setting = $this->getSetting('imagefield_slideshow_style');
     $image_style = NULL;
     if (!empty($image_style_setting)) {
-      $image_style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_setting);
+      $image_style = $this->entityTypeManager->getStorage('image_style')->load($image_style_setting);
     }
 
     $image_uri_values = [];
@@ -326,7 +352,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       $image_uri = $image->getFileUri();
       // Get image style URL.
       if ($image_style) {
-        $image_uri = ImageStyle::load($image_style->getName())->buildUrl($image_uri);
+        $image_uri = $this->imageStyleStorage->load($image_style->getName())->buildUrl($image_uri);
       }
       else {
         // Get absolute path for original image.
@@ -360,7 +386,7 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
     if ($imagefield_slideshow_link_image_to == 'content') {
       $link_image_to['type'] = 'content';
       $content_url = '/node/' . $file['nid'][0]['value'];
-      $link_image_to['path'] = \Drupal::service('path_alias.manager')->getAliasByPath($content_url);
+      $link_image_to['path'] = $this->aliasManager->getAliasByPath($content_url);
     }
     elseif ($imagefield_slideshow_link_image_to == '') {
       $link_image_to = FALSE;
@@ -374,7 +400,8 @@ class ImagefieldSlideshowFieldFormatter extends ImageFormatterBase implements Co
       '#pause' => $this->getSetting('imagefield_slideshow_style_pause'),
       '#speed' => $this->getSetting('imagefield_slideshow_transition_speed'),
       '#timeout' => $this->getSetting('imagefield_slideshow_timeout'),
-      '#pager' => $this->getSetting('imagefield_slideshow_pager'),
+      '#pager' => (count($image_uri_values) > 1) ? $this->getSetting('imagefield_slideshow_pager') : FALSE,
+      '#image_pager' => (count($image_uri_values) > 1) ? $this->getSetting('imagefield_slideshow_pager_image') : FALSE,
       '#link_image_to' => $link_image_to,
     ];
 

@@ -8,7 +8,7 @@
     'use strict';
 
     $(document).ready(function () {
-        
+        console.log('imagefield_slideshow loaded');
     });
 
 })(jQuery, Drupal, drupalSettings);

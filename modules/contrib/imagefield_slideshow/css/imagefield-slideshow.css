@@ -47,3 +47,13 @@
   perspective: 1000;
   transform-style: preserve-3d;
 }
+
+.imagefield_slideshow-wrapper #image-pager {
+    text-align: center;
+    margin-top: 15px;
+    position: initial;
+    display: block;
+}
+.imagefield_slideshow-wrapper #image-pager img {
+  display: inline-block;
+}

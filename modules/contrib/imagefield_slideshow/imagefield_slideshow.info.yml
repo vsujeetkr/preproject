@@ -6,7 +6,7 @@ package: Field
 dependencies:
   - drupal:image
 
-# Information added by Drupal.org packaging script on 2023-07-17
-version: '2.0.3'
+# Information added by Drupal.org packaging script on 2023-10-23
+version: '2.0.4'
 project: 'imagefield_slideshow'
-datestamp: 1689588626
+datestamp: 1698036203
