@@ -47,6 +47,7 @@
         "drupal/image_link_formatter": "^2.1",
         "drupal/image_url_formatter": "^1.1",
         "drupal/imagefield_slideshow": "^2.0",
+        "drupal/imagemagick": "^3.4",
         "drupal/juicebox": "^4.0@alpha",
         "drupal/libraries": "^4.0",
         "drupal/media_thumbnails": "^1.0@beta",
@@ -82,6 +83,7 @@
         "drupal/views_slideshow_cycle": "^5.0",
         "drupal/views_taxonomy_term_name_depth": "^7.2",
         "drupal/webform": "^6.2@beta",
+        "drupal/webp": "^1.0@RC",
         "drupal/whatsapp_bubble": "^1.0@beta",
         "drush/drush": "^12.2"
     },
@@ -166,6 +168,9 @@
             },
             "drupal/simple_popup_blocks": {
                 "Uncaught TypeError: $(...).once is not a function with Drupal 10": "https://www.drupal.org/files/issues/2023-08-22/once_deprecation-3350919-25.patch"
+            },
+            "drupal/video_embed_field": {
+                "Add title attribute to YouTube, Vimeo, and Playlist embeds": "https://www.drupal.org/files/issues/2023-06-08/3200253-21.patch"
             }
         }
     }

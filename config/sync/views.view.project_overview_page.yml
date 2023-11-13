@@ -1416,7 +1416,7 @@ display:
             include_text: false
             iframe_height: '480'
             iframe_width: 100%
-            iframe_title: ''
+            iframe_title: 'Project Location Map'
             static_scale: 1
             zoom_level: 14
             link_text: 'View larger map'

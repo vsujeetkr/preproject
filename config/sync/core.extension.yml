@@ -60,6 +60,7 @@ module:
   image_link_formatter: 0
   image_url_formatter: 0
   imagefield_slideshow: 0
+  imagemagick: 0
   jquery_ui: 0
   jquery_ui_accordion: 0
   jquery_ui_datepicker: 0
@@ -112,6 +113,7 @@ module:
   smart_custom: 0
   smtp: 0
   social_media_links: 0
+  sophron: 0
   system: 0
   taxonomy: 0
   taxonomy_menu: 0
@@ -136,6 +138,7 @@ module:
   webform: 0
   webform_node: 0
   webform_ui: 0
+  webp: 0
   pathauto: 1
   webform_bootstrap: 1
   views: 10

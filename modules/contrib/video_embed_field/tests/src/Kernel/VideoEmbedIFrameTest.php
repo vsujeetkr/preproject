@@ -70,10 +70,11 @@ class VideoEmbedIFrameTest extends KernelTestBase {
         [
           '#type' => 'video_embed_iframe',
           '#attributes' => [
+            'title' => 'test',
             'width' => '100',
           ],
         ],
-        '<iframe width="100"></iframe>',
+        '<iframe title="test" width="100"></iframe>',
       ],
       'Fragment' => [
         [

@@ -26,6 +26,7 @@ class Vimeo extends ProviderPluginBase {
         'autoplay' => $autoplay,
       ],
       '#attributes' => [
+        'title' => $this->getName(),
         'width' => $width,
         'height' => $height,
         'frameborder' => '0',
@@ -48,11 +49,12 @@ class Vimeo extends ProviderPluginBase {
   /**
    * Get the vimeo oembed data.
    *
-   * @return array
-   *   An array of data from the oembed endpoint.
+   * @return object
+   *   An object of data from the oembed endpoint.
    */
   protected function oEmbedData() {
-    return json_decode(file_get_contents('http://vimeo.com/api/oembed.json?url=' . $this->getInput()));
+    $url = sprintf("https://vimeo.com/api/oembed.json?url=%s", $this->getInput());
+    return $this->downloadJsonData($url);
   }
 
   /**
@@ -78,7 +80,8 @@ class Vimeo extends ProviderPluginBase {
    * {@inheritdoc}
    */
   public function getName() {
-    return $this->oEmbedData()->title;
+    $title = $this->oEmbedData()?->title ?? $this->getVideoId();
+    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $title]);
   }
 
 }

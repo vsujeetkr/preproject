@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.image.field_media_image
-    - image.style.medium
+    - image.style.webp
     - media.type.image
   module:
     - image
@@ -20,7 +20,7 @@ content:
     label: visually_hidden
     settings:
       image_link: ''
-      image_style: medium
+      image_style: webp
       image_loading:
         attribute: lazy
     third_party_settings: {  }

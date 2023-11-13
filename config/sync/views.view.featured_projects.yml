@@ -9,6 +9,7 @@ dependencies:
     - field.storage.node.field_project_location
     - field.storage.node.field_project_type
     - field.storage.node.field_slider_image
+    - image.style.webp
     - node.type.projects
     - taxonomy.vocabulary.project_category
   content:
@@ -676,7 +677,9 @@ display:
           type: media_thumbnail
           settings:
             image_link: ''
-            image_style: ''
+            image_style: webp
+            image_loading:
+              attribute: lazy
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -1232,7 +1235,9 @@ display:
           type: media_thumbnail
           settings:
             image_link: ''
-            image_style: ''
+            image_style: webp
+            image_loading:
+              attribute: lazy
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -1787,7 +1792,9 @@ display:
           type: media_thumbnail
           settings:
             image_link: ''
-            image_style: ''
+            image_style: webp
+            image_loading:
+              attribute: lazy
           group_column: target_id
           group_columns: {  }
           group_rows: true

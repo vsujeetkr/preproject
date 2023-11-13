@@ -28,6 +28,7 @@ class YouTube extends ProviderPluginBase {
         'rel' => '0',
       ],
       '#attributes' => [
+        'title' => $this->getName(),
         'width' => $width,
         'height' => $height,
         'frameborder' => '0',
@@ -68,6 +69,17 @@ class YouTube extends ProviderPluginBase {
   }
 
   /**
+   * Get the Youtube oembed data.
+   *
+   * @return object|null
+   *   An object of data from the oembed endpoint or NULL if download failed.
+   */
+  protected function oEmbedData(): ?object {
+    $url = sprintf("https://www.youtube.com/oembed?url=%s", $this->getInput());
+    return $this->downloadJsonData($url);
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function getRemoteThumbnailUrl() {
@@ -89,6 +101,14 @@ class YouTube extends ProviderPluginBase {
   public static function getIdFromInput($input) {
     preg_match('/^https?:\/\/(www\.)?((?!.*list=)youtube\.com\/watch\?.*v=|youtu\.be\/)(?<id>[0-9A-Za-z_-]*)/', $input, $matches);
     return isset($matches['id']) ? $matches['id'] : FALSE;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getName() {
+    $title = $this->oEmbedData()?->title ?? $this->getVideoId();
+    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $title]);
   }
 
 }

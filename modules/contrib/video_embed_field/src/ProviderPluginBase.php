@@ -104,6 +104,42 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   }
 
   /**
+   * Download JSON data from the site (e.g., oEmbed data).
+   *
+   * @param string $url
+   *   The URL to fetch the data from.
+   *
+   * @return object|null
+   *   The JSON data as an object or NULL if the JSON could not be decoded.
+   */
+  protected function downloadJsonData($url): ?object {
+    $cid = 'video_embed_field:' . md5($url);
+    if ($cache = \Drupal::cache()->get($cid)) {
+      return $cache->data;
+    }
+
+    $method = 'GET';
+    try {
+      $response = $this->httpClient->request($method, $url);
+      $code = $response->getStatusCode();
+      if ($code == 200) {
+        $body = $response->getBody()->getContents();
+        $data = json_decode($body);
+
+        // Check if the JSON was valid.
+        if (json_last_error() === JSON_ERROR_NONE) {
+          \Drupal::cache()->set($cid, $data);
+          return $data;
+        }
+      }
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('video_embed_field')->warning('There was an error downloading metadata. Message: @message.', ['@message' => $e->getMessage()]);
+    }
+    return NULL;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public static function isApplicable($input) {

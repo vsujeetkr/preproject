@@ -46,11 +46,11 @@ class DefaultNameTest extends MediaKernelTestBase {
     return [
       'YouTube' => [
         'https://www.youtube.com/watch?v=gnERPdAiuSo',
-        'YouTube Video (gnERPdAiuSo)',
+        'YouTube Video (DrupalCon Austin 2014: Keynote: Dries Buytaert)',
       ],
       'Vimeo' => [
         'https://vimeo.com/21681203',
-        'Drupal Commerce at DrupalCon Chicago',
+        'Vimeo Video (Drupal Commerce at DrupalCon Chicago)',
       ],
     ];
   }

@@ -121,6 +121,7 @@ class ComposerStaticInit305b8832795f9c4e381ef639ce12866d
         'F' => 
         array (
             'FontLib\\' => 8,
+            'FileEye\\MimeMap\\' => 16,
             'FFMpeg\\' => 7,
         ),
         'E' => 
@@ -131,6 +132,7 @@ class ComposerStaticInit305b8832795f9c4e381ef639ce12866d
         'D' => 
         array (
             'Drush\\' => 6,
+            'Drupal\\sophron\\' => 15,
             'Drupal\\bootstrap\\' => 17,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\VendorHardening\\' => 39,
@@ -414,6 +416,10 @@ class ComposerStaticInit305b8832795f9c4e381ef639ce12866d
         array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
         ),
+        'FileEye\\MimeMap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fileeye/mimemap/src',
+        ),
         'FFMpeg\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-ffmpeg/php-ffmpeg/src/FFMpeg',
@@ -429,6 +435,10 @@ class ComposerStaticInit305b8832795f9c4e381ef639ce12866d
         'Drush\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
+        ),
+        'Drupal\\sophron\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/contrib/sophron/src',
         ),
         'Drupal\\bootstrap\\' => 
         array (

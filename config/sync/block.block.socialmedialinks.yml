@@ -32,7 +32,7 @@ settings:
       weight: '-9'
     instagram:
       value: preprojectindia
-      description: ''
+      description: 'Follow us on Instagram'
       weight: '-9'
     mastodon:
       value: ''
@@ -48,7 +48,7 @@ settings:
       weight: '-7'
     linkedin:
       value: preprojectindia
-      description: ''
+      description: 'Follow us on Linkedin'
       weight: '-7'
     github:
       value: ''
@@ -144,7 +144,7 @@ settings:
       weight: '11'
     facebook:
       value: preprojectindia
-      description: ''
+      description: 'Follow us on Facebook'
       weight: '12'
     vkontakte:
       value: ''

@@ -26,6 +26,7 @@ class YouTubePlaylist extends ProviderPluginBase {
         'list' => $this->getVideoId(),
       ],
       '#attributes' => [
+        'title' => $this->getName(),
         'width' => $width,
         'height' => $height,
         'frameborder' => '0',
@@ -62,6 +63,25 @@ class YouTubePlaylist extends ProviderPluginBase {
   protected static function getUrlComponent($input, $component) {
     preg_match('/^https?:\/\/(?:www\.)?youtube\.com\/watch\?(?=.*v=(?<video_id>[0-9A-Za-z_-]*))(?=.*list=(?<id>[A-Za-z0-9_-]*))/', $input, $matches);
     return isset($matches[$component]) ? $matches[$component] : FALSE;
+  }
+
+  /**
+   * Get the youtube oembed data.
+   *
+   * @return object|null
+   *   An object of data from the oembed endpoint or NULL if download failed..
+   */
+  protected function oEmbedData(): ?object {
+    $url = sprintf("https://www.youtube.com/oembed?url=%s", $this->getInput());
+    return $this->downloadJsonData($url);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getName() {
+    $title = $this->oEmbedData()?->title ?? $this->getVideoId();
+    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $title]);
   }
 
 }
