@@ -83,7 +83,10 @@ class MenuLinkContentVisibilityWidget extends WidgetBase implements ContainerFac
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     // Array of visibility condition configurations.
-    $visibility = unserialize($items[$delta]->value);
+    $value = $items[$delta]->value;
+    if (!empty($value)) {
+      $visibility = unserialize($value);
+    }
 
     $element['visibility_tabs'] = [
       '#type' => 'vertical_tabs',

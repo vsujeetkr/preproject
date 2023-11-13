@@ -6,4 +6,9 @@ dependencies:
 type: module
 configure: entity.flexslider.collection
 core_version_requirement: ^9 || ^10
-version: 3.0.0-alpha1
+# version: 3.0.0-alpha1
+
+# Information added by Drupal.org packaging script on 2023-09-07
+version: '3.0.0-alpha1'
+project: 'flexslider'
+datestamp: 1694114708

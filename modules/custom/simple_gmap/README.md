@@ -1,4 +1,4 @@
-Simple Google Maps module
+# SIMPLE GOOGLE MAPS MODULE
 
 This module is about the simplest way to get a Google Map, or a link to a
 Google Map, displayed with your content. It simply provides a field formatter
@@ -13,7 +13,8 @@ No Google Maps API, JavaScript downloads, etc. are required. This just uses
 Google Maps' iframe embedding capability to embed a map at a given address that
 Google Maps can recognize, or to make a link to Google Map.
 
-To install and use:
+## INSTALLATION
+
 - Upload/unzip to your Drupal 8 /modules directory (or /modules/contrib or
   whatever).
 - Enable the module.
@@ -31,3 +32,7 @@ of this module). The display settings let you choose the size of the map, the
 text for the map link, the map zoom level (applies to both embedded and linked
 map), and to turn on/off the various things you can display. That's pretty much
 it (remember: simple is in the name!).
+
+## MAINTAINER
+
+- martin107 - <https://www.drupal.org/u/martin107>

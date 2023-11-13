@@ -117,7 +117,10 @@ class MenuLinkContentVisibilityLinkTreeManipulator extends DefaultMenuLinkTreeMa
       ->loadEntityByUuid('menu_link_content', $uuid);
 
     // Load visibility conditions - if any.
-    $visibility = unserialize($entity->get('visibility')->value);
+    $visibility_value = $entity->get('visibility')->value;
+    if (!empty($visibility_value)) {
+      $visibility = unserialize($visibility_value);
+    }
     if (empty($visibility)) {
       return $access_result;
     }
