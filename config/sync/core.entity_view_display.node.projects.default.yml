@@ -39,6 +39,7 @@ dependencies:
     - field.field.node.projects.field_project_rera_number
     - field.field.node.projects.field_project_sub_title
     - field.field.node.projects.field_project_type
+    - field.field.node.projects.field_qr_code
     - field.field.node.projects.field_slider_image
     - field.field.node.projects.field_video_options
     - field.field.node.projects.field_videos
@@ -88,6 +89,7 @@ hidden:
   field_project_rera_number: true
   field_project_sub_title: true
   field_project_type: true
+  field_qr_code: true
   field_slider_image: true
   field_video_options: true
   field_videos: true

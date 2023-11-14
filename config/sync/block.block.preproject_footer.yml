@@ -6,6 +6,8 @@ dependencies:
     - system.menu.footer
   module:
     - block_class
+    - block_id
+    - node
     - system
   theme:
     - preproject
@@ -17,7 +19,7 @@ _core:
 id: preproject_footer
 theme: preproject
 region: footer
-weight: -24
+weight: -27
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
@@ -28,4 +30,15 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      builder_details: builder_details
+      flexslider_example: flexslider_example
+      page: page
+      webform: webform

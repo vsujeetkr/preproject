@@ -7,6 +7,8 @@ dependencies:
   module:
     - block_class
     - block_content
+    - block_id
+    - node
   theme:
     - preproject
 third_party_settings:
@@ -15,7 +17,7 @@ third_party_settings:
 id: appointment
 theme: preproject
 region: footer
-weight: -22
+weight: -25
 provider: null
 plugin: 'block_content:fe6fb9e7-abe9-4b97-8b42-f73e94896723'
 settings:
@@ -26,4 +28,15 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      builder_details: builder_details
+      flexslider_example: flexslider_example
+      page: page
+      webform: webform

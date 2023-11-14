@@ -385,6 +385,13 @@
 	.page-node-65 #block-views-block-project-overview-page-block-1 .views-field-field-logo-icon img {
         width: 65px;
     }
+	.page-node-type-projects #block-preproject-views-block-project-overview-page-block-17 {
+		float: left;
+		margin-right: 10px;
+	}
+	.page-node-type-projects #block-projectfooter {
+		text-align: justify;
+	}
 }
 
 @media only screen and (max-width: 576px) {

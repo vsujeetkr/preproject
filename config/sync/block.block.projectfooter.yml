@@ -12,7 +12,7 @@ dependencies:
 id: projectfooter
 theme: preproject
 region: footer
-weight: -21
+weight: -23
 provider: null
 plugin: 'block_content:a4c9c94e-e91b-4605-b469-5897d78bd636'
 settings:

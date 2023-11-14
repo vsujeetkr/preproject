@@ -6,7 +6,9 @@ dependencies:
     - blockgroup.block_group_content.footer_one
   module:
     - block_class
+    - block_id
     - blockgroup
+    - node
   theme:
     - preproject
 third_party_settings:
@@ -15,7 +17,7 @@ third_party_settings:
 id: footerone
 theme: preproject
 region: footer
-weight: -25
+weight: -28
 provider: null
 plugin: 'block_group:footer_one'
 settings:
@@ -23,4 +25,15 @@ settings:
   label: 'Footer One'
   label_display: '0'
   provider: blockgroup
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      builder_details: builder_details
+      flexslider_example: flexslider_example
+      page: page
+      webform: webform

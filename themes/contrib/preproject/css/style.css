@@ -995,8 +995,7 @@ html {
 .page-node-type-projects .logo,
 .page-node-type-projects .menu--main,
 .page-node-type-projects .page-header,
-.page-node-type-projects #block-callusnow,
-.page-node-type-projects .footer #block-projectfooter {
+.page-node-type-projects #block-callusnow {
     display: none;
 }
 
@@ -2028,5 +2027,8 @@ html {
     width: 65px;
 }
 
+.page-node-type-projects #block-preproject-views-block-project-overview-page-block-17 {
+    float: left;
+}
 
 /* ========================= Extra Style End ========================= */

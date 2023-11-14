@@ -39,6 +39,7 @@ dependencies:
     - field.field.node.projects.field_project_rera_number
     - field.field.node.projects.field_project_sub_title
     - field.field.node.projects.field_project_type
+    - field.field.node.projects.field_qr_code
     - field.field.node.projects.field_slider_image
     - field.field.node.projects.field_video_options
     - field.field.node.projects.field_videos
@@ -233,7 +234,7 @@ third_party_settings:
       label: 'SEO Tags'
       region: content
       parent_name: ''
-      weight: 18
+      weight: 19
       format_type: details
       format_settings:
         classes: ''
@@ -248,7 +249,7 @@ third_party_settings:
       label: 'Page Visibility Settings'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 20
       format_type: details
       format_settings:
         classes: ''
@@ -263,7 +264,7 @@ third_party_settings:
       label: 'Project Category Settings'
       region: content
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: details
       format_settings:
         classes: ''
@@ -310,7 +311,7 @@ third_party_settings:
       label: 'Mobile Shortcuts'
       region: content
       parent_name: ''
-      weight: 17
+      weight: 18
       format_type: details
       format_settings:
         classes: ''
@@ -669,7 +670,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 21
+    weight: 22
     region: content
     settings:
       sidebar: true
@@ -837,6 +838,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_qr_code:
+    type: image_image
+    weight: 17
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_slider_image:
     type: media_library_widget
     weight: 4
@@ -894,7 +903,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 23
     region: content
     settings:
       display_label: true
