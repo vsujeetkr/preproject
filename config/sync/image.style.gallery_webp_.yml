@@ -1,0 +1,20 @@
+uuid: 8aa3877e-2a7d-452e-aa33-47ff8f386aad
+langcode: en
+status: true
+dependencies: {  }
+name: gallery_webp_
+label: 'Gallery (Webp)'
+effects:
+  27ca6d70-6913-489d-b3ea-404fc31200f2:
+    id: image_convert
+    data:
+      extension: webp
+    weight: -9
+    uuid: 27ca6d70-6913-489d-b3ea-404fc31200f2
+  f5dca3e8-f9ba-4d08-a30b-7a64df2b9073:
+    id: image_resize
+    data:
+      width: 600
+      height: 400
+    weight: -10
+    uuid: f5dca3e8-f9ba-4d08-a30b-7a64df2b9073

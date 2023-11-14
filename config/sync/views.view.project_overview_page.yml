@@ -1101,10 +1101,10 @@ display:
       style:
         type: blazy
         options:
-          style: grid
           grid: '4'
           grid_medium: '2'
           grid_small: '1'
+          style: grid
       row:
         type: fields
         options: {  }
@@ -3303,10 +3303,10 @@ display:
       style:
         type: blazy
         options:
-          style: nativegrid
           grid: '4'
           grid_medium: '2'
           grid_small: '1'
+          style: column
       row:
         type: fields
         options: {  }
@@ -3700,7 +3700,6 @@ display:
             field_amenities: '0'
           optionset: default
           class: ''
-          id: ''
           image: ''
           link: ''
           overlay: field_amenities
@@ -3708,11 +3707,12 @@ display:
           vanilla: false
           layout: ''
           cache: 0
-          skin: default
-          style: ''
           grid: ''
           grid_medium: ''
           grid_small: ''
+          style: ''
+          id: ''
+          skin: default
           overridables:
             arrows: arrows
             autoplay: autoplay
@@ -3946,10 +3946,10 @@ display:
       style:
         type: blazy
         options:
-          style: grid
           grid: '4'
           grid_medium: '2'
           grid_small: '1'
+          style: grid
       row:
         type: fields
         options: {  }
@@ -4170,7 +4170,6 @@ display:
             field_gallery: '0'
           optionset: default
           class: ''
-          id: ''
           image: ''
           link: ''
           overlay: field_gallery
@@ -4178,11 +4177,12 @@ display:
           vanilla: false
           layout: ''
           cache: 0
-          skin: default
-          style: ''
           grid: ''
           grid_medium: ''
           grid_small: ''
+          style: ''
+          id: ''
+          skin: default
           overridables:
             arrows: arrows
             autoplay: autoplay
